@@ -1,2 +1,6 @@
 .idea
 /TESTS
+/LOGS/server_logs.log
+CONFIG/__pycache__/
+LOGS/__pycache__/
+SERVER/__pycache__/
