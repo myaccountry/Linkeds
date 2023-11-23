@@ -26,6 +26,21 @@ class CustomFormatter(logging.Formatter):
         return formatter.format(record)
 
 
+def init_logger(name):
+    logger = logging.getLogger()
+    logger.setLevel(logging.DEBUG)
+
+    format_handler = logging.StreamHandler()
+    format_handler.setLevel(logging.DEBUG)
+    format_handler.setFormatter(CustomFormatter())
+
+    file_handler = logging.FileHandler(f"{LOGS_PATH}/{name}_logs.log")
+    file_handler.setFormatter(logging.Formatter("[%(asctime)s] [%(name)s] [%(levelname)s] -> %(message)s"))
+
+    logger.addHandler(file_handler)
+    logger.addHandler(format_handler)
+    return "-init Logger custom format-"
+
+
 if __name__ == '__main__':
     print('OK')
-
