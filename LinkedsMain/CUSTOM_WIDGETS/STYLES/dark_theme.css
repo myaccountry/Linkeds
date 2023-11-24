@@ -1,0 +1,48 @@
+QWidget#StandardWidget {
+    background: #262D37;
+    color: #fff;
+}
+QWidget#MainWindowWidget {
+    border: 1px solid #fff;
+    padding: 0px 0px 0px 0px;
+}
+QPushButton#StandardButton {
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    font-size: 10px;
+    padding: -3px -3px -3px -3px;
+    background: #262D37;
+}
+QPushButton:hover#StandardButton {
+    background: #1a232e;
+    border: 2px solid #ffffff;
+}
+QPushButton:pressed#StandardButton {
+    background: #13181f;
+    border: 2px solid #ffffff;
+}
+QPushButton#BorderlessButton {
+    border: 0px;
+}
+QPushButton:hover#BorderlessButton {
+    border: 0px;
+}
+QPushButton:pressed#BorderlessButton {
+    border: 0px;
+}
+QLabel#StandardLabel {
+    color: #fff;
+}
+QLabel#HeadingLabel {
+    color: #fff;
+    font-size: 30px;
+}
+QLineEdit#StandardLineEdit{
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+    font-size: 10px;
+    padding: 5px;
+    background: #262D37;
+}
