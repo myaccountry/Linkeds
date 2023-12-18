@@ -3,7 +3,7 @@ import re
 
 class User:
 
-    def __init__(self, login, password, email):
+    def __init__(self, login, password, email=None):
         self.methods = {}
         for key, value in User.__dict__.items():
             if key[:2] != '__' and key[-2:] != '__':
@@ -11,7 +11,8 @@ class User:
 
         self.login = login
         self.password = password
-        self.email = email
+        if email is not None:
+            self.email = email
 
     def __str__(self) -> str:
         return f"Login:{self.login}|Password:{self.password}|Email:{self.email}"

@@ -19,8 +19,12 @@ class RequestHandler:
         return {'method': method, 'data': data}
 
     def call_method(self, data) -> None:
-        usable_data = data.get('data')
-        getattr(self, self.methods.get(data.get('method')))(usable_data)
+        method = self.methods.get(data.get('method'))
+        data['method'] = method
+        getattr(self, method)(data)
+        signal = self._main_work.client_window.form_signal(
+            method=method, data=data.get('data'))
+        signal.emit()
 
     def close_connection(self) -> None:
         self._transport.close()
@@ -29,8 +33,7 @@ class RequestHandler:
         self._transport.write(pickle.dumps(data) + b"<END>")
 
     def registration_success(self, data=None):
-        if data is None:
-            data = {'data': 'None'}
-        signal = self._main_work.client_window.form_signal(
-            method='registration_success', data=data.get('registered_data'))
-        signal.emit()
+        ...
+
+    def registration_denied(self, data=None):
+        ...

@@ -204,7 +204,6 @@ class WelcomeWindow(StandardWidget):
         email = self.email_label.text()
 
         msgBox = StandardMessageBox(self.logo_image)
-
         try:
             user = User(login, password, email)
         except ValueError as error:
@@ -221,6 +220,19 @@ class WelcomeWindow(StandardWidget):
         login = self.login_label.text()
         password = self.password_label.text()
 
+        msgBox = StandardMessageBox(self.logo_image)
+        try:
+            user = User(login, password)
+        except ValueError as error:
+            msgBox.information('Предупреждение', str(error))
+            return
+
+        hash_password = self.hash_data(password)
+        user_data = {'login': login, 'password': hash_password}
+        request = self.form_request('<LOGIN>', {'user_data': user_data})
+
+        self.main_work.protocol.send_request(request)
+
     @pyqtSlot()
     def registration_success(self, data):
         msgBox = StandardMessageBox(self.logo_image)
@@ -228,8 +240,16 @@ class WelcomeWindow(StandardWidget):
         self.login_success(data)
 
     @pyqtSlot()
+    def regsitration_denied(self, data):
+        ...
+
+    @pyqtSlot()
     def login_success(self, data):
         print(data)
+
+    @pyqtSlot()
+    def login_denied(self, data):
+        ...
 
     def form_signal(self, method, data=None):
         method = self.signals.get(method)

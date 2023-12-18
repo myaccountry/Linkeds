@@ -1138,3 +1138,359 @@ ConnectionError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError
 [2023-12-18 20:24:19,293] [root] [INFO] -> Reguest <REGISTRATION> status
 [2023-12-18 20:24:19,293] [root] [INFO] -> For 192.168.1.1:63706: <REGISTRATION-SUCCESS>
 [2023-12-18 20:24:23,284] [root] [INFO] -> Connection with 192.168.1.1:63706 closed
+[2023-12-18 20:54:19,389] [root] [INFO] -> Connection from 51.15.75.86:56584
+[2023-12-18 20:54:22,386] [root] [INFO] -> Connection with 51.15.75.86:56584 closed
+[2023-12-18 20:55:19,222] [root] [INFO] -> Connection from 192.168.1.1:56271
+[2023-12-18 20:55:28,102] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56271
+[2023-12-18 20:55:28,288] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 20:55:28,288] [root] [INFO] -> For 192.168.1.1:56271: <REGISTRATION-SUCCESS>
+[2023-12-18 20:55:29,462] [root] [INFO] -> Connection with 192.168.1.1:56271 closed
+[2023-12-18 20:55:33,700] [root] [INFO] -> Connection from 192.168.1.1:56284
+[2023-12-18 20:55:40,649] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56284
+[2023-12-18 20:55:40,728] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 20:55:40,728] [root] [INFO] -> For 192.168.1.1:56284: <REGISTRATION-SUCCESS>
+[2023-12-18 20:56:11,287] [root] [INFO] -> Connection with 192.168.1.1:56284 closed
+[2023-12-18 20:56:13,839] [root] [INFO] -> Connection from 192.168.1.1:56304
+[2023-12-18 20:56:19,183] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56304
+[2023-12-18 20:56:19,361] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 20:56:19,361] [root] [INFO] -> For 192.168.1.1:56304: <REGISTRATION-SUCCESS>
+[2023-12-18 20:56:22,526] [root] [INFO] -> Connection with 192.168.1.1:56304 closed
+[2023-12-18 20:56:49,986] [root] [INFO] -> Connection from 192.168.1.1:56334
+[2023-12-18 20:56:51,404] [root] [INFO] -> Connection with 192.168.1.1:56334 closed
+[2023-12-18 21:05:33,003] [root] [INFO] -> Connection from 192.168.1.1:56591
+[2023-12-18 21:05:39,332] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56591
+[2023-12-18 21:05:39,488] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:05:39,488] [root] [INFO] -> For 192.168.1.1:56591: <REGISTRATION-SUCCESS>
+[2023-12-18 21:06:05,166] [root] [INFO] -> Connection with 192.168.1.1:56591 closed
+[2023-12-18 21:06:07,199] [root] [INFO] -> Connection from 192.168.1.1:56605
+[2023-12-18 21:06:12,700] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56605
+[2023-12-18 21:06:12,952] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:06:12,952] [root] [INFO] -> For 192.168.1.1:56605: <REGISTRATION-SUCCESS>
+[2023-12-18 21:06:15,710] [root] [INFO] -> Connection with 192.168.1.1:56605 closed
+[2023-12-18 21:07:13,868] [root] [INFO] -> Connection from 192.168.1.1:56628
+[2023-12-18 21:07:19,776] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56628
+[2023-12-18 21:07:19,975] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:07:19,975] [root] [INFO] -> For 192.168.1.1:56628: <REGISTRATION-SUCCESS>
+[2023-12-18 21:07:23,224] [root] [INFO] -> Connection with 192.168.1.1:56628 closed
+[2023-12-18 21:07:31,022] [root] [INFO] -> Connection from 192.168.1.1:56640
+[2023-12-18 21:07:36,395] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56640
+[2023-12-18 21:07:36,576] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:07:36,576] [root] [INFO] -> For 192.168.1.1:56640: <REGISTRATION-SUCCESS>
+[2023-12-18 21:07:39,360] [root] [INFO] -> Connection with 192.168.1.1:56640 closed
+[2023-12-18 21:21:36,354] [root] [INFO] -> Connection from 192.168.1.1:57005
+[2023-12-18 21:21:41,995] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:57005
+[2023-12-18 21:21:42,200] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:21:42,200] [root] [INFO] -> For 192.168.1.1:57005: <REGISTRATION-SUCCESS>
+[2023-12-18 21:21:45,380] [root] [INFO] -> Connection with 192.168.1.1:57005 closed
+[2023-12-18 21:22:48,010] [root] [INFO] -> Connection from 192.168.1.1:57024
+[2023-12-18 21:23:05,599] [root] [INFO] -> Connection with 192.168.1.1:57024 closed
+[2023-12-18 21:23:07,240] [root] [INFO] -> Connection from 192.168.1.1:57032
+[2023-12-18 21:23:13,105] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:57032
+[2023-12-18 21:23:13,304] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:23:13,304] [root] [INFO] -> For 192.168.1.1:57032: <REGISTRATION-SUCCESS>
+[2023-12-18 21:23:17,252] [root] [INFO] -> Connection with 192.168.1.1:57032 closed
+[2023-12-18 21:27:33,452] [root] [INFO] -> Connection from 192.168.1.1:57092
+[2023-12-18 21:27:40,545] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:57092
+[2023-12-18 21:27:40,727] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:27:40,727] [root] [INFO] -> For 192.168.1.1:57092: <REGISTRATION-SUCCESS>
+[2023-12-18 21:27:49,378] [root] [INFO] -> Connection with 192.168.1.1:57092 closed
+[2023-12-18 21:28:05,162] [root] [INFO] -> Connection from 192.168.1.1:57107
+[2023-12-18 21:28:13,247] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:57107
+[2023-12-18 21:28:13,423] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:28:13,423] [root] [INFO] -> For 192.168.1.1:57107: <REGISTRATION-SUCCESS>
+[2023-12-18 21:28:15,393] [root] [INFO] -> Connection with 192.168.1.1:57107 closed
+[2023-12-18 21:29:27,963] [root] [INFO] -> Connection from 192.168.1.1:57582
+[2023-12-18 21:29:33,638] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:57582
+[2023-12-18 21:29:33,795] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:29:33,795] [root] [INFO] -> For 192.168.1.1:57582: <REGISTRATION-SUCCESS>
+[2023-12-18 21:29:36,224] [root] [INFO] -> Connection with 192.168.1.1:57582 closed
+[2023-12-18 21:29:59,010] [root] [INFO] -> Connection from 192.168.1.1:57589
+[2023-12-18 21:30:04,289] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:57589
+[2023-12-18 21:30:04,411] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:30:04,411] [root] [INFO] -> For 192.168.1.1:57589: <REGISTRATION-SUCCESS>
+[2023-12-18 21:30:07,920] [root] [INFO] -> Connection with 192.168.1.1:57589 closed
+[2023-12-18 21:33:28,805] [root] [INFO] -> Connection from 192.168.1.1:53676
+[2023-12-18 21:33:38,847] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53676
+[2023-12-18 21:33:39,019] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:33:39,019] [root] [INFO] -> For 192.168.1.1:53676: <REGISTRATION-SUCCESS>
+[2023-12-18 21:33:42,126] [root] [INFO] -> Connection with 192.168.1.1:53676 closed
+[2023-12-18 21:34:51,450] [root] [INFO] -> Connection from 192.168.1.1:53701
+[2023-12-18 21:34:58,055] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53701
+[2023-12-18 21:34:58,350] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:34:58,350] [root] [INFO] -> For 192.168.1.1:53701: <REGISTRATION-SUCCESS>
+[2023-12-18 21:35:02,973] [root] [INFO] -> Connection with 192.168.1.1:53701 closed
+[2023-12-18 21:52:10,447] [root] [INFO] -> Connection from 192.168.1.1:62421
+[2023-12-18 21:52:12,919] [root] [INFO] -> Connection with 192.168.1.1:62421 closed
+[2023-12-18 21:52:17,170] [root] [INFO] -> Connection from 192.168.1.1:62432
+[2023-12-18 21:52:30,504] [root] [INFO] -> Connection with 192.168.1.1:62432 closed
+[2023-12-18 21:52:33,070] [root] [INFO] -> Connection from 192.168.1.1:62444
+[2023-12-18 21:53:32,802] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62444
+[2023-12-18 21:53:33,059] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 21:53:33,059] [root] [INFO] -> For 192.168.1.1:62444: <REGISTRATION-SUCCESS>
+[2023-12-18 21:53:37,370] [root] [INFO] -> Connection with 192.168.1.1:62444 closed
+[2023-12-18 21:54:14,963] [root] [INFO] -> Connection from 192.168.1.1:62478
+[2023-12-18 21:54:20,164] [root] [INFO] -> Connection with 192.168.1.1:62478 closed
+[2023-12-18 21:54:39,129] [root] [INFO] -> Connection from 192.168.1.1:62491
+[2023-12-18 21:54:42,165] [root] [INFO] -> Connection with 192.168.1.1:62491 closed
+[2023-12-18 21:54:49,004] [root] [INFO] -> Connection from 192.168.1.1:62499
+[2023-12-18 21:54:58,484] [root] [INFO] -> Connection with 192.168.1.1:62499 closed
+[2023-12-18 21:55:03,971] [root] [INFO] -> Connection from 192.168.1.1:62505
+[2023-12-18 21:55:12,877] [root] [INFO] -> Connection with 192.168.1.1:62505 closed
+[2023-12-18 21:55:19,928] [root] [INFO] -> Connection from 192.168.1.1:62515
+[2023-12-18 21:55:23,065] [root] [INFO] -> Connection with 192.168.1.1:62515 closed
+[2023-12-18 21:56:24,895] [root] [INFO] -> Connection from 192.168.1.1:62535
+[2023-12-18 21:56:37,546] [root] [INFO] -> Connection with 192.168.1.1:62535 closed
+[2023-12-18 21:56:39,499] [root] [INFO] -> Connection from 192.168.1.1:62542
+[2023-12-18 21:57:06,406] [root] [INFO] -> Connection with 192.168.1.1:62542 closed
+[2023-12-18 22:11:26,946] [root] [INFO] -> Connection from 192.168.1.1:62798
+[2023-12-18 22:11:32,539] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62798
+[2023-12-18 22:11:32,719] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:11:32,719] [root] [INFO] -> For 192.168.1.1:62798: <REGISTRATION-SUCCESS>
+[2023-12-18 22:11:57,712] [root] [INFO] -> Connection with 192.168.1.1:62798 closed
+[2023-12-18 22:15:10,678] [root] [INFO] -> Connection from 192.168.1.1:62851
+[2023-12-18 22:15:17,249] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62851
+[2023-12-18 22:15:17,381] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:15:17,382] [root] [INFO] -> For 192.168.1.1:62851: <REGISTRATION-SUCCESS>
+[2023-12-18 22:16:14,487] [root] [INFO] -> Connection with 192.168.1.1:62851 closed
+[2023-12-18 22:16:17,606] [root] [INFO] -> Connection from 192.168.1.1:62860
+[2023-12-18 22:16:24,049] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62860
+[2023-12-18 22:16:24,212] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:16:24,212] [root] [INFO] -> For 192.168.1.1:62860: <REGISTRATION-SUCCESS>
+[2023-12-18 22:16:43,405] [root] [INFO] -> Connection with 192.168.1.1:62860 closed
+[2023-12-18 22:16:45,129] [root] [INFO] -> Connection from 192.168.1.1:62867
+[2023-12-18 22:16:51,378] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62867
+[2023-12-18 22:16:51,535] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:16:51,535] [root] [INFO] -> For 192.168.1.1:62867: <REGISTRATION-SUCCESS>
+[2023-12-18 22:17:22,233] [root] [INFO] -> Connection with 192.168.1.1:62867 closed
+[2023-12-18 22:17:25,638] [root] [INFO] -> Connection from 192.168.1.1:62877
+[2023-12-18 22:17:31,961] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62877
+[2023-12-18 22:17:32,187] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:17:32,187] [root] [INFO] -> For 192.168.1.1:62877: <REGISTRATION-SUCCESS>
+[2023-12-18 22:17:33,953] [root] [INFO] -> Connection with 192.168.1.1:62877 closed
+[2023-12-18 22:18:01,443] [root] [INFO] -> Connection from 192.168.1.1:62899
+[2023-12-18 22:18:07,945] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62899
+[2023-12-18 22:18:08,123] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:18:08,123] [root] [INFO] -> For 192.168.1.1:62899: <REGISTRATION-SUCCESS>
+[2023-12-18 22:18:18,665] [root] [INFO] -> Connection with 192.168.1.1:62899 closed
+[2023-12-18 22:18:21,408] [root] [INFO] -> Connection from 192.168.1.1:62905
+[2023-12-18 22:18:27,737] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62905
+[2023-12-18 22:18:27,836] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:18:27,836] [root] [INFO] -> For 192.168.1.1:62905: <REGISTRATION-SUCCESS>
+[2023-12-18 22:19:56,153] [root] [INFO] -> Connection with 192.168.1.1:62905 closed
+[2023-12-18 22:19:58,230] [root] [INFO] -> Connection from 192.168.1.1:62923
+[2023-12-18 22:20:00,641] [root] [INFO] -> Connection with 192.168.1.1:62923 closed
+[2023-12-18 22:20:49,778] [root] [INFO] -> Connection from 192.168.1.1:62954
+[2023-12-18 22:20:56,720] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62954
+[2023-12-18 22:20:56,888] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:20:56,888] [root] [INFO] -> For 192.168.1.1:62954: <REGISTRATION-SUCCESS>
+[2023-12-18 22:20:57,964] [root] [INFO] -> Connection with 192.168.1.1:62954 closed
+[2023-12-18 22:21:01,901] [root] [INFO] -> Connection from 192.168.1.1:62968
+[2023-12-18 22:21:10,301] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62968
+[2023-12-18 22:21:10,413] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:21:10,413] [root] [INFO] -> For 192.168.1.1:62968: <REGISTRATION-SUCCESS>
+[2023-12-18 22:23:27,738] [root] [INFO] -> Connection with 192.168.1.1:62968 closed
+[2023-12-18 22:23:28,400] [root] [INFO] -> Connection from 192.168.1.1:63060
+[2023-12-18 22:23:34,049] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63060
+[2023-12-18 22:23:34,358] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:23:34,358] [root] [INFO] -> For 192.168.1.1:63060: <REGISTRATION-SUCCESS>
+[2023-12-18 22:23:37,001] [root] [INFO] -> Connection with 192.168.1.1:63060 closed
+[2023-12-18 22:24:17,971] [root] [INFO] -> Connection from 192.168.1.1:63071
+[2023-12-18 22:24:31,311] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63071
+[2023-12-18 22:24:31,494] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:24:31,494] [root] [INFO] -> For 192.168.1.1:63071: <REGISTRATION-SUCCESS>
+[2023-12-18 22:24:34,259] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63071
+[2023-12-18 22:24:34,343] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:24:34,343] [root] [INFO] -> For 192.168.1.1:63071: <REGISTRATION-SUCCESS>
+[2023-12-18 22:24:37,520] [root] [INFO] -> Connection with 192.168.1.1:63071 closed
+[2023-12-18 22:26:49,431] [root] [INFO] -> Connection from 192.168.1.1:63134
+[2023-12-18 22:26:56,881] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63134
+[2023-12-18 22:26:57,054] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:26:57,054] [root] [INFO] -> For 192.168.1.1:63134: <REGISTRATION-SUCCESS>
+[2023-12-18 22:27:06,512] [root] [INFO] -> Connection with 192.168.1.1:63134 closed
+[2023-12-18 22:27:08,393] [root] [INFO] -> Connection from 192.168.1.1:63142
+[2023-12-18 22:27:14,111] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63142
+[2023-12-18 22:27:14,263] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:27:14,263] [root] [INFO] -> For 192.168.1.1:63142: <REGISTRATION-SUCCESS>
+[2023-12-18 22:27:46,639] [root] [INFO] -> Connection with 192.168.1.1:63142 closed
+[2023-12-18 22:27:48,731] [root] [INFO] -> Connection from 192.168.1.1:63150
+[2023-12-18 22:27:54,824] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63150
+[2023-12-18 22:27:54,980] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:27:54,980] [root] [INFO] -> For 192.168.1.1:63150: <REGISTRATION-SUCCESS>
+[2023-12-18 22:28:51,215] [root] [INFO] -> Connection with 192.168.1.1:63150 closed
+[2023-12-18 22:34:30,135] [root] [INFO] -> Connection from 192.168.1.1:63331
+[2023-12-18 22:34:36,959] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63331
+[2023-12-18 22:34:37,037] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:34:37,037] [root] [INFO] -> For 192.168.1.1:63331: <REGISTRATION-SUCCESS>
+[2023-12-18 22:34:38,189] [root] [INFO] -> Connection with 192.168.1.1:63331 closed
+[2023-12-18 22:34:42,385] [root] [INFO] -> Connection from 192.168.1.1:63360
+[2023-12-18 22:34:49,169] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63360
+[2023-12-18 22:34:49,355] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:34:49,355] [root] [INFO] -> For 192.168.1.1:63360: <REGISTRATION-SUCCESS>
+[2023-12-18 22:35:36,439] [root] [INFO] -> Connection with 192.168.1.1:63360 closed
+[2023-12-18 22:35:37,449] [root] [INFO] -> Connection from 192.168.1.1:63405
+[2023-12-18 22:35:44,886] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63405
+[2023-12-18 22:35:45,059] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:35:45,059] [root] [INFO] -> For 192.168.1.1:63405: <REGISTRATION-SUCCESS>
+[2023-12-18 22:35:46,141] [root] [INFO] -> Connection with 192.168.1.1:63405 closed
+[2023-12-18 22:35:49,830] [root] [INFO] -> Connection from 192.168.1.1:63415
+[2023-12-18 22:35:56,041] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63415
+[2023-12-18 22:35:56,226] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:35:56,226] [root] [INFO] -> For 192.168.1.1:63415: <REGISTRATION-SUCCESS>
+[2023-12-18 22:36:19,883] [root] [INFO] -> Connection with 192.168.1.1:63415 closed
+[2023-12-18 22:36:22,072] [root] [INFO] -> Connection from 192.168.1.1:63429
+[2023-12-18 22:36:28,369] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63429
+[2023-12-18 22:36:28,547] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:36:28,548] [root] [INFO] -> For 192.168.1.1:63429: <REGISTRATION-SUCCESS>
+[2023-12-18 22:37:06,365] [root] [INFO] -> Connection with 192.168.1.1:63429 closed
+[2023-12-18 22:37:08,535] [root] [INFO] -> Connection from 192.168.1.1:63447
+[2023-12-18 22:37:14,876] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63447
+[2023-12-18 22:37:15,050] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:37:15,050] [root] [INFO] -> For 192.168.1.1:63447: <REGISTRATION-SUCCESS>
+[2023-12-18 22:38:08,530] [root] [INFO] -> Connection with 192.168.1.1:63447 closed
+[2023-12-18 22:38:10,858] [root] [INFO] -> Connection from 192.168.1.1:63472
+[2023-12-18 22:38:17,761] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63472
+[2023-12-18 22:38:18,044] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:38:18,044] [root] [INFO] -> For 192.168.1.1:63472: <REGISTRATION-SUCCESS>
+[2023-12-18 22:38:44,847] [root] [INFO] -> Connection with 192.168.1.1:63472 closed
+[2023-12-18 22:38:47,034] [root] [INFO] -> Connection from 192.168.1.1:63487
+[2023-12-18 22:38:57,725] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63487
+[2023-12-18 22:38:57,835] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:38:57,836] [root] [INFO] -> For 192.168.1.1:63487: <REGISTRATION-SUCCESS>
+[2023-12-18 22:39:06,069] [root] [INFO] -> Connection with 192.168.1.1:63487 closed
+[2023-12-18 22:40:08,865] [root] [INFO] -> Connection from 192.168.1.1:63519
+[2023-12-18 22:40:18,121] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63519
+[2023-12-18 22:40:18,295] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:40:18,295] [root] [INFO] -> For 192.168.1.1:63519: <REGISTRATION-SUCCESS>
+[2023-12-18 22:40:46,340] [root] [INFO] -> Connection with 192.168.1.1:63519 closed
+[2023-12-18 22:40:48,665] [root] [INFO] -> Connection from 192.168.1.1:63532
+[2023-12-18 22:41:00,282] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63532
+[2023-12-18 22:41:00,449] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:41:00,449] [root] [INFO] -> For 192.168.1.1:63532: <REGISTRATION-SUCCESS>
+[2023-12-18 22:41:54,271] [root] [INFO] -> Connection with 192.168.1.1:63532 closed
+[2023-12-18 22:41:56,722] [root] [INFO] -> Connection from 192.168.1.1:63551
+[2023-12-18 22:42:02,805] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63551
+[2023-12-18 22:42:02,861] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:42:02,861] [root] [INFO] -> For 192.168.1.1:63551: <REGISTRATION-SUCCESS>
+[2023-12-18 22:42:16,243] [root] [INFO] -> Connection with 192.168.1.1:63551 closed
+[2023-12-18 22:42:31,223] [root] [INFO] -> Connection from 192.168.1.1:63565
+[2023-12-18 22:42:42,100] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63565
+[2023-12-18 22:42:42,273] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:42:42,273] [root] [INFO] -> For 192.168.1.1:63565: <REGISTRATION-SUCCESS>
+[2023-12-18 22:42:43,414] [root] [INFO] -> Connection with 192.168.1.1:63565 closed
+[2023-12-18 22:42:47,168] [root] [INFO] -> Connection from 192.168.1.1:63587
+[2023-12-18 22:42:54,065] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63587
+[2023-12-18 22:42:54,236] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:42:54,236] [root] [INFO] -> For 192.168.1.1:63587: <REGISTRATION-SUCCESS>
+[2023-12-18 22:43:25,288] [root] [INFO] -> Connection with 192.168.1.1:63587 closed
+[2023-12-18 22:43:25,910] [root] [INFO] -> Connection from 192.168.1.1:63598
+[2023-12-18 22:43:32,117] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63598
+[2023-12-18 22:43:32,295] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:43:32,295] [root] [INFO] -> For 192.168.1.1:63598: <REGISTRATION-SUCCESS>
+[2023-12-18 22:43:33,442] [root] [INFO] -> Connection with 192.168.1.1:63598 closed
+[2023-12-18 22:43:36,809] [root] [INFO] -> Connection from 192.168.1.1:63607
+[2023-12-18 22:43:45,161] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63607
+[2023-12-18 22:43:45,239] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:43:45,240] [root] [INFO] -> For 192.168.1.1:63607: <REGISTRATION-SUCCESS>
+[2023-12-18 22:43:52,651] [root] [INFO] -> Connection with 192.168.1.1:63607 closed
+[2023-12-18 22:44:08,189] [root] [INFO] -> Connection from 192.168.1.1:63616
+[2023-12-18 22:44:15,320] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63616
+[2023-12-18 22:44:15,485] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:44:15,485] [root] [INFO] -> For 192.168.1.1:63616: <REGISTRATION-SUCCESS>
+[2023-12-18 22:46:24,050] [root] [INFO] -> Connection from 192.241.229.22:44046
+[2023-12-18 22:46:34,052] [root] [INFO] -> Connection with 192.241.229.22:44046 closed
+[2023-12-18 22:50:54,551] [root] [INFO] -> Connection with 192.168.1.1:63616 closed
+[2023-12-18 22:50:56,931] [root] [INFO] -> Connection from 192.168.1.1:63707
+[2023-12-18 22:51:03,415] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63707
+[2023-12-18 22:51:03,510] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:51:03,511] [root] [INFO] -> For 192.168.1.1:63707: <REGISTRATION-SUCCESS>
+[2023-12-18 22:51:05,283] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63707
+[2023-12-18 22:51:05,355] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:51:05,355] [root] [INFO] -> For 192.168.1.1:63707: <REGISTRATION-SUCCESS>
+[2023-12-18 22:51:27,735] [root] [INFO] -> Connection with 192.168.1.1:63707 closed
+[2023-12-18 22:52:21,509] [root] [INFO] -> Connection from 192.168.1.1:63732
+[2023-12-18 22:52:27,860] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63732
+[2023-12-18 22:52:28,029] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:52:28,029] [root] [INFO] -> For 192.168.1.1:63732: <REGISTRATION-SUCCESS>
+[2023-12-18 22:52:29,133] [root] [INFO] -> Connection with 192.168.1.1:63732 closed
+[2023-12-18 22:52:34,778] [root] [INFO] -> Connection from 192.168.1.1:63740
+[2023-12-18 22:52:41,455] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63740
+[2023-12-18 22:52:41,745] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:52:41,746] [root] [INFO] -> For 192.168.1.1:63740: <REGISTRATION-SUCCESS>
+[2023-12-18 22:53:27,234] [root] [INFO] -> Connection with 192.168.1.1:63740 closed
+[2023-12-18 22:53:29,710] [root] [INFO] -> Connection from 192.168.1.1:63761
+[2023-12-18 22:53:36,456] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63761
+[2023-12-18 22:53:36,738] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:53:36,738] [root] [INFO] -> For 192.168.1.1:63761: <REGISTRATION-SUCCESS>
+[2023-12-18 22:53:39,500] [root] [INFO] -> Connection with 192.168.1.1:63761 closed
+[2023-12-18 22:53:48,897] [root] [INFO] -> Connection from 192.168.1.1:63769
+[2023-12-18 22:53:55,315] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63769
+[2023-12-18 22:53:55,454] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:53:55,454] [root] [INFO] -> For 192.168.1.1:63769: <REGISTRATION-SUCCESS>
+[2023-12-18 22:54:25,842] [root] [INFO] -> Connection with 192.168.1.1:63769 closed
+[2023-12-18 22:54:37,213] [root] [INFO] -> Connection from 192.168.1.1:63785
+[2023-12-18 22:54:46,135] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63785
+[2023-12-18 22:54:46,319] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:54:46,320] [root] [INFO] -> For 192.168.1.1:63785: <REGISTRATION-SUCCESS>
+[2023-12-18 22:54:57,648] [root] [INFO] -> Connection with 192.168.1.1:63785 closed
+[2023-12-18 22:55:00,030] [root] [INFO] -> Connection from 192.168.1.1:63796
+[2023-12-18 22:55:06,367] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63796
+[2023-12-18 22:55:06,547] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:55:06,547] [root] [INFO] -> For 192.168.1.1:63796: <REGISTRATION-SUCCESS>
+[2023-12-18 22:55:09,405] [root] [INFO] -> Connection with 192.168.1.1:63796 closed
+[2023-12-18 22:55:25,468] [root] [INFO] -> Connection from 192.168.1.1:63819
+[2023-12-18 22:55:32,126] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63819
+[2023-12-18 22:55:32,309] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:55:32,309] [root] [INFO] -> For 192.168.1.1:63819: <REGISTRATION-SUCCESS>
+[2023-12-18 22:55:35,562] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63819
+[2023-12-18 22:55:35,728] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:55:35,728] [root] [INFO] -> For 192.168.1.1:63819: <REGISTRATION-SUCCESS>
+[2023-12-18 22:55:37,401] [root] [INFO] -> Connection with 192.168.1.1:63819 closed
+[2023-12-18 22:55:59,902] [root] [INFO] -> Connection from 192.168.1.1:63834
+[2023-12-18 22:56:09,358] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63834
+[2023-12-18 22:56:09,533] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:56:09,533] [root] [INFO] -> For 192.168.1.1:63834: <REGISTRATION-SUCCESS>
+[2023-12-18 22:56:38,119] [root] [INFO] -> Connection with 192.168.1.1:63834 closed
+[2023-12-18 22:56:40,447] [root] [INFO] -> Connection from 192.168.1.1:63845
+[2023-12-18 22:56:47,721] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63845
+[2023-12-18 22:56:47,905] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:56:47,906] [root] [INFO] -> For 192.168.1.1:63845: <REGISTRATION-SUCCESS>
+[2023-12-18 22:56:53,910] [root] [INFO] -> Connection with 192.168.1.1:63845 closed
+[2023-12-18 22:58:25,587] [root] [INFO] -> Connection from 192.168.1.1:63894
+[2023-12-18 22:58:35,992] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63894
+[2023-12-18 22:58:36,059] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:58:36,060] [root] [INFO] -> For 192.168.1.1:63894: <REGISTRATION-SUCCESS>
+[2023-12-18 22:58:42,028] [root] [INFO] -> Connection with 192.168.1.1:63894 closed
+[2023-12-18 22:59:07,842] [root] [INFO] -> Connection from 192.168.1.1:63906
+[2023-12-18 22:59:15,757] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63906
+[2023-12-18 22:59:15,921] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 22:59:15,921] [root] [INFO] -> For 192.168.1.1:63906: <REGISTRATION-SUCCESS>
+[2023-12-18 22:59:20,117] [root] [INFO] -> Connection with 192.168.1.1:63906 closed
+[2023-12-18 23:02:21,959] [root] [INFO] -> Connection from 192.168.1.1:63983
+[2023-12-18 23:02:28,149] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63983
+[2023-12-18 23:02:28,342] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 23:02:28,342] [root] [INFO] -> For 192.168.1.1:63983: <REGISTRATION-SUCCESS>
+[2023-12-18 23:02:39,214] [root] [INFO] -> Connection with 192.168.1.1:63983 closed
+[2023-12-18 23:04:02,687] [root] [INFO] -> Connection from 192.168.1.1:64006
+[2023-12-18 23:04:22,371] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:64006
+[2023-12-18 23:04:22,539] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 23:04:22,539] [root] [INFO] -> For 192.168.1.1:64006: <REGISTRATION-SUCCESS>
+[2023-12-18 23:06:38,213] [root] [INFO] -> Connection with 192.168.1.1:64006 closed
+[2023-12-18 23:19:00,754] [root] [INFO] -> Connection from 141.98.7.36:21011
+[2023-12-18 23:19:33,049] [root] [INFO] -> Connection with 141.98.7.36:21011 closed
+[2023-12-18 23:28:37,321] [root] [INFO] -> Connection from 192.168.1.1:64537
+[2023-12-18 23:28:48,334] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:64537
+[2023-12-18 23:28:48,514] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 23:28:48,514] [root] [INFO] -> For 192.168.1.1:64537: <REGISTRATION-SUCCESS>
+[2023-12-18 23:29:22,530] [root] [INFO] -> Connection with 192.168.1.1:64537 closed
+[2023-12-18 23:29:24,578] [root] [INFO] -> Connection from 192.168.1.1:64546
+[2023-12-18 23:29:30,422] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:64546
+[2023-12-18 23:29:30,706] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 23:29:30,708] [root] [INFO] -> For 192.168.1.1:64546: <REGISTRATION-SUCCESS>
+[2023-12-18 23:30:59,201] [root] [INFO] -> Connection with 192.168.1.1:64546 closed
+[2023-12-18 23:31:01,697] [root] [INFO] -> Connection from 192.168.1.1:64560
+[2023-12-18 23:31:23,445] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:64560
+[2023-12-18 23:31:23,613] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 23:31:23,613] [root] [INFO] -> For 192.168.1.1:64560: <REGISTRATION-SUCCESS>
+[2023-12-18 23:33:14,959] [root] [INFO] -> Connection with 192.168.1.1:64560 closed
+[2023-12-18 23:33:16,449] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-18 23:33:16,449] [root] [INFO] -> <SERVER-SET>
