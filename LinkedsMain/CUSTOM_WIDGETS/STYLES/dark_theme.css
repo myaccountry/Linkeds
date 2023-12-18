@@ -58,7 +58,6 @@ QLineEdit#StandardLineEdit {
     border: 1px solid #ffffff;
     border-radius: 3px;
     font-size: 15px;
-    padding: 5px;
     background: #262D37;
 }
 QLineEdit:hover#StandardLineEdit {
@@ -73,7 +72,7 @@ QLineEdit:focus#StandardLineEdit {
     background: #13181f;
     border: 2px solid #ffffff;
 }
-QMessageBox#StandardMessageBox {
+QWidget#StandardMessageBox {
     background: #262D37;
     border: 2px solid #ffffff;
     color: #fff;

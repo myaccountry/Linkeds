@@ -2,9 +2,6 @@ import pickle
 from PyQt6.QtCore import QObject, pyqtSignal
 
 
-
-
-
 class RequestHandler:
 
     def __init__(self, transport, main_work):
@@ -34,4 +31,6 @@ class RequestHandler:
     def registration_success(self, data=None):
         if data is None:
             data = {'data': 'None'}
-        self._main_work.client_window.emit_signal(method='registration_success', data=data)
+        signal = self._main_work.client_window.form_signal(
+            method='registration_success', data=data.get('registered_data'))
+        signal.emit()

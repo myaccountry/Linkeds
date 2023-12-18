@@ -8,4 +8,3 @@ class StandardLineEdit(QtWidgets.QLineEdit):
         super(StandardLineEdit, self).__init__(*args, **kwargs)
         self.setObjectName('StandardLineEdit')
         self.setPlaceholderText(text)
-

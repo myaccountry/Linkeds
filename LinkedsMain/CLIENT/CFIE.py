@@ -23,8 +23,9 @@ class User:
         if key == 'methods':
             self.__dict__[key] = value
             return
-        if not self.call_method(f"<{key.upper()}>")(value):
-            raise ValueError
+        status = self.call_method(f"<{key.upper()}>")(value)
+        if status != '<SUCCESS>':
+            raise ValueError(status)
         self.__dict__[key] = value
 
     def call_method(self, method: str = None):
@@ -43,25 +44,41 @@ class User:
         return getattr(self, method_call)
 
     @classmethod
-    def email(cls, data: str = None) -> bool:
+    def email(cls, data: str = None) -> str:
         if type(data) is not str:
-            return False
+            return '<DENIED>'
         if not cls.check_data(data):
-            return False
+            return 'Вместо пробелов используйте знак "_"!'
         pattern = r"([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})"
         match = re.fullmatch(pattern, data)
         if match is not None:
-            return True
+            return '<SUCCESS>'
         else:
-            return False
+            return 'Такой Эл.Почты не существует'
 
     @classmethod
-    def login(cls, data: str = None) -> bool:
-        return cls.check_data(data) and cls.alphabet(data)
+    def login(cls, data: str = None) -> str:
+        if not cls.check_data(data):
+            return 'Вместо пробелов используйте знак "_"!'
+        if not cls.alphabet(data):
+            return 'Использованы запрещенные знаки!\nРазрешенные: "a-z", "A-Z", "0-9", "_!@#$%&()"'
+        if len(data) < 3:
+            return 'Пароль должен быть хотя бы из 3 символов!'
+        if len(data) > 25:
+            return 'Пароль не должен превышать 25 символов!'
+        return '<SUCCESS>'
 
     @classmethod
-    def password(cls, data: str = None) -> bool:
-        return cls.check_data(data) and cls.alphabet(data)
+    def password(cls, data: str = None) -> str:
+        if not cls.check_data(data):
+            return 'Вместо пробелов используйте знак "_"!'
+        if not cls.alphabet(data):
+            return 'Использованы запрещенные знаки!\nРазрешенные: "a-z", "A-Z", "0-9", "_!@#$%&()"'
+        if len(data) < 6:
+            return 'Пароль должен быть хотя бы из 6 символов!'
+        if len(data) > 60:
+            return 'Пароль не должен превышать 60 символов!'
+        return '<SUCCESS>'
 
     @classmethod
     def check_data(cls, data: str = None) -> bool:
@@ -82,7 +99,7 @@ class User:
         """
         if type(data) is not str:
             return False
-        pattern = r"[a-zA-Z0-9]+"
+        pattern = r"[a-zA-Z0-9_!@#$%&()]+"
         match = re.fullmatch(pattern, data)
         if match is None:
             return False

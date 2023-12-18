@@ -1,6 +1,7 @@
 import sys
 import pathlib
 import hashlib
+import functools
 from asyncio import Protocol, BaseProtocol
 from threading import Thread
 from LinkedsMain.CLIENT.CFIE import User
@@ -37,9 +38,16 @@ class WelcomeWindow(StandardWidget):
         """
         super().__init__()
         self.main_work = main_work
+        methods = ['registration_success']
+        self.signals = {}
+        for method in methods:
+            self.signals[method] = getattr(self, method)
+        self.fast_data = None
+
         self.theme = 'DARK'
         self.form = 'REG'
         self.main_work.app.setStyleSheet(DARK_THEME_STYLE)
+
         self.init_images()
 
         self.setWindowTitle("Регистрация")
@@ -199,8 +207,8 @@ class WelcomeWindow(StandardWidget):
 
         try:
             user = User(login, password, email)
-        except ValueError:
-            msgBox.information('Предупреждение', 'Кривой ввод данных')
+        except ValueError as error:
+            msgBox.information('Предупреждение', str(error))
             return
 
         hash_password = self.hash_data(password)
@@ -209,24 +217,25 @@ class WelcomeWindow(StandardWidget):
 
         self.main_work.protocol.send_request(request)
 
-    def login(self, user_data):
-        print('Входим в аккаунт...')
-        print(user_data)
+    def login(self):
+        login = self.login_label.text()
+        password = self.password_label.text()
 
     @pyqtSlot()
-    def registration_success(self, user_data):
+    def registration_success(self, data):
         msgBox = StandardMessageBox(self.logo_image)
-        msgBox.information('Информация', 'Вы успешно зарегистрировали свой аккаунт\nВходим в аккаунт...')
-        self.login(user_data)
+        msgBox.information('Информация', 'Вы успешно зарегистрировали свой аккаунт')
+        self.login_success(data)
 
-    def emit_signal(self, method, data=None) -> None:
-        method = getattr(self, method)
+    @pyqtSlot()
+    def login_success(self, data):
+        print(data)
+
+    def form_signal(self, method, data=None):
+        method = self.signals.get(method)
         self.signal_handler = SignalHandler()
-        if data is not None:
-            self.signal_handler.signal.connect(lambda: method(data))
-        if data is None:
-            self.signal_handler.signal.connect(lambda: method())
-        self.signal_handler.signal.emit()
+        self.signal_handler.signal.connect(functools.partial(method, data))
+        return self.signal_handler.signal
 
     def closeEvent(self, a0) -> None:
         self.hide()

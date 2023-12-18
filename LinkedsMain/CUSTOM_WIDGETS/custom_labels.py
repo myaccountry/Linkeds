@@ -48,7 +48,6 @@ class InputLabel(ComplimentWidget):
         self.input = StandardLineEdit()
         layout.addWidget(self.label)
         layout.addWidget(self.input)
-        self.setFixedHeight(68)
         self.setSizePolicy(
             QtWidgets.QSizePolicy.Policy.MinimumExpanding,
             QtWidgets.QSizePolicy.Policy.MinimumExpanding
