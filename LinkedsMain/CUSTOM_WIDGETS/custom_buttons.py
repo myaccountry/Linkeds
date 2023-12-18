@@ -11,8 +11,6 @@ class StandardButton(QtWidgets.QPushButton):
 
         self.setObjectName('StandardButton')
 
-        layout = QtWidgets.QVBoxLayout()
-        self.setLayout(layout)
         if text is not None:
             self.setText(text)
 
@@ -23,7 +21,6 @@ class MenuButton(StandardButton):
     """
     def __init__(self, *args, **kwargs):
         super(MenuButton, self).__init__(*args, **kwargs)
-        ...
 
 
 class BorderlessButton(StandardButton):
@@ -33,3 +30,12 @@ class BorderlessButton(StandardButton):
     def __init__(self, *args, **kwargs):
         super(BorderlessButton, self).__init__(*args, **kwargs)
         self.setObjectName('BorderlessButton')
+
+
+class DangerButton(StandardButton):
+    """
+    Borderless button which inherits Standard Button and change it
+    """
+    def __init__(self, *args, **kwargs):
+        super(DangerButton, self).__init__(*args, **kwargs)
+        self.setObjectName('ExitButton')

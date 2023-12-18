@@ -1,5 +1,6 @@
 import pymysql
 from CONFIG.database_config import *
+from DATABASE.user_config import User, Social
 
 
 class Database:
@@ -7,6 +8,13 @@ class Database:
     Class Database with standard requests to mysql using python
     Such as - SELECT; INSERT; DELETE; UPDATE; CREATE
     """
+
+    elements = User()
+    social_elements = Social()
+    DB_TABLE_ELEMENTS = {
+        'user': [el for el in elements.__dict__.keys()],
+        'social': [el for el in social_elements.__dict__.keys()],
+    }
 
     def __init__(self):
         try:
@@ -131,14 +139,15 @@ class Database:
         else:
             raise ValueError('Incorrect type of status, must be ("table", "database")')
 
-    def insert(self, name: str = 'user', subject_values=None) -> str:
+    def insert(self, table_name: str = 'user', subject_values=None) -> str:
         """
         Insert row of data in table
         """
 
-        table_elements = db_table_elements.get(name)
+        table_elements = self.DB_TABLE_ELEMENTS.get(table_name)
         try:
-            if name == 'user':
+            if table_name == 'user':
+                del subject_values['id']
                 table_elements.remove('id')
         except ValueError:
             pass
@@ -149,11 +158,11 @@ class Database:
         if len(subject_values) != len(table_elements):
             raise ValueError("Not enough values to make INSERT func")
 
-        request = map(lambda x: "'" + str(x) + "'", subject_values.values())
-        self.connection_proc(f"INSERT INTO `{name}` ({', '.join(table_elements)}) "
-                             f"VALUES ({', '.join(list(request))});")
+        request = map(lambda x: f"'{str(x)}'", subject_values.values())
+        request_to = f"INSERT INTO `{table_name}` ({', '.join(table_elements)}) VALUES ({', '.join(list(request))});"
+        self.connection_proc(request_to)
         self._connection.commit()
-        return f"Inserted data in table {name}"
+        return f"Inserted data in table {table_name}"
 
     def delete(self, table_name: str = None, id: str = None, criterion: str = 'id') -> str:
         """
@@ -165,3 +174,20 @@ class Database:
         self.connection_proc(f"DELETE FROM `{table_name}` WHERE id = '{id}'")
         self._connection.commit()
         return f"Deleted data from table:`{table_name}` where {criterion}:'{id}'"
+
+    def registrate_user(self, user_data):
+
+        user_data_config = User()
+        user_data_config.set_exist_items(user_data)
+        user_data = user_data_config.__dict__
+        self.insert(table_name='user', subject_values=user_data)
+
+        user_id = self.select(
+            table_name='user', id=user_data.get('login'), subject='id', criterion='login')[0].get('id')
+
+        user_social_config = Social()
+        user_social_config.set_exist_items({'id': user_id})
+        user_social_data = user_social_config.__dict__
+        self.insert(table_name='social', subject_values=user_social_data)
+
+        return self.select(table_name='user', id=user_id)[0]

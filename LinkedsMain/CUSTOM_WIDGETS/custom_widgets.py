@@ -14,3 +14,10 @@ class MainWindowWidget(StandardWidget):
         super(MainWindowWidget, self).__init__(*args, **kwargs)
         self.setObjectName('MainWindowWidget')
 
+
+class ComplimentWidget(StandardWidget):
+
+    def __init__(self, *args, **kwargs):
+        super(ComplimentWidget, self).__init__(*args, **kwargs)
+        self.setObjectName('ComplimentWidget')
+

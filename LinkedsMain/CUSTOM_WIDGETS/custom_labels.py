@@ -1,5 +1,6 @@
 from PyQt6 import QtWidgets, QtCore, QtGui
 from LinkedsMain.CUSTOM_WIDGETS.custom_line_edit import StandardLineEdit
+from LinkedsMain.CUSTOM_WIDGETS.custom_widgets import ComplimentWidget
 import os
 
 
@@ -37,7 +38,7 @@ class HeadingLabel(StandardLabel):
         self.setFont(QtGui.QFont('Trebuchet MS'))
 
 
-class InputLabel(QtWidgets.QWidget):
+class InputLabel(ComplimentWidget):
 
     def __init__(self, text: str = '', *args, **kwargs):
         super(InputLabel, self).__init__(*args, **kwargs)
@@ -47,12 +48,26 @@ class InputLabel(QtWidgets.QWidget):
         self.input = StandardLineEdit()
         layout.addWidget(self.label)
         layout.addWidget(self.input)
+        self.setFixedHeight(68)
+        self.setSizePolicy(
+            QtWidgets.QSizePolicy.Policy.MinimumExpanding,
+            QtWidgets.QSizePolicy.Policy.MinimumExpanding
+        )
+
+    def sizeHint(self):
+        return QtCore.QSize(300, 70)
 
     def setPlaceholderText(self, text='') -> None:
         self.input.setPlaceholderText(text)
 
     def setText(self, text: str = '') -> None:
         self.label.setText(text)
+
+    def text(self) -> str:
+        return self.input.text()
+
+    def setEchoMode(self, a0):
+        self.input.setEchoMode(a0)
 
     def setMinimumWidth(self, minw: int) -> None:
         self.label.setMinimumWidth(minw)
@@ -65,3 +80,4 @@ class InputLabel(QtWidgets.QWidget):
     def setMinimumSize(self, minw: int, minh: int) -> None:
         self.label.setMinimumSize(minw, minh)
         self.input.setMinimumSize(minw, minh)
+

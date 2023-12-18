@@ -1,17 +1,30 @@
 import sys
 import pathlib
+import hashlib
 from asyncio import Protocol, BaseProtocol
 from threading import Thread
+from LinkedsMain.CLIENT.CFIE import User
 from PyQt6 import QtWidgets, QtCore, QtGui, QtMultimediaWidgets, QtMultimedia
-from LinkedsMain.CUSTOM_WIDGETS.custom_buttons import StandardButton, BorderlessButton
+from PyQt6.QtCore import pyqtSlot
+from LinkedsMain.CUSTOM_WIDGETS.custom_buttons import StandardButton, BorderlessButton, DangerButton
 from LinkedsMain.CUSTOM_WIDGETS.custom_widgets import StandardWidget, MainWindowWidget
 from LinkedsMain.CUSTOM_WIDGETS.custom_labels import StandardLabel, PixmapLabel, HeadingLabel, InputLabel
+from LinkedsMain.CUSTOM_WIDGETS.custom_message_boxes import StandardMessageBox
+from LinkedsMain.CUSTOM_WIDGETS.custom_line_edit import StandardLineEdit
+
+if __name__ == '__main__':
+    print('Do not run from NotMain application')
+    exit()
 
 style_path = str(pathlib.Path().resolve()) + "\\CUSTOM_WIDGETS\\STYLES"
 with open(f'{style_path}\\dark_theme.css', 'r') as style:
     DARK_THEME_STYLE = style.read()
 with open(f'{style_path}\\light_theme.css', 'r') as style:
     LIGHT_THEME_STYLE = style.read()
+
+
+class SignalHandler(QtCore.QObject):
+    signal = QtCore.pyqtSignal()
 
 
 class WelcomeWindow(StandardWidget):
@@ -25,12 +38,13 @@ class WelcomeWindow(StandardWidget):
         super().__init__()
         self.main_work = main_work
         self.theme = 'DARK'
+        self.form = 'REG'
         self.main_work.app.setStyleSheet(DARK_THEME_STYLE)
+        self.init_images()
 
         self.setWindowTitle("Регистрация")
-        self.setMinimumSize(400, 550)
+        self.setWindowIcon(QtGui.QIcon(self.logo_image))
 
-        self.init_images()
         self.init_ui()
 
     def init_images(self):
@@ -66,52 +80,94 @@ class WelcomeWindow(StandardWidget):
 
         self.layout = QtWidgets.QVBoxLayout()
         self.setLayout(self.layout)
-        self.main_widget = MainWindowWidget()
-        self.layout.addWidget(self.main_widget)
 
-        self.main_layout = QtWidgets.QGridLayout()
-
+        self.title_widget = StandardWidget()
+        self.title_layout = QtWidgets.QHBoxLayout()
+        self.title_widget.setLayout(self.title_layout)
         self.title_label = HeadingLabel('\nLinkeds')
         self.title_icon = StandardLabel()
         self.title_icon.setPixmap(self.logo_image.scaled(64, 64))
-
         self.changeTheme_button = BorderlessButton()
         self.changeTheme_button.setIcon(QtGui.QIcon(self.theme_dark))
         self.changeTheme_button.setIconSize(QtCore.QSize(40, 40))
         self.changeTheme_button.clicked.connect(lambda: self.change_theme_button(self.theme))
 
-        self.userData_widget = MainWindowWidget()
-        self.userData_layout = QtWidgets.QGridLayout()
+        self.title_layout.addWidget(self.title_icon)
+        self.title_layout.addWidget(self.title_label)
+        self.title_layout.addStretch(1)
+        self.title_layout.addWidget(self.changeTheme_button)
+
+        self.userData_widget = StandardWidget()
+        self.userData_layout = QtWidgets.QVBoxLayout()
         self.userData_widget.setLayout(self.userData_layout)
         self.login_label = InputLabel("Логин")
+        self.login_label.setPlaceholderText("Введите логин...")
         self.login_label.setMinimumHeight(30)
         self.password_label = InputLabel("Пароль")
+        self.password_label.setPlaceholderText("Введите пароль...")
+        self.password_label.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.password_label.setMinimumHeight(30)
         self.email_label = InputLabel("Эл.Почта")
+        self.email_label.setPlaceholderText("Введите эл.почту...")
         self.email_label.setMinimumHeight(30)
-        self.userData_layout.addWidget(self.login_label, 0, 0)
-        self.userData_layout.addWidget(self.password_label, 1, 0)
-        self.userData_layout.addWidget(self.email_label, 2, 0)
 
-        self.registration_button = StandardButton('Зарегистрироваться')
-        self.registration_button.setMinimumHeight(30)
+        self.userData_layout.addWidget(self.login_label)
+        self.userData_layout.addWidget(self.password_label)
+        self.userData_layout.addWidget(self.email_label)
 
-        self.main_layout.addWidget(self.title_icon, 0, 0)
-        self.main_layout.addWidget(self.title_label, 0, 1)
-        self.main_layout.setColumnStretch(2, 1)
-        self.main_layout.addWidget(self.changeTheme_button, 0, 3)
-        self.main_layout.addWidget(self.userData_widget, 3, 0, 2, 0)
-        self.main_layout.setRowStretch(7, 1)
-        self.main_layout.addWidget(self.registration_button, 8, 0, 2, 0)
+        self.logReg_button = StandardButton('Зарегистрироваться')
+        self.logReg_button.clicked.connect(self.registration)
+        self.logReg_button.setMinimumHeight(30)
 
-        self.main_widget.setLayout(self.main_layout)
+        self.logRegForm_layout = QtWidgets.QHBoxLayout()
+        self.logRegForm_widget = StandardWidget()
+        self.logRegForm_widget.setLayout(self.logRegForm_layout)
+        self.logRegForm_label = StandardLabel('Есть Аккаунт?')
+        self.logRegForm_label.setMinimumHeight(30)
+        self.logRegForm_button = StandardButton('Войти')
+        self.logRegForm_button.clicked.connect(lambda: self.changeForm(self.form))
+        self.logRegForm_button.setMinimumHeight(30)
+        self.logRegForm_layout.addWidget(self.logRegForm_label)
+        self.logRegForm_layout.addWidget(self.logRegForm_button)
 
+        self.exit_button = DangerButton('Выйти')
+        self.exit_button.clicked.connect(self.closeEvent)
+        self.exit_button.setMinimumHeight(30)
+
+        self.layout.addWidget(self.title_widget)
+        self.layout.addWidget(self.userData_widget)
+        self.layout.addWidget(self.logReg_button)
+        self.layout.addStretch(1)
+        self.layout.addWidget(self.logRegForm_widget)
+        self.layout.addWidget(self.exit_button)
+
+    def changeForm(self, form):
+        if form == 'REG':
+            self.email_label.hide()
+            self.setWindowTitle('Вход в Аккаунт')
+            self.logReg_button.setText('Войти в Аккаунт')
+            self.logReg_button.disconnect()
+            self.logReg_button.clicked.connect(self.login)
+            self.logRegForm_label.setText('Нет Аккаунта?')
+            self.logRegForm_button.setText('Зарегистрироваться')
+            self.form = 'LOG'
+
+        if form == 'LOG':
+            self.email_label.show()
+            self.setWindowTitle('Регистрация')
+            self.logReg_button.setText('Зарегистрироваться')
+            self.logReg_button.disconnect()
+            self.logReg_button.clicked.connect(self.registration)
+            self.logRegForm_label.setText('Есть Аккаунт?')
+            self.logRegForm_button.setText('Войти')
+            self.form = 'REG'
 
     def change_theme_button(self, theme):
         if theme == 'DARK':
             self.main_work.app.setStyleSheet(LIGHT_THEME_STYLE)
             self.changeTheme_button.setIcon(QtGui.QIcon((self.theme_light)))
             self.theme = 'LIGHT'
+
         if theme == 'LIGHT':
             self.main_work.app.setStyleSheet(DARK_THEME_STYLE)
             self.changeTheme_button.setIcon(QtGui.QIcon((self.theme_dark)))
@@ -126,3 +182,53 @@ class WelcomeWindow(StandardWidget):
         painter.drawRoundedRect(image.rect(), 100, 100)
         return rounded
 
+    @staticmethod
+    def hash_data(data) -> str:
+        return hashlib.sha512(data.encode('utf-8')).hexdigest()
+
+    @staticmethod
+    def form_request(method, data) -> dict:
+        return {'method': method, 'data': data}
+
+    def registration(self):
+        login = self.login_label.text()
+        password = self.password_label.text()
+        email = self.email_label.text()
+
+        msgBox = StandardMessageBox(self.logo_image)
+
+        try:
+            user = User(login, password, email)
+        except ValueError:
+            msgBox.information('Предупреждение', 'Кривой ввод данных')
+            return
+
+        hash_password = self.hash_data(password)
+        user_data = {'login': login, 'email': email, 'password': hash_password}
+        request = self.form_request('<REGISTRATION>', {'user_data': user_data})
+
+        self.main_work.protocol.send_request(request)
+
+    def login(self, user_data):
+        print('Входим в аккаунт...')
+        print(user_data)
+
+    @pyqtSlot()
+    def registration_success(self, user_data):
+        msgBox = StandardMessageBox(self.logo_image)
+        msgBox.information('Информация', 'Вы успешно зарегистрировали свой аккаунт\nВходим в аккаунт...')
+        self.login(user_data)
+
+    def emit_signal(self, method, data=None) -> None:
+        method = getattr(self, method)
+        self.signal_handler = SignalHandler()
+        if data is not None:
+            self.signal_handler.signal.connect(lambda: method(data))
+        if data is None:
+            self.signal_handler.signal.connect(lambda: method())
+        self.signal_handler.signal.emit()
+
+    def closeEvent(self, a0) -> None:
+        self.hide()
+        self.main_work.protocol.close_connection()
+        self.main_work.protocol.exit_app()

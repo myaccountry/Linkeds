@@ -1,0 +1,1140 @@
+[2023-11-23 22:10:25,806] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-23 22:10:25,807] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-23 22:10:25,808] [root] [INFO] -> <SERVER-RISE>
+[2023-11-23 22:10:30,908] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 12:21:58,555] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 12:21:58,603] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 12:21:58,611] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 12:22:13,505] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 12:22:13,507] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 12:22:13,510] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 12:22:33,364] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 12:22:49,976] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 12:22:49,979] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 12:22:49,986] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 12:22:52,848] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 12:23:29,332] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 12:23:29,332] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 12:23:29,333] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 12:23:31,504] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 12:23:47,392] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 12:23:47,392] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 12:23:47,393] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 12:23:48,800] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 12:23:54,174] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 12:23:54,175] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 12:23:54,176] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 12:23:55,680] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 12:24:16,109] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 12:24:16,109] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 12:24:16,110] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 12:24:17,798] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 21:26:44,465] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 21:26:44,474] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 21:26:44,475] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 21:26:56,523] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 21:26:56,523] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 21:26:56,524] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 21:27:05,134] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 21:27:05,135] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 21:27:05,136] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 21:27:18,562] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 21:27:22,175] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 21:27:22,175] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 21:27:22,176] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 21:27:25,973] [asyncio] [ERROR] -> Exception in callback ServerProtocol.connection_made(<_ProactorSoc...sport fd=1096>)
+handle: <Handle ServerProtocol.connection_made(<_ProactorSoc...sport fd=1096>)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1520.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 36, in connection_made
+    self.addr = self.transport.get_extra_info("peername")
+                ^^^^^^^^^^^^^^
+AttributeError: 'ServerProtocol' object has no attribute 'transport'
+[2023-11-25 21:27:25,976] [asyncio] [ERROR] -> Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1520.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1520.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 158, in _call_connection_lost
+    self._protocol.connection_lost(exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 48, in connection_lost
+    self._connection.connection_lost(exc=exc)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'connection_lost'
+[2023-11-25 21:28:21,906] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 21:28:24,537] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 21:28:24,538] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 21:28:24,539] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 21:28:26,895] [asyncio] [ERROR] -> Exception in callback ServerProtocol.connection_made(<_ProactorSoc...sport fd=1136>)
+handle: <Handle ServerProtocol.connection_made(<_ProactorSoc...sport fd=1136>)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1520.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 36, in connection_made
+    self.addr = self.transport.get_extra_info("peername")
+                ^^^^^^^^^^^^^^
+AttributeError: 'ServerProtocol' object has no attribute 'transport'
+[2023-11-25 21:28:50,890] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 21:28:55,957] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 21:28:55,957] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 21:28:55,958] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 21:28:58,666] [root] [INFO] -> Connection from 192.168.1.1:52237
+[2023-11-25 21:28:58,666] [asyncio] [ERROR] -> Exception in callback ServerProtocol.connection_made(<_ProactorSoc...sport fd=1148>)
+handle: <Handle ServerProtocol.connection_made(<_ProactorSoc...sport fd=1148>)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1520.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 39, in connection_made
+    self._connection = ConnectionsHandler(self._transport)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 65, in __init__
+    self.request_handler = RequestHandler(self._transport)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\request_handler.py", line 8, in __init__
+    self.addr = transport.get("peername")
+                ^^^^^^^^^^^^^
+AttributeError: '_ProactorSocketTransport' object has no attribute 'get'
+[2023-11-25 21:29:52,786] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 21:29:56,373] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 21:29:56,373] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 21:29:56,375] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 21:29:58,160] [root] [INFO] -> Connection from 192.168.1.1:52249
+[2023-11-25 21:30:16,194] [root] [INFO] -> Connection from 192.168.1.1:52255
+[2023-11-25 21:33:52,422] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 21:34:47,799] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 21:34:47,800] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 21:34:47,801] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 21:35:17,929] [root] [INFO] -> Connection from 192.168.1.1:52319
+[2023-11-25 21:35:36,777] [asyncio] [ERROR] -> Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1520.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.1520.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 158, in _call_connection_lost
+    self._protocol.connection_lost(exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 49, in connection_lost
+    self._connection.connection_lost(exc=exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 78, in connection_lost
+    logging.info(msg=f'Connection with [{self.addr}] closed')
+                                         ^^^^^^^^^
+AttributeError: 'ConnectionsHandler' object has no attribute 'addr'
+[2023-11-25 21:38:19,148] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 21:38:22,004] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 21:38:22,005] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 21:38:22,006] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 21:38:25,717] [root] [INFO] -> Connection from 192.168.1.1:52358
+[2023-11-25 21:38:32,662] [root] [INFO] -> Connection with [('192.168.1.1', 52358)] closed
+[2023-11-25 21:39:01,924] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 21:39:04,076] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 21:39:04,077] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 21:39:04,078] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 21:39:08,486] [root] [INFO] -> Connection from 192.168.1.1:52364
+[2023-11-25 21:39:13,134] [root] [INFO] -> Connection with 192.168.1.1:52364 closed
+[2023-11-25 21:40:30,023] [root] [INFO] -> Connection from 192.168.1.1:52388
+[2023-11-25 21:40:33,343] [root] [INFO] -> Connection with 192.168.1.1:52388 closed
+[2023-11-25 21:40:48,799] [root] [INFO] -> Connection from 192.168.1.1:52392
+[2023-11-25 21:40:50,321] [root] [INFO] -> Connection with 192.168.1.1:52392 closed
+[2023-11-25 21:41:11,408] [root] [INFO] -> Connection from 192.168.1.1:52400
+[2023-11-25 21:41:13,041] [root] [INFO] -> Connection with 192.168.1.1:52400 closed
+[2023-11-25 21:43:04,036] [root] [INFO] -> Connection from 192.168.1.1:52428
+[2023-11-25 21:43:05,456] [root] [INFO] -> Connection with 192.168.1.1:52428 closed
+[2023-11-25 21:43:14,559] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 22:03:03,884] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 22:03:03,884] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 22:03:03,885] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 22:03:05,961] [root] [INFO] -> Connection from 192.168.1.1:52645
+[2023-11-25 22:03:10,927] [root] [INFO] -> Connection with 192.168.1.1:52645 closed
+[2023-11-25 22:03:15,388] [root] [INFO] -> <SERVER-SET>
+[2023-11-25 22:03:47,607] [root] [DEBUG] -> -init Logger custom format-
+[2023-11-25 22:03:47,607] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-11-25 22:03:47,608] [root] [INFO] -> <SERVER-RISE>
+[2023-11-25 22:03:49,135] [root] [INFO] -> Connection from 192.168.1.1:52667
+[2023-11-25 22:03:56,594] [root] [INFO] -> Connection with 192.168.1.1:52667 closed
+[2023-11-25 22:03:59,621] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 12:43:30,884] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 12:43:30,900] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 12:43:30,903] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 12:51:31,925] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 12:51:31,925] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:20:36,261] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 13:20:36,261] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 13:20:36,263] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 13:20:40,071] [root] [INFO] -> Connection from 192.168.1.1:54025
+[2023-12-10 13:21:26,867] [root] [INFO] -> Connection with 192.168.1.1:54025 closed
+[2023-12-10 13:21:29,731] [root] [INFO] -> Connection from 192.168.1.1:54040
+[2023-12-10 13:23:45,275] [root] [INFO] -> Connection with 192.168.1.1:54040 closed
+[2023-12-10 13:23:47,791] [root] [INFO] -> Connection from 192.168.1.1:64935
+[2023-12-10 13:24:04,268] [root] [INFO] -> Connection with 192.168.1.1:64935 closed
+[2023-12-10 13:24:32,857] [root] [INFO] -> Connection from 192.168.1.1:64955
+[2023-12-10 13:25:06,202] [root] [INFO] -> Connection with 192.168.1.1:64955 closed
+[2023-12-10 13:25:23,640] [root] [INFO] -> Connection from 192.168.1.1:64966
+[2023-12-10 13:25:28,635] [root] [INFO] -> Connection with 192.168.1.1:64966 closed
+[2023-12-10 13:25:30,513] [root] [INFO] -> Connection from 192.168.1.1:64969
+[2023-12-10 13:25:32,412] [asyncio] [ERROR] -> Exception in callback _ProactorReadPipeTransport._loop_reading(<_OverlappedF...ed result=221>)
+handle: <Handle _ProactorReadPipeTransport._loop_reading(<_OverlappedF...ed result=221>)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 324, in _loop_reading
+    self._data_received(data, length)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 274, in _data_received
+    self._protocol.data_received(data)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 45, in data_received
+    self._connection.data_received(data=data)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 73, in data_received
+    logging.info(msg=f'Received request {data.get("method")} from {self._addr[0]}:{self._addr[1]}')
+                                         ^^^^^^^^
+AttributeError: 'bytearray' object has no attribute 'get'
+[2023-12-10 13:26:48,953] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:26:48,953] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:26:50,577] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 13:26:50,577] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 13:26:50,578] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 13:26:53,304] [root] [INFO] -> Connection from 192.168.1.1:64976
+[2023-12-10 13:27:00,112] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:64976
+[2023-12-10 13:27:00,113] [root] [ERROR] -> 'RequestHandler' object has no attribute 'database'
+[2023-12-10 13:27:00,113] [asyncio] [ERROR] -> Exception in callback _ProactorReadPipeTransport._loop_reading(<_OverlappedF...ed result=233>)
+handle: <Handle _ProactorReadPipeTransport._loop_reading(<_OverlappedF...ed result=233>)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 324, in _loop_reading
+    self._data_received(data, length)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 274, in _data_received
+    self._protocol.data_received(data)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 45, in data_received
+    self._connection.data_received(data=data)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 83, in data_received
+    logging.info(msg=f'Reguest {data.get("method")} status')
+                                ^^^^^^^^
+AttributeError: 'bytearray' object has no attribute 'get'
+[2023-12-10 13:27:00,115] [root] [INFO] -> Connection with 192.168.1.1:64976 closed
+[2023-12-10 13:27:28,146] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:27:28,146] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:27:30,048] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 13:27:30,049] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 13:27:30,050] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 13:27:32,729] [root] [INFO] -> Connection from 192.168.1.1:64984
+[2023-12-10 13:28:07,583] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:28:07,583] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:32:37,267] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 13:32:37,267] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 13:32:37,268] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 13:32:42,719] [root] [INFO] -> Connection from 192.168.1.1:65053
+[2023-12-10 13:32:46,832] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:65053
+[2023-12-10 13:32:46,832] [root] [ERROR] -> 'RequestHandler' object has no attribute 'database'
+[2023-12-10 13:32:46,832] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 13:32:46,832] [root] [INFO] -> For 192.168.1.1:65053: <CLOSE-CONNECTION>
+[2023-12-10 13:32:46,832] [root] [INFO] -> Connection with 192.168.1.1:65053 closed
+[2023-12-10 13:33:43,499] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:33:43,500] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:33:45,357] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 13:33:45,358] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 13:33:45,359] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 13:33:48,494] [root] [INFO] -> Connection from 192.168.1.1:65083
+[2023-12-10 13:33:48,646] [asyncio] [ERROR] -> Exception in callback ServerProtocol.connection_made(<_ProactorSoc...sport fd=1076>)
+handle: <Handle ServerProtocol.connection_made(<_ProactorSoc...sport fd=1076>)>
+Traceback (most recent call last):
+  File "D:\PythonFiles\Rannev_Python\Linkeds\DATABASE\database.py", line 14, in __init__
+    self._connection = pymysql.connect(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 358, in __init__
+    self.connect()
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 664, in connect
+    self._request_authentication()
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 954, in _request_authentication
+    auth_packet = self._read_packet()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1049, "Unknown database 'linkeds_db'")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 39, in connection_made
+    self._connection = ConnectionsHandler(self._transport)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 65, in __init__
+    self.request_handler = RequestHandler(self._transport)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\request_handler.py", line 16, in __init__
+    self.database = Database()
+                    ^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\DATABASE\database.py", line 28, in __init__
+    raise ConnectionError(str(error))
+ConnectionError: (1049, "Unknown database 'linkeds_db'")
+[2023-12-10 13:34:32,825] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:34:32,825] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:34:34,484] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 13:34:34,484] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 13:34:34,485] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 13:34:37,585] [root] [INFO] -> Connection from 192.168.1.1:65102
+[2023-12-10 13:35:10,104] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:65102
+[2023-12-10 13:35:10,104] [root] [ERROR] -> 'NoneType' object has no attribute 'items'
+[2023-12-10 13:35:10,104] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 13:35:10,104] [root] [INFO] -> For 192.168.1.1:65102: <CLOSE-CONNECTION>
+[2023-12-10 13:35:10,105] [root] [INFO] -> Connection with 192.168.1.1:65102 closed
+[2023-12-10 13:41:43,994] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:41:43,994] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:41:46,945] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 13:41:46,946] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 13:41:46,947] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 13:41:48,941] [root] [INFO] -> Connection from 192.168.1.1:65184
+[2023-12-10 13:41:51,344] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:65184
+[2023-12-10 13:41:51,345] [root] [ERROR] -> 'NoneType' object has no attribute 'items'
+[2023-12-10 13:41:51,345] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 13:41:51,345] [root] [INFO] -> For 192.168.1.1:65184: <CLOSE-CONNECTION>
+[2023-12-10 13:41:51,345] [root] [INFO] -> Connection with 192.168.1.1:65184 closed
+[2023-12-10 13:42:09,709] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:42:09,709] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 13:42:16,268] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 13:42:16,273] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 13:42:16,278] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 13:42:18,942] [root] [INFO] -> Connection from 192.168.1.1:65196
+[2023-12-10 13:42:21,432] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:65196
+[2023-12-10 13:42:21,433] [root] [ERROR] -> 'NoneType' object has no attribute 'items'
+[2023-12-10 13:42:21,433] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 13:42:21,433] [root] [INFO] -> For 192.168.1.1:65196: <CLOSE-CONNECTION>
+[2023-12-10 13:42:21,433] [root] [INFO] -> Connection with 192.168.1.1:65196 closed
+[2023-12-10 18:48:11,004] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 18:48:11,022] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 18:48:11,082] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 18:48:19,719] [root] [INFO] -> Connection from 192.168.1.1:51382
+[2023-12-10 18:48:21,790] [asyncio] [ERROR] -> Exception in callback ServerProtocol.connection_made(<_ProactorSoc...sport fd=1168>)
+handle: <Handle ServerProtocol.connection_made(<_ProactorSoc...sport fd=1168>)>
+Traceback (most recent call last):
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 644, in connect
+    sock = socket.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PythonFiles\Rannev_Python\Linkeds\DATABASE\database.py", line 22, in __init__
+    self._connection = pymysql.connect(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 358, in __init__
+    self.connect()
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 711, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 39, in connection_made
+    self._connection = ConnectionsHandler(self._transport)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 65, in __init__
+    self.request_handler = RequestHandler(self._transport)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\request_handler.py", line 16, in __init__
+    self.database = Database()
+                    ^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\DATABASE\database.py", line 36, in __init__
+    raise ConnectionError(str(error))
+ConnectionError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)")
+[2023-12-10 18:48:31,992] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 18:48:31,992] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 18:48:42,551] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 18:48:42,552] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 18:48:42,553] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 18:48:44,425] [root] [INFO] -> Connection from 192.168.1.1:51390
+[2023-12-10 18:48:50,829] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:51390
+[2023-12-10 18:48:50,829] [root] [ERROR] -> 'NoneType' object has no attribute 'items'
+[2023-12-10 18:48:50,829] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 18:48:50,829] [root] [INFO] -> For 192.168.1.1:51390: <CLOSE-CONNECTION>
+[2023-12-10 18:48:50,829] [root] [INFO] -> Connection with 192.168.1.1:51390 closed
+[2023-12-10 18:53:10,234] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 18:53:10,234] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 18:53:11,519] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 18:53:11,519] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 18:53:11,520] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 18:53:13,486] [root] [INFO] -> Connection from 192.168.1.1:51431
+[2023-12-10 18:53:21,337] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:51431
+[2023-12-10 18:53:21,337] [root] [ERROR] -> Not enough values to make INSERT func
+[2023-12-10 18:53:21,338] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 18:53:21,338] [root] [INFO] -> For 192.168.1.1:51431: <CLOSE-CONNECTION>
+[2023-12-10 18:53:21,338] [root] [INFO] -> Connection with 192.168.1.1:51431 closed
+[2023-12-10 18:53:34,579] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 18:53:34,579] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 18:56:29,508] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 18:56:29,508] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 18:56:29,509] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 18:56:32,749] [root] [INFO] -> Connection from 192.168.1.1:62686
+[2023-12-10 18:56:42,442] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62686
+[2023-12-10 18:56:42,442] [root] [ERROR] -> Not enough values to make INSERT func
+[2023-12-10 18:56:42,442] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 18:56:42,442] [root] [INFO] -> For 192.168.1.1:62686: <CLOSE-CONNECTION>
+[2023-12-10 18:56:42,442] [root] [INFO] -> Connection with 192.168.1.1:62686 closed
+[2023-12-10 18:58:27,770] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 18:58:27,770] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 18:58:29,046] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 18:58:29,047] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 18:58:29,049] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 18:58:32,186] [root] [INFO] -> Connection from 192.168.1.1:62694
+[2023-12-10 18:58:38,010] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62694
+[2023-12-10 18:58:38,010] [root] [ERROR] -> (RequestError): 'NoneType' object has no attribute 'cursor'
+[2023-12-10 18:58:38,010] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 18:58:38,010] [root] [INFO] -> For 192.168.1.1:62694: <CLOSE-CONNECTION>
+[2023-12-10 18:58:38,010] [root] [INFO] -> Connection with 192.168.1.1:62694 closed
+[2023-12-10 18:59:46,227] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 18:59:46,227] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 18:59:51,358] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 18:59:51,358] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 18:59:51,359] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 18:59:52,666] [root] [INFO] -> Connection from 192.168.1.1:62704
+[2023-12-10 18:59:59,209] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62704
+[2023-12-10 18:59:59,491] [root] [ERROR] -> (RequestError): (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'id': 42}]', 'None', 'None', 'None', 'None', 'None')' at line 1")
+[2023-12-10 18:59:59,491] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 18:59:59,491] [root] [INFO] -> For 192.168.1.1:62704: <CLOSE-CONNECTION>
+[2023-12-10 18:59:59,492] [root] [INFO] -> Connection with 192.168.1.1:62704 closed
+[2023-12-10 19:02:04,026] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 19:02:04,026] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 19:02:19,966] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 19:02:19,971] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 19:02:19,976] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 19:02:22,586] [root] [INFO] -> Connection from 192.168.1.1:62736
+[2023-12-10 19:02:27,186] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62736
+[2023-12-10 19:06:26,682] [root] [ERROR] -> (RequestError): (2013, 'Lost connection to MySQL server during query ([WinError 10053] Программа на вашем хост-компьютере разорвала установленное подключение)')
+[2023-12-10 19:06:31,535] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 19:06:40,280] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 19:06:40,281] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 19:06:40,282] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 19:06:43,900] [root] [INFO] -> Connection from 192.168.1.1:62764
+[2023-12-10 19:06:48,993] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62764
+[2023-12-10 19:06:48,994] [root] [ERROR] -> (RequestError): (1136, "Column count doesn't match value count at row 1")
+[2023-12-10 19:06:48,994] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 19:06:48,994] [root] [INFO] -> For 192.168.1.1:62764: <CLOSE-CONNECTION>
+[2023-12-10 19:06:48,995] [root] [INFO] -> Connection with 192.168.1.1:62764 closed
+[2023-12-10 19:08:12,905] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 19:08:12,905] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 21:52:37,172] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-10 21:52:37,173] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-10 21:52:37,174] [root] [INFO] -> <SERVER-RISE>
+[2023-12-10 21:52:39,338] [root] [INFO] -> Connection from 192.168.1.1:50239
+[2023-12-10 21:53:07,329] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:50239
+[2023-12-10 21:53:07,331] [root] [ERROR] -> (RequestError): (1136, "Column count doesn't match value count at row 1")
+[2023-12-10 21:53:07,331] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 21:53:07,331] [root] [INFO] -> For 192.168.1.1:50239: <CLOSE-CONNECTION>
+[2023-12-10 21:53:07,331] [root] [INFO] -> Connection with 192.168.1.1:50239 closed
+[2023-12-10 21:53:56,849] [root] [INFO] -> Connection from 192.168.1.1:50253
+[2023-12-10 21:54:00,113] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:50253
+[2023-12-10 21:54:00,113] [root] [ERROR] -> Not enough values to make INSERT func
+[2023-12-10 21:54:00,113] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 21:54:00,113] [root] [INFO] -> For 192.168.1.1:50253: <CLOSE-CONNECTION>
+[2023-12-10 21:54:00,114] [root] [INFO] -> Connection with 192.168.1.1:50253 closed
+[2023-12-10 21:54:09,859] [root] [INFO] -> Connection from 192.168.1.1:50263
+[2023-12-10 21:54:16,007] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:50263
+[2023-12-10 21:54:16,008] [root] [ERROR] -> Not enough values to make INSERT func
+[2023-12-10 21:54:16,008] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-10 21:54:16,008] [root] [INFO] -> For 192.168.1.1:50263: <CLOSE-CONNECTION>
+[2023-12-10 21:54:16,008] [root] [INFO] -> Connection with 192.168.1.1:50263 closed
+[2023-12-10 21:55:36,053] [root] [INFO] -> Connection from 141.98.7.36:21011
+[2023-12-10 21:56:08,341] [root] [INFO] -> Connection with 141.98.7.36:21011 closed
+[2023-12-10 22:01:11,109] [root] [INFO] -> <SERVER-SET>
+[2023-12-10 22:01:11,109] [root] [INFO] -> <SERVER-SET>
+[2023-12-11 13:25:55,494] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-11 13:25:55,503] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-11 13:25:55,512] [root] [INFO] -> <SERVER-RISE>
+[2023-12-11 13:26:00,223] [root] [INFO] -> Connection from 192.168.1.1:63546
+[2023-12-11 13:26:16,785] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63546
+[2023-12-11 13:26:16,894] [root] [ERROR] -> (RequestError): (1136, "Column count doesn't match value count at row 1")
+[2023-12-11 13:26:16,894] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-11 13:26:16,894] [root] [INFO] -> For 192.168.1.1:63546: <CLOSE-CONNECTION>
+[2023-12-11 13:26:16,894] [root] [INFO] -> Connection with 192.168.1.1:63546 closed
+[2023-12-11 13:26:35,976] [root] [INFO] -> <SERVER-SET>
+[2023-12-11 13:26:35,976] [root] [INFO] -> <SERVER-SET>
+[2023-12-11 13:26:52,005] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-11 13:26:52,009] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-11 13:26:52,013] [root] [INFO] -> <SERVER-RISE>
+[2023-12-11 13:26:57,135] [root] [INFO] -> Connection from 192.168.1.1:63572
+[2023-12-11 13:27:02,476] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63572
+[2023-12-11 13:27:47,042] [root] [ERROR] -> (RequestError): (1136, "Column count doesn't match value count at row 1")
+[2023-12-11 13:29:45,840] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-11 13:29:45,840] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-11 13:29:45,841] [root] [INFO] -> <SERVER-RISE>
+[2023-12-11 13:29:49,553] [root] [INFO] -> Connection from 192.168.1.1:63634
+[2023-12-11 13:29:56,508] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63634
+[2023-12-11 13:29:56,622] [root] [ERROR] -> (RequestError): (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'id': 43}]', 'None', 'None', 'None', 'None', 'None')' at line 1")
+[2023-12-11 13:29:56,623] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-11 13:29:56,623] [root] [INFO] -> For 192.168.1.1:63634: <CLOSE-CONNECTION>
+[2023-12-11 13:29:56,623] [root] [INFO] -> Connection with 192.168.1.1:63634 closed
+[2023-12-11 13:31:28,636] [root] [INFO] -> <SERVER-SET>
+[2023-12-11 13:31:28,636] [root] [INFO] -> <SERVER-SET>
+[2023-12-11 13:31:32,143] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-11 13:31:32,143] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-11 13:31:32,144] [root] [INFO] -> <SERVER-RISE>
+[2023-12-11 13:31:34,552] [root] [INFO] -> Connection from 192.168.1.1:63668
+[2023-12-11 13:32:01,005] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63668
+[2023-12-11 13:32:01,201] [root] [ERROR] -> (RequestError): (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'id': 44}]', 'None', 'None', 'None', 'None', 'None')' at line 1")
+[2023-12-11 13:32:01,201] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-11 13:32:01,201] [root] [INFO] -> For 192.168.1.1:63668: <CLOSE-CONNECTION>
+[2023-12-11 13:32:01,202] [root] [INFO] -> Connection with 192.168.1.1:63668 closed
+[2023-12-11 13:33:01,061] [root] [INFO] -> <SERVER-SET>
+[2023-12-11 13:33:01,061] [root] [INFO] -> <SERVER-SET>
+[2023-12-11 13:33:07,083] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-11 13:33:07,083] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-11 13:33:07,085] [root] [INFO] -> <SERVER-RISE>
+[2023-12-11 13:33:08,938] [root] [INFO] -> Connection from 192.168.1.1:63749
+[2023-12-11 13:33:14,246] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63749
+[2023-12-11 13:33:14,451] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-11 13:33:14,452] [root] [INFO] -> For 192.168.1.1:63749: <REGISTRATION-SUCCESS>
+[2023-12-11 13:33:54,861] [root] [INFO] -> <SERVER-SET>
+[2023-12-11 13:33:54,862] [root] [INFO] -> <SERVER-SET>
+[2023-12-11 13:35:17,263] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-11 13:35:17,264] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-11 13:35:17,265] [root] [INFO] -> <SERVER-RISE>
+[2023-12-11 13:35:18,957] [root] [INFO] -> Connection from 192.168.1.1:63770
+[2023-12-11 13:35:24,821] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63770
+[2023-12-11 13:35:25,004] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-11 13:35:25,004] [root] [INFO] -> For 192.168.1.1:63770: <REGISTRATION-SUCCESS>
+[2023-12-11 13:36:08,456] [root] [INFO] -> Connection with 192.168.1.1:63770 closed
+[2023-12-11 13:36:10,527] [root] [INFO] -> Connection from 192.168.1.1:63777
+[2023-12-11 13:36:12,581] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63777
+[2023-12-11 13:36:12,581] [root] [ERROR] -> Not enough values to make INSERT func
+[2023-12-11 13:36:12,581] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-11 13:36:12,581] [root] [INFO] -> For 192.168.1.1:63777: <CLOSE-CONNECTION>
+[2023-12-11 13:36:12,581] [root] [INFO] -> Connection with 192.168.1.1:63777 closed
+[2023-12-11 13:36:22,190] [root] [INFO] -> Connection from 192.168.1.1:63784
+[2023-12-11 13:36:26,221] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63784
+[2023-12-11 13:36:26,222] [root] [ERROR] -> Not enough values to make INSERT func
+[2023-12-11 13:36:26,222] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-11 13:36:26,222] [root] [INFO] -> For 192.168.1.1:63784: <CLOSE-CONNECTION>
+[2023-12-11 13:36:26,222] [root] [INFO] -> Connection with 192.168.1.1:63784 closed
+[2023-12-11 13:36:30,550] [root] [INFO] -> <SERVER-SET>
+[2023-12-11 13:36:30,550] [root] [INFO] -> <SERVER-SET>
+[2023-12-11 13:36:31,742] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-11 13:36:31,742] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-11 13:36:31,743] [root] [INFO] -> <SERVER-RISE>
+[2023-12-11 13:36:36,164] [root] [INFO] -> Connection from 192.168.1.1:63792
+[2023-12-11 13:36:45,413] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63792
+[2023-12-11 13:36:45,748] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-11 13:36:45,748] [root] [INFO] -> For 192.168.1.1:63792: <REGISTRATION-SUCCESS>
+[2023-12-11 15:24:38,257] [root] [INFO] -> Connection from 106.75.92.190:40598
+[2023-12-11 15:24:45,953] [root] [INFO] -> Connection with 106.75.92.190:40598 closed
+[2023-12-11 15:24:48,251] [root] [INFO] -> Connection from 106.75.92.190:46530
+[2023-12-11 15:24:53,955] [root] [INFO] -> Connection with 106.75.92.190:46530 closed
+[2023-12-11 15:24:54,229] [root] [INFO] -> Connection from 106.75.92.190:51528
+[2023-12-11 15:25:01,954] [root] [INFO] -> Connection with 106.75.92.190:51528 closed
+[2023-12-11 15:25:02,250] [root] [INFO] -> Connection from 106.75.92.190:54878
+[2023-12-11 15:25:09,957] [root] [INFO] -> Connection with 106.75.92.190:54878 closed
+[2023-12-11 15:25:10,246] [root] [INFO] -> Connection from 106.75.92.190:58130
+[2023-12-11 15:25:17,954] [root] [INFO] -> Connection with 106.75.92.190:58130 closed
+[2023-12-11 15:25:18,241] [root] [INFO] -> Connection from 106.75.92.190:33936
+[2023-12-11 15:25:25,955] [root] [INFO] -> Connection with 106.75.92.190:33936 closed
+[2023-12-11 16:11:21,113] [root] [INFO] -> Connection from 192.241.219.56:48152
+[2023-12-11 16:11:31,113] [root] [INFO] -> Connection with 192.241.219.56:48152 closed
+[2023-12-11 17:02:33,985] [root] [INFO] -> Connection from 87.236.176.82:41007
+[2023-12-11 17:02:39,986] [root] [INFO] -> Connection with 87.236.176.82:41007 closed
+[2023-12-11 17:02:52,068] [root] [INFO] -> Connection from 87.236.176.96:57363
+[2023-12-11 17:03:15,116] [root] [INFO] -> Connection with 87.236.176.96:57363 closed
+[2023-12-11 17:03:27,185] [root] [INFO] -> Connection from 87.236.176.79:44949
+[2023-12-11 17:03:33,185] [root] [INFO] -> Connection with 87.236.176.79:44949 closed
+[2023-12-11 17:03:45,262] [root] [INFO] -> Connection from 87.236.176.106:48343
+[2023-12-11 17:03:51,262] [root] [INFO] -> Connection with 87.236.176.106:48343 closed
+[2023-12-11 17:04:03,328] [root] [INFO] -> Connection from 87.236.176.100:45691
+[2023-12-11 17:04:09,328] [root] [INFO] -> Connection with 87.236.176.100:45691 closed
+[2023-12-11 17:04:21,393] [root] [INFO] -> Connection from 87.236.176.91:46413
+[2023-12-11 17:04:27,393] [root] [INFO] -> Connection with 87.236.176.91:46413 closed
+[2023-12-11 17:04:39,464] [root] [INFO] -> Connection from 87.236.176.107:43977
+[2023-12-11 17:04:45,823] [root] [INFO] -> Connection with 87.236.176.107:43977 closed
+[2023-12-11 17:04:57,593] [root] [INFO] -> Connection from 87.236.176.78:51209
+[2023-12-11 17:05:03,612] [root] [INFO] -> Connection with 87.236.176.78:51209 closed
+[2023-12-11 17:05:15,682] [root] [INFO] -> Connection from 87.236.176.96:50205
+[2023-12-11 17:05:21,684] [root] [INFO] -> Connection with 87.236.176.96:50205 closed
+[2023-12-11 17:05:33,759] [root] [INFO] -> Connection from 87.236.176.80:36381
+[2023-12-11 17:05:39,761] [root] [INFO] -> Connection with 87.236.176.80:36381 closed
+[2023-12-11 17:05:51,826] [root] [INFO] -> Connection from 87.236.176.87:44217
+[2023-12-11 17:05:57,827] [root] [INFO] -> Connection with 87.236.176.87:44217 closed
+[2023-12-11 17:06:09,892] [root] [INFO] -> Connection from 87.236.176.102:50503
+[2023-12-11 17:06:15,893] [root] [INFO] -> Connection with 87.236.176.102:50503 closed
+[2023-12-11 17:06:15,961] [root] [INFO] -> Connection from 87.236.176.102:44513
+[2023-12-11 17:06:18,965] [root] [INFO] -> Connection with 87.236.176.102:44513 closed
+[2023-12-11 17:06:31,044] [root] [INFO] -> Connection from 87.236.176.103:35645
+[2023-12-11 17:06:40,045] [root] [INFO] -> Connection with 87.236.176.103:35645 closed
+[2023-12-11 18:50:04,396] [root] [INFO] -> <SERVER-SET>
+[2023-12-11 18:50:04,396] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:25:28,737] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-13 23:25:28,748] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-13 23:25:28,749] [root] [INFO] -> <SERVER-RISE>
+[2023-12-13 23:25:35,298] [root] [INFO] -> Connection from 192.168.1.1:56387
+[2023-12-13 23:25:37,361] [asyncio] [ERROR] -> Exception in callback ServerProtocol.connection_made(<_ProactorSoc...sport fd=1088>)
+handle: <Handle ServerProtocol.connection_made(<_ProactorSoc...sport fd=1088>)>
+Traceback (most recent call last):
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 644, in connect
+    sock = socket.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PythonFiles\Rannev_Python\Linkeds\DATABASE\database.py", line 21, in __init__
+    self._connection = pymysql.connect(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 358, in __init__
+    self.connect()
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 711, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 39, in connection_made
+    self._connection = ConnectionsHandler(self._transport)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 65, in __init__
+    self.request_handler = RequestHandler(self._transport)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\request_handler.py", line 16, in __init__
+    self.database = Database()
+                    ^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\DATABASE\database.py", line 35, in __init__
+    raise ConnectionError(str(error))
+ConnectionError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)")
+[2023-12-13 23:25:47,226] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:25:47,226] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:26:00,151] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-13 23:26:00,151] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-13 23:26:00,152] [root] [INFO] -> <SERVER-RISE>
+[2023-12-13 23:26:01,974] [root] [INFO] -> Connection from 192.168.1.1:56401
+[2023-12-13 23:26:18,193] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56401
+[2023-12-13 23:26:18,470] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:26:18,470] [root] [INFO] -> For 192.168.1.1:56401: <REGISTRATION-SUCCESS>
+[2023-12-13 23:26:19,999] [root] [INFO] -> Connection with 192.168.1.1:56401 closed
+[2023-12-13 23:27:08,245] [root] [INFO] -> Connection from 192.168.1.1:55350
+[2023-12-13 23:27:15,772] [root] [INFO] -> Connection with 192.168.1.1:55350 closed
+[2023-12-13 23:27:19,984] [root] [INFO] -> Connection from 192.168.1.1:55358
+[2023-12-13 23:27:30,288] [root] [INFO] -> Connection with 192.168.1.1:55358 closed
+[2023-12-13 23:29:20,088] [root] [INFO] -> Connection from 192.168.1.1:55395
+[2023-12-13 23:29:37,033] [root] [INFO] -> Connection with 192.168.1.1:55395 closed
+[2023-12-13 23:30:42,088] [root] [INFO] -> Connection from 192.168.1.1:55417
+[2023-12-13 23:30:44,044] [root] [INFO] -> Connection with 192.168.1.1:55417 closed
+[2023-12-13 23:32:54,475] [root] [INFO] -> Connection from 192.168.1.1:55446
+[2023-12-13 23:33:28,120] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55446
+[2023-12-13 23:33:28,120] [root] [ERROR] -> Not enough values to make INSERT func
+[2023-12-13 23:33:28,120] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:33:28,120] [root] [INFO] -> For 192.168.1.1:55446: <CLOSE-CONNECTION>
+[2023-12-13 23:33:28,121] [root] [INFO] -> Connection with 192.168.1.1:55446 closed
+[2023-12-13 23:33:41,435] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:33:41,435] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:33:42,724] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-13 23:33:42,725] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-13 23:33:42,726] [root] [INFO] -> <SERVER-RISE>
+[2023-12-13 23:33:45,151] [root] [INFO] -> Connection from 192.168.1.1:55464
+[2023-12-13 23:34:03,521] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55464
+[2023-12-13 23:34:04,031] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:34:04,031] [root] [INFO] -> For 192.168.1.1:55464: <REGISTRATION-SUCCESS>
+[2023-12-13 23:34:05,041] [root] [INFO] -> Connection with 192.168.1.1:55464 closed
+[2023-12-13 23:34:30,927] [root] [INFO] -> Connection from 192.168.1.1:55476
+[2023-12-13 23:35:05,846] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55476
+[2023-12-13 23:35:05,847] [root] [ERROR] -> Not enough values to make INSERT func
+[2023-12-13 23:35:05,847] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:35:05,847] [root] [INFO] -> For 192.168.1.1:55476: <CLOSE-CONNECTION>
+[2023-12-13 23:35:05,847] [root] [INFO] -> Connection with 192.168.1.1:55476 closed
+[2023-12-13 23:35:18,082] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:35:18,083] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:36:37,897] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-13 23:36:37,897] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-13 23:36:37,898] [root] [INFO] -> <SERVER-RISE>
+[2023-12-13 23:36:39,436] [root] [INFO] -> Connection from 192.168.1.1:55517
+[2023-12-13 23:36:45,601] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55517
+[2023-12-13 23:36:45,601] [root] [ERROR] -> name 'table_elementsfwef' is not defined
+[2023-12-13 23:36:45,601] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:36:45,601] [root] [INFO] -> For 192.168.1.1:55517: <CLOSE-CONNECTION>
+[2023-12-13 23:36:45,601] [root] [INFO] -> Connection with 192.168.1.1:55517 closed
+[2023-12-13 23:37:05,945] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:37:05,945] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:37:13,399] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-13 23:37:13,400] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-13 23:37:13,401] [root] [INFO] -> <SERVER-RISE>
+[2023-12-13 23:37:16,459] [root] [INFO] -> Connection from 192.168.1.1:55524
+[2023-12-13 23:37:26,288] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55524
+[2023-12-13 23:37:26,571] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:37:26,571] [root] [INFO] -> For 192.168.1.1:55524: <REGISTRATION-SUCCESS>
+[2023-12-13 23:37:27,608] [root] [INFO] -> Connection with 192.168.1.1:55524 closed
+[2023-12-13 23:37:36,143] [root] [INFO] -> Connection from 192.168.1.1:55530
+[2023-12-13 23:37:49,592] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55530
+[2023-12-13 23:37:49,592] [root] [ERROR] -> Not enough values to make INSERT func
+[2023-12-13 23:37:49,592] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:37:49,593] [root] [INFO] -> For 192.168.1.1:55530: <CLOSE-CONNECTION>
+[2023-12-13 23:37:49,593] [root] [INFO] -> Connection with 192.168.1.1:55530 closed
+[2023-12-13 23:42:30,160] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:42:30,160] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:42:33,111] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-13 23:42:33,112] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-13 23:42:33,113] [root] [INFO] -> <SERVER-RISE>
+[2023-12-13 23:42:36,481] [root] [INFO] -> Connection from 192.168.1.1:55601
+[2023-12-13 23:42:44,432] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55601
+[2023-12-13 23:42:44,630] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:42:44,631] [root] [INFO] -> For 192.168.1.1:55601: <REGISTRATION-SUCCESS>
+[2023-12-13 23:42:45,666] [root] [INFO] -> Connection with 192.168.1.1:55601 closed
+[2023-12-13 23:42:51,556] [root] [INFO] -> Connection from 192.168.1.1:55607
+[2023-12-13 23:43:01,791] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55607
+[2023-12-13 23:43:01,791] [root] [ERROR] -> Not enough values to make INSERT func
+[2023-12-13 23:43:01,792] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:43:01,792] [root] [INFO] -> For 192.168.1.1:55607: <CLOSE-CONNECTION>
+[2023-12-13 23:43:01,792] [root] [INFO] -> Connection with 192.168.1.1:55607 closed
+[2023-12-13 23:47:55,749] [root] [INFO] -> Connection from 192.168.1.1:55626
+[2023-12-13 23:47:57,111] [root] [INFO] -> Connection with 192.168.1.1:55626 closed
+[2023-12-13 23:47:58,848] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:47:58,849] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:48:01,036] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-13 23:48:01,037] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-13 23:48:01,038] [root] [INFO] -> <SERVER-RISE>
+[2023-12-13 23:48:02,997] [root] [INFO] -> Connection from 192.168.1.1:55634
+[2023-12-13 23:48:21,191] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55634
+[2023-12-13 23:48:21,464] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:48:21,464] [root] [INFO] -> For 192.168.1.1:55634: <REGISTRATION-SUCCESS>
+[2023-12-13 23:48:22,446] [root] [INFO] -> Connection with 192.168.1.1:55634 closed
+[2023-12-13 23:48:25,970] [root] [INFO] -> Connection from 192.168.1.1:55640
+[2023-12-13 23:48:35,888] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55640
+[2023-12-13 23:48:36,052] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:48:36,053] [root] [INFO] -> For 192.168.1.1:55640: <REGISTRATION-SUCCESS>
+[2023-12-13 23:48:37,066] [root] [INFO] -> Connection with 192.168.1.1:55640 closed
+[2023-12-13 23:50:43,768] [root] [INFO] -> Connection from 192.168.1.1:55655
+[2023-12-13 23:51:07,888] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55655
+[2023-12-13 23:51:08,111] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:51:08,111] [root] [INFO] -> For 192.168.1.1:55655: <REGISTRATION-SUCCESS>
+[2023-12-13 23:51:13,975] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55655
+[2023-12-13 23:51:14,147] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:51:14,147] [root] [INFO] -> For 192.168.1.1:55655: <REGISTRATION-SUCCESS>
+[2023-12-13 23:51:18,351] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55655
+[2023-12-13 23:51:18,519] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:51:18,520] [root] [INFO] -> For 192.168.1.1:55655: <REGISTRATION-SUCCESS>
+[2023-12-13 23:51:20,446] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55655
+[2023-12-13 23:51:20,809] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:51:20,809] [root] [INFO] -> For 192.168.1.1:55655: <REGISTRATION-SUCCESS>
+[2023-12-13 23:51:23,544] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55655
+[2023-12-13 23:51:23,623] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-13 23:51:23,623] [root] [INFO] -> For 192.168.1.1:55655: <REGISTRATION-SUCCESS>
+[2023-12-13 23:51:34,412] [root] [INFO] -> Connection with 192.168.1.1:55655 closed
+[2023-12-13 23:51:37,464] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:51:37,464] [root] [INFO] -> <SERVER-SET>
+[2023-12-13 23:52:20,742] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-13 23:52:20,742] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-13 23:52:20,743] [root] [INFO] -> <SERVER-RISE>
+[2023-12-13 23:52:23,982] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-13 23:52:23,982] [root] [INFO] -> <SERVER-SET>
+[2023-12-16 23:12:42,617] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-16 23:12:42,633] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-16 23:12:42,643] [root] [INFO] -> <SERVER-RISE>
+[2023-12-16 23:12:46,488] [root] [INFO] -> Connection from 192.168.1.1:52866
+[2023-12-16 23:12:48,621] [asyncio] [ERROR] -> Exception in callback ServerProtocol.connection_made(<_ProactorSoc...sport fd=1076>)
+handle: <Handle ServerProtocol.connection_made(<_ProactorSoc...sport fd=1076>)>
+Traceback (most recent call last):
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 644, in connect
+    sock = socket.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PythonFiles\Rannev_Python\Linkeds\DATABASE\database.py", line 21, in __init__
+    self._connection = pymysql.connect(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 358, in __init__
+    self.connect()
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 711, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 39, in connection_made
+    self._connection = ConnectionsHandler(self._transport)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 65, in __init__
+    self.request_handler = RequestHandler(self._transport)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\request_handler.py", line 16, in __init__
+    self.database = Database()
+                    ^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\DATABASE\database.py", line 35, in __init__
+    raise ConnectionError(str(error))
+ConnectionError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)")
+[2023-12-16 23:13:23,093] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-16 23:13:23,093] [root] [INFO] -> <SERVER-SET>
+[2023-12-16 23:13:25,785] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-16 23:13:25,785] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-16 23:13:25,786] [root] [INFO] -> <SERVER-RISE>
+[2023-12-16 23:13:35,332] [root] [INFO] -> Connection from 192.168.1.1:52882
+[2023-12-16 23:13:44,243] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:52882
+[2023-12-16 23:13:44,624] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:13:44,624] [root] [INFO] -> For 192.168.1.1:52882: <REGISTRATION-SUCCESS>
+[2023-12-16 23:13:51,111] [root] [INFO] -> Connection with 192.168.1.1:52882 closed
+[2023-12-16 23:13:54,844] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-16 23:13:54,844] [root] [INFO] -> <SERVER-SET>
+[2023-12-16 23:13:56,717] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-16 23:13:56,718] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-16 23:13:56,719] [root] [INFO] -> <SERVER-RISE>
+[2023-12-16 23:13:58,450] [root] [INFO] -> Connection from 192.168.1.1:52893
+[2023-12-16 23:14:08,841] [root] [INFO] -> Connection with 192.168.1.1:52893 closed
+[2023-12-16 23:15:41,953] [root] [INFO] -> Connection from 192.168.1.1:52911
+[2023-12-16 23:15:45,402] [root] [INFO] -> Connection with 192.168.1.1:52911 closed
+[2023-12-16 23:16:11,759] [root] [INFO] -> Connection from 192.168.1.1:52917
+[2023-12-16 23:16:15,265] [root] [INFO] -> Connection with 192.168.1.1:52917 closed
+[2023-12-16 23:19:33,878] [root] [INFO] -> Connection from 192.168.1.1:52952
+[2023-12-16 23:19:37,965] [root] [INFO] -> Connection with 192.168.1.1:52952 closed
+[2023-12-16 23:19:51,005] [root] [INFO] -> Connection from 192.168.1.1:52959
+[2023-12-16 23:19:53,820] [root] [INFO] -> Connection with 192.168.1.1:52959 closed
+[2023-12-16 23:20:05,906] [root] [INFO] -> Connection from 192.168.1.1:52966
+[2023-12-16 23:20:08,469] [root] [INFO] -> Connection with 192.168.1.1:52966 closed
+[2023-12-16 23:20:27,007] [root] [INFO] -> Connection from 192.168.1.1:52976
+[2023-12-16 23:20:33,720] [root] [INFO] -> Connection with 192.168.1.1:52976 closed
+[2023-12-16 23:21:25,539] [root] [INFO] -> Connection from 192.168.1.1:52992
+[2023-12-16 23:21:32,651] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:52992
+[2023-12-16 23:21:32,819] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:21:32,820] [root] [INFO] -> For 192.168.1.1:52992: <REGISTRATION-SUCCESS>
+[2023-12-16 23:21:36,204] [root] [INFO] -> Connection with 192.168.1.1:52992 closed
+[2023-12-16 23:21:41,165] [root] [INFO] -> Connection from 192.168.1.1:53002
+[2023-12-16 23:21:52,555] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53002
+[2023-12-16 23:21:52,872] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:21:52,873] [root] [INFO] -> For 192.168.1.1:53002: <REGISTRATION-SUCCESS>
+[2023-12-16 23:21:54,929] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53002
+[2023-12-16 23:21:55,087] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:21:55,088] [root] [INFO] -> For 192.168.1.1:53002: <REGISTRATION-SUCCESS>
+[2023-12-16 23:21:57,144] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53002
+[2023-12-16 23:21:57,303] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:21:57,303] [root] [INFO] -> For 192.168.1.1:53002: <REGISTRATION-SUCCESS>
+[2023-12-16 23:22:05,466] [root] [INFO] -> Connection with 192.168.1.1:53002 closed
+[2023-12-16 23:27:19,928] [root] [INFO] -> Connection from 192.168.1.1:53046
+[2023-12-16 23:27:28,850] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53046
+[2023-12-16 23:27:29,184] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:27:29,184] [root] [INFO] -> For 192.168.1.1:53046: <REGISTRATION-SUCCESS>
+[2023-12-16 23:27:30,328] [root] [INFO] -> Connection with 192.168.1.1:53046 closed
+[2023-12-16 23:27:44,597] [root] [INFO] -> Connection from 192.168.1.1:53058
+[2023-12-16 23:27:51,877] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53058
+[2023-12-16 23:27:51,949] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:27:51,949] [root] [INFO] -> For 192.168.1.1:53058: <REGISTRATION-SUCCESS>
+[2023-12-16 23:27:52,076] [root] [INFO] -> Connection with 192.168.1.1:53058 closed
+[2023-12-16 23:29:43,526] [root] [INFO] -> Connection from 192.168.1.1:53076
+[2023-12-16 23:29:45,155] [root] [INFO] -> Connection with 192.168.1.1:53076 closed
+[2023-12-16 23:29:52,638] [root] [INFO] -> Connection from 192.168.1.1:53085
+[2023-12-16 23:29:58,926] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53085
+[2023-12-16 23:29:58,996] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:29:58,996] [root] [INFO] -> For 192.168.1.1:53085: <REGISTRATION-SUCCESS>
+[2023-12-16 23:30:23,079] [root] [INFO] -> Connection with 192.168.1.1:53085 closed
+[2023-12-16 23:30:30,432] [root] [INFO] -> Connection from 192.168.1.1:53094
+[2023-12-16 23:30:39,344] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53094
+[2023-12-16 23:30:39,423] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:30:39,423] [root] [INFO] -> For 192.168.1.1:53094: <REGISTRATION-SUCCESS>
+[2023-12-16 23:31:02,702] [root] [INFO] -> Connection with 192.168.1.1:53094 closed
+[2023-12-16 23:31:03,895] [root] [INFO] -> Connection from 192.168.1.1:53100
+[2023-12-16 23:31:09,794] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53100
+[2023-12-16 23:31:10,092] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:31:10,093] [root] [INFO] -> For 192.168.1.1:53100: <REGISTRATION-SUCCESS>
+[2023-12-16 23:31:11,238] [root] [INFO] -> Connection with 192.168.1.1:53100 closed
+[2023-12-16 23:31:18,397] [root] [INFO] -> Connection from 192.168.1.1:53109
+[2023-12-16 23:31:24,900] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53109
+[2023-12-16 23:31:25,101] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:31:25,102] [root] [INFO] -> For 192.168.1.1:53109: <REGISTRATION-SUCCESS>
+[2023-12-16 23:31:25,227] [root] [INFO] -> Connection with 192.168.1.1:53109 closed
+[2023-12-16 23:31:44,356] [root] [INFO] -> Connection from 192.168.1.1:53117
+[2023-12-16 23:31:50,588] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53117
+[2023-12-16 23:31:50,750] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:31:50,750] [root] [INFO] -> For 192.168.1.1:53117: <REGISTRATION-SUCCESS>
+[2023-12-16 23:31:50,857] [root] [INFO] -> Connection with 192.168.1.1:53117 closed
+[2023-12-16 23:32:13,463] [root] [INFO] -> Connection from 192.168.1.1:53122
+[2023-12-16 23:32:19,649] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53122
+[2023-12-16 23:32:19,808] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:32:19,808] [root] [INFO] -> For 192.168.1.1:53122: <REGISTRATION-SUCCESS>
+[2023-12-16 23:32:20,924] [root] [INFO] -> Connection with 192.168.1.1:53122 closed
+[2023-12-16 23:32:24,410] [root] [INFO] -> Connection from 192.168.1.1:53131
+[2023-12-16 23:32:32,254] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53131
+[2023-12-16 23:32:32,472] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:32:32,472] [root] [INFO] -> For 192.168.1.1:53131: <REGISTRATION-SUCCESS>
+[2023-12-16 23:32:32,592] [root] [INFO] -> Connection with 192.168.1.1:53131 closed
+[2023-12-16 23:33:38,254] [root] [INFO] -> Connection from 192.168.1.1:53147
+[2023-12-16 23:33:44,569] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53147
+[2023-12-16 23:33:44,727] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:33:44,728] [root] [INFO] -> For 192.168.1.1:53147: <REGISTRATION-SUCCESS>
+[2023-12-16 23:34:12,122] [root] [INFO] -> Connection with 192.168.1.1:53147 closed
+[2023-12-16 23:34:58,296] [root] [INFO] -> Connection from 192.168.1.1:53160
+[2023-12-16 23:35:04,144] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53160
+[2023-12-16 23:35:04,311] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:35:04,311] [root] [INFO] -> For 192.168.1.1:53160: <REGISTRATION-SUCCESS>
+[2023-12-16 23:35:09,314] [root] [INFO] -> Connection with 192.168.1.1:53160 closed
+[2023-12-16 23:35:12,218] [root] [INFO] -> Connection from 192.168.1.1:53169
+[2023-12-16 23:35:15,424] [root] [INFO] -> Connection with 192.168.1.1:53169 closed
+[2023-12-16 23:35:50,477] [root] [INFO] -> Connection from 141.98.7.36:21007
+[2023-12-16 23:36:22,803] [root] [INFO] -> Connection with 141.98.7.36:21007 closed
+[2023-12-16 23:36:34,788] [root] [INFO] -> Connection from 192.168.1.1:53184
+[2023-12-16 23:36:42,328] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53184
+[2023-12-16 23:36:42,493] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:36:42,493] [root] [INFO] -> For 192.168.1.1:53184: <REGISTRATION-SUCCESS>
+[2023-12-16 23:36:53,722] [root] [INFO] -> Connection with 192.168.1.1:53184 closed
+[2023-12-16 23:37:42,123] [root] [INFO] -> Connection from 192.168.1.1:53191
+[2023-12-16 23:37:48,959] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53191
+[2023-12-16 23:37:49,124] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:37:49,124] [root] [INFO] -> For 192.168.1.1:53191: <REGISTRATION-SUCCESS>
+[2023-12-16 23:37:52,331] [root] [INFO] -> Connection with 192.168.1.1:53191 closed
+[2023-12-16 23:38:47,871] [root] [INFO] -> Connection from 192.168.1.1:53254
+[2023-12-16 23:38:50,080] [root] [INFO] -> Connection with 192.168.1.1:53254 closed
+[2023-12-16 23:38:54,361] [root] [INFO] -> Connection from 192.168.1.1:53263
+[2023-12-16 23:39:04,376] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53263
+[2023-12-16 23:39:04,684] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:39:04,684] [root] [INFO] -> For 192.168.1.1:53263: <REGISTRATION-SUCCESS>
+[2023-12-16 23:41:38,778] [root] [INFO] -> Connection with 192.168.1.1:53263 closed
+[2023-12-16 23:41:42,022] [root] [INFO] -> Connection from 192.168.1.1:53274
+[2023-12-16 23:41:48,039] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53274
+[2023-12-16 23:41:48,361] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:41:48,361] [root] [INFO] -> For 192.168.1.1:53274: <REGISTRATION-SUCCESS>
+[2023-12-16 23:41:56,824] [root] [INFO] -> Connection with 192.168.1.1:53274 closed
+[2023-12-16 23:43:18,044] [root] [INFO] -> Connection from 192.168.1.1:53290
+[2023-12-16 23:43:24,687] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53290
+[2023-12-16 23:43:24,845] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:43:24,845] [root] [INFO] -> For 192.168.1.1:53290: <REGISTRATION-SUCCESS>
+[2023-12-16 23:43:27,489] [root] [INFO] -> Connection with 192.168.1.1:53290 closed
+[2023-12-16 23:45:17,890] [root] [INFO] -> Connection from 192.168.1.1:53309
+[2023-12-16 23:45:25,095] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53309
+[2023-12-16 23:45:25,261] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:45:25,262] [root] [INFO] -> For 192.168.1.1:53309: <REGISTRATION-SUCCESS>
+[2023-12-16 23:45:26,615] [root] [INFO] -> Connection with 192.168.1.1:53309 closed
+[2023-12-16 23:46:02,965] [root] [INFO] -> Connection from 192.168.1.1:53325
+[2023-12-16 23:46:11,774] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53325
+[2023-12-16 23:46:11,945] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:46:11,946] [root] [INFO] -> For 192.168.1.1:53325: <REGISTRATION-SUCCESS>
+[2023-12-16 23:46:14,488] [root] [INFO] -> Connection with 192.168.1.1:53325 closed
+[2023-12-16 23:47:11,171] [root] [INFO] -> Connection from 192.168.1.1:53334
+[2023-12-16 23:47:17,622] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53334
+[2023-12-16 23:47:17,986] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:47:17,986] [root] [INFO] -> For 192.168.1.1:53334: <REGISTRATION-SUCCESS>
+[2023-12-16 23:47:20,264] [root] [INFO] -> Connection with 192.168.1.1:53334 closed
+[2023-12-16 23:49:43,477] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-16 23:49:43,477] [root] [INFO] -> <SERVER-SET>
+[2023-12-16 23:50:00,818] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-16 23:50:00,819] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-16 23:50:00,820] [root] [INFO] -> <SERVER-RISE>
+[2023-12-16 23:50:20,122] [root] [INFO] -> Connection from 192.168.1.1:53357
+[2023-12-16 23:50:26,437] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53357
+[2023-12-16 23:50:26,516] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:50:26,516] [root] [INFO] -> For 192.168.1.1:53357: <REGISTRATION-SUCCESS>
+[2023-12-16 23:50:29,297] [root] [INFO] -> Connection with 192.168.1.1:53357 closed
+[2023-12-16 23:57:46,282] [root] [INFO] -> Connection from 192.168.1.1:53412
+[2023-12-16 23:57:52,052] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53412
+[2023-12-16 23:57:52,211] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:57:52,211] [root] [INFO] -> For 192.168.1.1:53412: <REGISTRATION-SUCCESS>
+[2023-12-16 23:57:55,421] [root] [INFO] -> Connection with 192.168.1.1:53412 closed
+[2023-12-16 23:58:16,881] [root] [INFO] -> Connection from 192.168.1.1:53422
+[2023-12-16 23:58:23,205] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53422
+[2023-12-16 23:58:23,357] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-16 23:58:23,358] [root] [INFO] -> For 192.168.1.1:53422: <REGISTRATION-SUCCESS>
+[2023-12-16 23:58:25,726] [root] [INFO] -> Connection with 192.168.1.1:53422 closed
+[2023-12-16 23:58:26,732] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-16 23:58:26,732] [root] [INFO] -> <SERVER-SET>
+[2023-12-16 23:58:27,695] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-16 23:58:27,696] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-16 23:58:27,697] [root] [INFO] -> <SERVER-RISE>
+[2023-12-17 00:01:20,617] [root] [INFO] -> Connection from 192.168.1.1:53453
+[2023-12-17 00:01:29,523] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53453
+[2023-12-17 00:01:29,707] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:01:29,707] [root] [INFO] -> For 192.168.1.1:53453: <REGISTRATION-SUCCESS>
+[2023-12-17 00:01:34,207] [root] [INFO] -> Connection with 192.168.1.1:53453 closed
+[2023-12-17 00:01:45,004] [root] [INFO] -> Connection from 192.168.1.1:53463
+[2023-12-17 00:01:52,405] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53463
+[2023-12-17 00:01:52,575] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:01:52,577] [root] [INFO] -> For 192.168.1.1:53463: <REGISTRATION-SUCCESS>
+[2023-12-17 00:01:55,233] [root] [INFO] -> Connection with 192.168.1.1:53463 closed
+[2023-12-17 00:03:02,351] [root] [INFO] -> Connection from 192.168.1.1:53473
+[2023-12-17 00:03:08,020] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53473
+[2023-12-17 00:03:08,346] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:03:08,346] [root] [INFO] -> For 192.168.1.1:53473: <REGISTRATION-SUCCESS>
+[2023-12-17 00:03:11,009] [root] [INFO] -> Connection with 192.168.1.1:53473 closed
+[2023-12-17 00:08:36,642] [root] [INFO] -> Connection from 192.168.1.1:53522
+[2023-12-17 00:08:45,116] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53522
+[2023-12-17 00:08:45,287] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:08:45,287] [root] [INFO] -> For 192.168.1.1:53522: <REGISTRATION-SUCCESS>
+[2023-12-17 00:08:46,975] [root] [INFO] -> Connection with 192.168.1.1:53522 closed
+[2023-12-17 00:09:09,595] [root] [INFO] -> Connection from 192.168.1.1:53532
+[2023-12-17 00:09:15,694] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53532
+[2023-12-17 00:09:15,875] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:09:15,875] [root] [INFO] -> For 192.168.1.1:53532: <REGISTRATION-SUCCESS>
+[2023-12-17 00:09:16,011] [root] [INFO] -> Connection with 192.168.1.1:53532 closed
+[2023-12-17 00:10:23,964] [root] [INFO] -> Connection from 192.168.1.1:53540
+[2023-12-17 00:10:32,718] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53540
+[2023-12-17 00:10:32,883] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:10:32,883] [root] [INFO] -> For 192.168.1.1:53540: <REGISTRATION-SUCCESS>
+[2023-12-17 00:11:21,075] [root] [INFO] -> Connection with 192.168.1.1:53540 closed
+[2023-12-17 00:12:01,459] [root] [INFO] -> Connection from 192.168.1.1:53554
+[2023-12-17 00:12:04,777] [root] [INFO] -> Connection from 51.15.75.86:49374
+[2023-12-17 00:12:07,775] [root] [INFO] -> Connection with 51.15.75.86:49374 closed
+[2023-12-17 00:12:08,306] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53554
+[2023-12-17 00:12:08,455] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:12:08,456] [root] [INFO] -> For 192.168.1.1:53554: <REGISTRATION-SUCCESS>
+[2023-12-17 00:12:10,896] [root] [INFO] -> Connection with 192.168.1.1:53554 closed
+[2023-12-17 00:13:55,571] [root] [INFO] -> Connection from 192.168.1.1:53574
+[2023-12-17 00:13:57,693] [root] [INFO] -> Connection with 192.168.1.1:53574 closed
+[2023-12-17 00:14:15,084] [root] [INFO] -> Connection from 192.168.1.1:53584
+[2023-12-17 00:14:21,741] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53584
+[2023-12-17 00:14:21,939] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:14:21,939] [root] [INFO] -> For 192.168.1.1:53584: <REGISTRATION-SUCCESS>
+[2023-12-17 00:16:19,395] [root] [INFO] -> Connection with 192.168.1.1:53584 closed
+[2023-12-17 00:16:23,749] [root] [INFO] -> Connection from 192.168.1.1:53596
+[2023-12-17 00:16:30,035] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53596
+[2023-12-17 00:16:30,344] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:16:30,344] [root] [INFO] -> For 192.168.1.1:53596: <REGISTRATION-SUCCESS>
+[2023-12-17 00:16:40,109] [root] [INFO] -> Connection with 192.168.1.1:53596 closed
+[2023-12-17 00:16:52,651] [root] [INFO] -> Connection from 192.168.1.1:53604
+[2023-12-17 00:16:58,689] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53604
+[2023-12-17 00:16:58,850] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:16:58,850] [root] [INFO] -> For 192.168.1.1:53604: <REGISTRATION-SUCCESS>
+[2023-12-17 00:17:01,035] [root] [INFO] -> Connection with 192.168.1.1:53604 closed
+[2023-12-17 00:18:17,931] [root] [INFO] -> Connection from 192.168.1.1:53615
+[2023-12-17 00:18:24,265] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53615
+[2023-12-17 00:18:24,447] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:18:24,448] [root] [INFO] -> For 192.168.1.1:53615: <REGISTRATION-SUCCESS>
+[2023-12-17 00:18:27,010] [root] [INFO] -> Connection with 192.168.1.1:53615 closed
+[2023-12-17 00:18:27,468] [root] [INFO] -> Connection from 192.168.1.1:53621
+[2023-12-17 00:18:28,576] [root] [INFO] -> Connection with 192.168.1.1:53621 closed
+[2023-12-17 00:18:39,986] [root] [INFO] -> Connection from 192.168.1.1:53628
+[2023-12-17 00:18:48,385] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53628
+[2023-12-17 00:18:48,556] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:18:48,556] [root] [INFO] -> For 192.168.1.1:53628: <REGISTRATION-SUCCESS>
+[2023-12-17 00:18:50,905] [root] [INFO] -> Connection with 192.168.1.1:53628 closed
+[2023-12-17 00:18:59,779] [root] [INFO] -> Connection from 192.168.1.1:53634
+[2023-12-17 00:19:05,393] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53634
+[2023-12-17 00:19:05,559] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:19:05,559] [root] [INFO] -> For 192.168.1.1:53634: <REGISTRATION-SUCCESS>
+[2023-12-17 00:19:14,859] [root] [INFO] -> Connection with 192.168.1.1:53634 closed
+[2023-12-17 00:19:26,172] [root] [INFO] -> Connection from 192.168.1.1:53639
+[2023-12-17 00:19:32,025] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53639
+[2023-12-17 00:19:32,123] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:19:32,123] [root] [INFO] -> For 192.168.1.1:53639: <REGISTRATION-SUCCESS>
+[2023-12-17 00:19:34,861] [root] [INFO] -> Connection with 192.168.1.1:53639 closed
+[2023-12-17 00:20:42,328] [root] [INFO] -> Connection from 192.168.1.1:53647
+[2023-12-17 00:20:49,465] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53647
+[2023-12-17 00:20:49,633] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:20:49,633] [root] [INFO] -> For 192.168.1.1:53647: <REGISTRATION-SUCCESS>
+[2023-12-17 00:20:55,572] [root] [INFO] -> Connection with 192.168.1.1:53647 closed
+[2023-12-17 00:21:27,529] [root] [INFO] -> Connection from 192.168.1.1:53657
+[2023-12-17 00:21:33,921] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53657
+[2023-12-17 00:21:34,204] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:21:34,204] [root] [INFO] -> For 192.168.1.1:53657: <REGISTRATION-SUCCESS>
+[2023-12-17 00:21:35,843] [root] [INFO] -> Connection with 192.168.1.1:53657 closed
+[2023-12-17 00:21:47,597] [root] [INFO] -> Connection from 192.168.1.1:53664
+[2023-12-17 00:21:53,490] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53664
+[2023-12-17 00:21:53,744] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:21:53,744] [root] [INFO] -> For 192.168.1.1:53664: <REGISTRATION-SUCCESS>
+[2023-12-17 00:21:55,962] [root] [INFO] -> Connection with 192.168.1.1:53664 closed
+[2023-12-17 00:22:49,114] [root] [INFO] -> Connection from 192.168.1.1:53672
+[2023-12-17 00:22:55,081] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53672
+[2023-12-17 00:22:55,235] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:22:55,235] [root] [INFO] -> For 192.168.1.1:53672: <REGISTRATION-SUCCESS>
+[2023-12-17 00:22:57,418] [root] [INFO] -> Connection with 192.168.1.1:53672 closed
+[2023-12-17 00:23:38,251] [root] [INFO] -> Connection from 192.168.1.1:53685
+[2023-12-17 00:23:45,609] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53685
+[2023-12-17 00:23:45,765] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:23:45,766] [root] [INFO] -> For 192.168.1.1:53685: <REGISTRATION-SUCCESS>
+[2023-12-17 00:23:47,761] [root] [INFO] -> Connection with 192.168.1.1:53685 closed
+[2023-12-17 00:24:03,911] [root] [INFO] -> Connection from 192.168.1.1:53696
+[2023-12-17 00:24:10,162] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:53696
+[2023-12-17 00:24:10,331] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-17 00:24:10,331] [root] [INFO] -> For 192.168.1.1:53696: <REGISTRATION-SUCCESS>
+[2023-12-17 00:24:12,716] [root] [INFO] -> Connection with 192.168.1.1:53696 closed
+[2023-12-17 00:24:14,585] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-17 00:24:14,585] [root] [INFO] -> <SERVER-SET>
+[2023-12-18 19:49:19,874] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-18 19:49:19,889] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-18 19:49:19,896] [root] [INFO] -> <SERVER-RISE>
+[2023-12-18 19:49:25,804] [root] [INFO] -> Connection from 192.168.1.1:63215
+[2023-12-18 19:49:37,608] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63215
+[2023-12-18 19:49:37,951] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 19:49:37,951] [root] [INFO] -> For 192.168.1.1:63215: <REGISTRATION-SUCCESS>
+[2023-12-18 19:49:42,699] [root] [INFO] -> Connection with 192.168.1.1:63215 closed
+[2023-12-18 19:50:21,626] [root] [INFO] -> Connection from 192.168.1.1:63253
+[2023-12-18 19:50:27,273] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63253
+[2023-12-18 19:50:27,449] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 19:50:27,450] [root] [INFO] -> For 192.168.1.1:63253: <REGISTRATION-SUCCESS>
+[2023-12-18 19:50:29,450] [root] [INFO] -> Connection with 192.168.1.1:63253 closed
+[2023-12-18 19:50:59,831] [root] [INFO] -> Connection from 192.168.1.1:63276
+[2023-12-18 19:51:05,232] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63276
+[2023-12-18 19:51:05,308] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 19:51:05,309] [root] [INFO] -> For 192.168.1.1:63276: <REGISTRATION-SUCCESS>
+[2023-12-18 19:51:07,050] [root] [INFO] -> Connection with 192.168.1.1:63276 closed
+[2023-12-18 19:55:07,894] [root] [INFO] -> Connection from 192.168.1.1:63333
+[2023-12-18 19:55:14,216] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63333
+[2023-12-18 19:55:14,383] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 19:55:14,383] [root] [INFO] -> For 192.168.1.1:63333: <REGISTRATION-SUCCESS>
+[2023-12-18 19:55:15,901] [root] [INFO] -> Connection with 192.168.1.1:63333 closed
+[2023-12-18 19:55:24,530] [root] [INFO] -> Connection from 192.168.1.1:63346
+[2023-12-18 19:55:31,795] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63346
+[2023-12-18 19:55:31,894] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 19:55:31,894] [root] [INFO] -> For 192.168.1.1:63346: <REGISTRATION-SUCCESS>
+[2023-12-18 19:55:32,021] [root] [INFO] -> Connection with 192.168.1.1:63346 closed
+[2023-12-18 19:55:55,884] [root] [INFO] -> Connection from 192.168.1.1:63358
+[2023-12-18 19:56:02,024] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63358
+[2023-12-18 19:56:02,205] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 19:56:02,205] [root] [INFO] -> For 192.168.1.1:63358: <REGISTRATION-SUCCESS>
+[2023-12-18 19:56:05,702] [root] [INFO] -> Connection with 192.168.1.1:63358 closed
+[2023-12-18 19:58:10,840] [root] [INFO] -> Connection from 192.168.1.1:63380
+[2023-12-18 19:58:17,047] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63380
+[2023-12-18 19:58:17,199] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 19:58:17,199] [root] [INFO] -> For 192.168.1.1:63380: <REGISTRATION-SUCCESS>
+[2023-12-18 19:58:19,198] [root] [INFO] -> Connection with 192.168.1.1:63380 closed
+[2023-12-18 19:58:55,859] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-18 19:58:55,859] [root] [INFO] -> <SERVER-SET>
+[2023-12-18 20:03:57,898] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-18 20:03:57,898] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-18 20:03:57,899] [root] [INFO] -> <SERVER-RISE>
+[2023-12-18 20:04:05,161] [root] [INFO] -> Connection from 192.168.1.1:63483
+[2023-12-18 20:04:10,703] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63483
+[2023-12-18 20:04:10,943] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 20:04:10,944] [root] [INFO] -> For 192.168.1.1:63483: <REGISTRATION-SUCCESS>
+[2023-12-18 20:04:22,424] [root] [INFO] -> Connection with 192.168.1.1:63483 closed
+[2023-12-18 20:04:24,960] [root] [INFO] -> Connection from 192.168.1.1:63496
+[2023-12-18 20:04:31,719] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63496
+[2023-12-18 20:04:31,876] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 20:04:31,877] [root] [INFO] -> For 192.168.1.1:63496: <REGISTRATION-SUCCESS>
+[2023-12-18 20:04:34,420] [root] [INFO] -> Connection with 192.168.1.1:63496 closed
+[2023-12-18 20:04:47,693] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-18 20:04:47,694] [root] [INFO] -> <SERVER-SET>
+[2023-12-18 20:10:38,973] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-18 20:10:38,974] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-18 20:10:38,975] [root] [INFO] -> <SERVER-RISE>
+[2023-12-18 20:10:41,058] [root] [INFO] -> Connection from 192.168.1.1:63571
+[2023-12-18 20:10:46,645] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63571
+[2023-12-18 20:10:46,842] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 20:10:46,842] [root] [INFO] -> For 192.168.1.1:63571: <REGISTRATION-SUCCESS>
+[2023-12-18 20:10:51,182] [root] [INFO] -> Connection with 192.168.1.1:63571 closed
+[2023-12-18 20:12:49,342] [root] [INFO] -> Connection from 192.168.1.1:63596
+[2023-12-18 20:12:55,293] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63596
+[2023-12-18 20:12:55,464] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 20:12:55,466] [root] [INFO] -> For 192.168.1.1:63596: <REGISTRATION-SUCCESS>
+[2023-12-18 20:12:59,813] [root] [INFO] -> Connection with 192.168.1.1:63596 closed
+[2023-12-18 20:24:12,017] [root] [INFO] -> Connection from 192.168.1.1:63706
+[2023-12-18 20:24:19,107] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:63706
+[2023-12-18 20:24:19,293] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-18 20:24:19,293] [root] [INFO] -> For 192.168.1.1:63706: <REGISTRATION-SUCCESS>
+[2023-12-18 20:24:23,284] [root] [INFO] -> Connection with 192.168.1.1:63706 closed
