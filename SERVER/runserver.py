@@ -95,17 +95,16 @@ class ConnectionsHandler(Thread, ServerProtocol):
         logging.info(msg=f'Reguest {self.usable_data.get("method")} status')
         logging.info(msg=f'For {self._addr[0]}:{self._addr[1]}: {status.get("method")}')
 
-    def send_request(self, data):
+    def send_request(self, data) -> None:
         self._transport.write(pickle.dumps(data) + b"<END>")
 
-    def close_connection(self):
+    def close_connection(self) -> None:
         self._transport.close()
 
     def connection_lost(self, exc: Exception | None) -> None:
-        """
-        Connection lost
-        """
         logging.info(msg=f'Connection with {self._addr[0]}:{self._addr[1]} closed')
+        if exc is not None:
+            logging.info(msg=f'Error from Client App: {str(exc)}')
         del CONNECTIONS[self._addr]
         del self
 

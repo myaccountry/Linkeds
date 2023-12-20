@@ -8,6 +8,10 @@ class Database:
     Class Database with standard requests to mysql using python
     Such as - SELECT; INSERT; DELETE; UPDATE; CREATE
     """
+    DATA_CONFIGURES = {
+        'User': User,
+        'Social': Social
+    }
 
     elements = User()
     social_elements = Social()
@@ -176,18 +180,28 @@ class Database:
         return f"Deleted data from table:`{table_name}` where {criterion}:'{id}'"
 
     def registrate_user(self, user_data):
-
-        user_data_config = User()
-        user_data_config.set_exist_items(user_data)
-        user_data = user_data_config.__dict__
+        user_data = self.configure_data(user_data, 'User')
         self.insert(table_name='user', subject_values=user_data)
 
         user_id = self.select(
             table_name='user', id=user_data.get('login'), subject='id', criterion='login')[0].get('id')
 
-        user_social_config = Social()
-        user_social_config.set_exist_items({'id': user_id})
-        user_social_data = user_social_config.__dict__
+        user_social_data = self.configure_data({'id': user_id}, 'Social')
         self.insert(table_name='social', subject_values=user_social_data)
 
         return self.select(table_name='user', id=user_id)[0]
+
+    def configure_data(self, data: dict | None = None, config: str | None = None) -> dict:
+        """
+        Adding missing elements of data using class.__dict__
+        """
+        data_config = self.DATA_CONFIGURES.get(config)()
+        data_config.set_exist_items(data)
+        return data_config.__dict__
+
+    def login_exist(self, login: str) -> bool:
+        logins = self.select(table_name='user', subject='login')
+        for el in logins:
+            if el.get('login') == login:
+                return True
+        return False
