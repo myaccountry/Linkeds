@@ -64,9 +64,9 @@ class User:
         if not cls.alphabet(data):
             return 'Использованы запрещенные знаки!\nРазрешенные: "a-z", "A-Z", "0-9", "_!@#$%&()"'
         if len(data) < 3:
-            return 'Пароль должен быть хотя бы из 3 символов!'
+            return 'Логин должен быть хотя бы из 3 символов!'
         if len(data) > 25:
-            return 'Пароль не должен превышать 25 символов!'
+            return 'Логин не должен превышать 25 символов!'
         return '<SUCCESS>'
 
     @classmethod
@@ -108,6 +108,4 @@ class User:
 
 
 if __name__ == '__main__':
-    user = User('Ivankov', 'iva123456', 'ivachan2011@gmail.com')
-    print(user)
-    print('ok')
+    ...

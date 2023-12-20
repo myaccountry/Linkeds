@@ -1494,3 +1494,225 @@ ConnectionError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError
 [2023-12-18 23:33:14,959] [root] [INFO] -> Connection with 192.168.1.1:64560 closed
 [2023-12-18 23:33:16,449] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
 [2023-12-18 23:33:16,449] [root] [INFO] -> <SERVER-SET>
+[2023-12-20 17:35:16,075] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-20 17:35:16,082] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-20 17:35:16,088] [root] [INFO] -> <SERVER-RISE>
+[2023-12-20 17:35:21,320] [root] [INFO] -> Connection from 192.168.1.1:49823
+[2023-12-20 17:35:23,409] [asyncio] [ERROR] -> Exception in callback ServerProtocol.connection_made(<_ProactorSoc...sport fd=1128>)
+handle: <Handle ServerProtocol.connection_made(<_ProactorSoc...sport fd=1128>)>
+Traceback (most recent call last):
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 644, in connect
+    sock = socket.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PythonFiles\Rannev_Python\Linkeds\DATABASE\database.py", line 21, in __init__
+    self._connection = pymysql.connect(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 358, in __init__
+    self.connect()
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 711, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 39, in connection_made
+    self._connection = ConnectionsHandler(self._transport)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 65, in __init__
+    self.request_handler = RequestHandler(self._transport)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\request_handler.py", line 16, in __init__
+    self.database = Database()
+                    ^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\DATABASE\database.py", line 35, in __init__
+    raise ConnectionError(str(error))
+ConnectionError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)")
+[2023-12-20 17:35:24,383] [asyncio] [ERROR] -> Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 158, in _call_connection_lost
+    self._protocol.connection_lost(exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 48, in connection_lost
+    self._connection.connection_lost(exc=exc)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'connection_lost'
+[2023-12-20 17:35:30,747] [root] [INFO] -> Connection from 192.168.1.1:49831
+[2023-12-20 17:35:32,786] [asyncio] [ERROR] -> Exception in callback ServerProtocol.connection_made(<_ProactorSoc...sport fd=1020>)
+handle: <Handle ServerProtocol.connection_made(<_ProactorSoc...sport fd=1020>)>
+Traceback (most recent call last):
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 644, in connect
+    sock = socket.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PythonFiles\Rannev_Python\Linkeds\DATABASE\database.py", line 21, in __init__
+    self._connection = pymysql.connect(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 358, in __init__
+    self.connect()
+  File "C:\Users\eqorr\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pymysql\connections.py", line 711, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 39, in connection_made
+    self._connection = ConnectionsHandler(self._transport)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 65, in __init__
+    self.request_handler = RequestHandler(self._transport)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\request_handler.py", line 16, in __init__
+    self.database = Database()
+                    ^^^^^^^^^^
+  File "D:\PythonFiles\Rannev_Python\Linkeds\DATABASE\database.py", line 35, in __init__
+    raise ConnectionError(str(error))
+ConnectionError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)")
+[2023-12-20 17:35:37,982] [asyncio] [ERROR] -> Exception in callback _ProactorReadPipeTransport._loop_reading(<_OverlappedF...ed result=264>)
+handle: <Handle _ProactorReadPipeTransport._loop_reading(<_OverlappedF...ed result=264>)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 324, in _loop_reading
+    self._data_received(data, length)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 274, in _data_received
+    self._protocol.data_received(data)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 45, in data_received
+    self._connection.data_received(data=data)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'data_received'
+[2023-12-20 17:35:51,707] [asyncio] [ERROR] -> Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 158, in _call_connection_lost
+    self._protocol.connection_lost(exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 48, in connection_lost
+    self._connection.connection_lost(exc=exc)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'connection_lost'
+[2023-12-20 17:35:52,958] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-20 17:35:52,958] [root] [INFO] -> <SERVER-SET>
+[2023-12-20 17:36:23,840] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-20 17:36:23,840] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-20 17:36:23,842] [root] [INFO] -> <SERVER-RISE>
+[2023-12-20 17:36:25,735] [root] [INFO] -> Connection from 192.168.1.1:62120
+[2023-12-20 17:36:33,262] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62120
+[2023-12-20 17:36:33,647] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-20 17:36:33,647] [root] [INFO] -> For 192.168.1.1:62120: <REGISTRATION-SUCCESS>
+[2023-12-20 17:39:14,955] [root] [INFO] -> Connection with 192.168.1.1:62120 closed
+[2023-12-20 17:39:19,756] [root] [INFO] -> Connection from 192.168.1.1:62183
+[2023-12-20 17:39:29,094] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:62183
+[2023-12-20 17:39:29,337] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-20 17:39:29,337] [root] [INFO] -> For 192.168.1.1:62183: <REGISTRATION-SUCCESS>
+[2023-12-20 17:41:25,527] [root] [INFO] -> Connection with 192.168.1.1:62183 closed
+[2023-12-20 18:28:59,649] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-20 18:28:59,650] [root] [INFO] -> <SERVER-SET>
+[2023-12-20 18:29:22,842] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-20 18:29:22,842] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-20 18:29:22,843] [root] [INFO] -> <SERVER-RISE>
+[2023-12-20 18:29:24,966] [root] [INFO] -> Connection from 192.168.1.1:55971
+[2023-12-20 18:29:43,633] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55971
+[2023-12-20 18:29:43,847] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-20 18:29:43,847] [root] [INFO] -> For 192.168.1.1:55971: <REGISTRATION-SUCCESS>
+[2023-12-20 18:30:19,824] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:55971
+[2023-12-20 18:30:20,269] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-20 18:30:20,269] [root] [INFO] -> For 192.168.1.1:55971: <REGISTRATION-SUCCESS>
+[2023-12-20 18:31:40,167] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-20 18:31:40,168] [root] [INFO] -> <SERVER-SET>
+[2023-12-20 18:31:44,527] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-20 18:31:44,527] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-20 18:31:44,528] [root] [INFO] -> <SERVER-RISE>
+[2023-12-20 18:31:47,308] [root] [INFO] -> Connection from 192.168.1.1:56052
+[2023-12-20 18:32:00,265] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56052
+[2023-12-20 18:32:00,361] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-20 18:32:00,361] [root] [INFO] -> For 192.168.1.1:56052: <REGISTRATION-SUCCESS>
+[2023-12-20 18:32:45,553] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-20 18:32:45,553] [root] [INFO] -> <SERVER-SET>
+[2023-12-20 18:32:46,737] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-20 18:32:46,738] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-20 18:32:46,739] [root] [INFO] -> <SERVER-RISE>
+[2023-12-20 18:32:50,679] [root] [INFO] -> Connection from 192.168.1.1:56090
+[2023-12-20 18:33:05,841] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56090
+[2023-12-20 18:33:05,843] [root] [ERROR] -> 'list' object has no attribute 'values'
+[2023-12-20 18:33:05,843] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-20 18:33:05,843] [root] [INFO] -> For 192.168.1.1:56090: <CLOSE-CONNECTION>
+[2023-12-20 18:33:05,843] [root] [INFO] -> Connection with 192.168.1.1:56090 closed
+[2023-12-20 18:35:04,270] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-20 18:35:04,270] [root] [INFO] -> <SERVER-SET>
+[2023-12-20 18:35:07,039] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-20 18:35:07,040] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-20 18:35:07,040] [root] [INFO] -> <SERVER-RISE>
+[2023-12-20 18:35:11,377] [root] [INFO] -> Connection from 192.168.1.1:56159
+[2023-12-20 18:35:27,459] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56159
+[2023-12-20 18:35:27,460] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-20 18:35:27,460] [root] [INFO] -> For 192.168.1.1:56159: <REGISTRATION-DENIED>
+[2023-12-20 18:38:29,460] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-20 18:38:29,461] [root] [INFO] -> <SERVER-SET>
+[2023-12-20 18:38:33,873] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-20 18:38:33,874] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-20 18:38:33,875] [root] [INFO] -> <SERVER-RISE>
+[2023-12-20 18:38:35,639] [root] [INFO] -> Connection from 192.168.1.1:56214
+[2023-12-20 18:38:53,114] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56214
+[2023-12-20 18:38:53,115] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-20 18:38:53,115] [root] [INFO] -> For 192.168.1.1:56214: <REGISTRATION-DENIED>
+[2023-12-20 18:39:21,675] [root] [INFO] -> Connection with 192.168.1.1:56214 closed
+[2023-12-20 18:39:23,512] [root] [INFO] -> Connection from 192.168.1.1:56235
+[2023-12-20 18:39:35,331] [root] [INFO] -> Received request <REGISTRATION> from 192.168.1.1:56235
+[2023-12-20 18:39:35,334] [root] [INFO] -> Reguest <REGISTRATION> status
+[2023-12-20 18:39:35,334] [root] [INFO] -> For 192.168.1.1:56235: <REGISTRATION-DENIED>
+[2023-12-20 18:39:40,121] [root] [INFO] -> Received request <LOGIN> from 192.168.1.1:56235
+[2023-12-20 18:39:40,122] [root] [INFO] -> Reguest <LOGIN> status
+[2023-12-20 18:39:40,122] [root] [INFO] -> For 192.168.1.1:56235: <LOGIN-SUCCESS>
+[2023-12-20 18:39:59,337] [root] [INFO] -> Received request <LOGIN> from 192.168.1.1:56235
+[2023-12-20 18:39:59,339] [root] [INFO] -> Reguest <LOGIN> status
+[2023-12-20 18:39:59,339] [root] [INFO] -> For 192.168.1.1:56235: <LOGIN-DENIED>
+[2023-12-20 18:40:02,417] [root] [INFO] -> Connection with 192.168.1.1:56235 closed
+[2023-12-20 18:41:06,591] [root] [INFO] -> Connection from 192.168.1.1:56261
+[2023-12-20 18:41:25,113] [root] [INFO] -> Received request <LOGIN> from 192.168.1.1:56261
+[2023-12-20 18:41:25,114] [root] [INFO] -> Reguest <LOGIN> status
+[2023-12-20 18:41:25,114] [root] [INFO] -> For 192.168.1.1:56261: <LOGIN-DENIED>
+[2023-12-20 18:41:40,673] [root] [INFO] -> Received request <LOGIN> from 192.168.1.1:56261
+[2023-12-20 18:41:40,675] [root] [INFO] -> Reguest <LOGIN> status
+[2023-12-20 18:41:40,675] [root] [INFO] -> For 192.168.1.1:56261: <LOGIN-DENIED>
+[2023-12-20 18:41:43,129] [root] [INFO] -> Connection with 192.168.1.1:56261 closed
+[2023-12-20 18:43:19,151] [root] [INFO] -> Connection from 192.168.1.1:56333
+[2023-12-20 18:43:37,390] [root] [INFO] -> Connection with 192.168.1.1:56333 closed
+[2023-12-20 18:43:41,300] [root] [INFO] -> Connection from 192.168.1.1:56347
+[2023-12-20 18:43:53,113] [root] [INFO] -> Connection with 192.168.1.1:56347 closed
+[2023-12-20 18:44:19,271] [root] [INFO] -> Connection from 192.168.1.1:56361
+[2023-12-20 18:44:50,243] [root] [INFO] -> Connection with 192.168.1.1:56361 closed
+[2023-12-20 18:45:51,664] [root] [INFO] -> Connection from 192.168.1.1:56400
+[2023-12-20 18:46:01,665] [root] [INFO] -> Connection with 192.168.1.1:56400 closed
+[2023-12-20 18:46:32,716] [root] [INFO] -> Connection from 192.168.1.1:56428
+[2023-12-20 18:46:53,438] [root] [INFO] -> Connection with 192.168.1.1:56428 closed
+[2023-12-20 18:46:53,438] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-20 18:48:02,186] [root] [INFO] -> Connection from 192.168.1.1:56475
+[2023-12-20 18:48:27,455] [root] [INFO] -> Connection with 192.168.1.1:56475 closed
+[2023-12-20 18:55:19,563] [root] [INFO] -> Connection from 192.168.1.1:56581
+[2023-12-20 18:55:24,957] [root] [INFO] -> Connection with 192.168.1.1:56581 closed

@@ -62,6 +62,9 @@ class InputLabel(ComplimentWidget):
     def setText(self, text: str = '') -> None:
         self.label.setText(text)
 
+    def setInputText(self, text: str = '') -> None:
+        self.input.setText(text)
+
     def text(self) -> str:
         return self.input.text()
 

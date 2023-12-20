@@ -15,15 +15,21 @@ class RequestHandler:
         self._main_work = main_work
 
     @staticmethod
-    def form_request(method, data):
+    def form_request(method: str, data: dict) -> dict:
+        """
+        Format of request -> {
+            method: str
+            data: dict
+        }
+        <- standard request: dict
+        """
         return {'method': method, 'data': data}
 
     def call_method(self, data) -> None:
         method = self.methods.get(data.get('method'))
-        data['method'] = method
         getattr(self, method)(data)
         signal = self._main_work.client_window.form_signal(
-            method=method, data=data.get('data'))
+            method=getattr(self._main_work.client_window, method), data=data.get('data'))
         signal.emit()
 
     def close_connection(self) -> None:
@@ -32,8 +38,14 @@ class RequestHandler:
     def send_request(self, data) -> None:
         self._transport.write(pickle.dumps(data) + b"<END>")
 
-    def registration_success(self, data=None):
+    def registration_success(self, data=None) -> None:
         ...
 
-    def registration_denied(self, data=None):
+    def registration_denied(self, data=None) -> None:
+        ...
+
+    def login_success(self, data=None) -> None:
+        ...
+
+    def login_denied(self, data=None) -> None:
         ...

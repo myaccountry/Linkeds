@@ -27,8 +27,14 @@ class ClientProtocol(Protocol):
 
     def connection_lost(self, exc: Exception | None) -> None:
         print('Connection lost')
+        if exc is not None:
+            print(str(exc))
 
     def data_received(self, data: bytes) -> None:
+        """
+        Receive data until b'<END>' in message
+        Saves data and sending to handler
+        """
         self.current_data += data
 
         if b'<END>' in self.current_data:
@@ -37,12 +43,22 @@ class ClientProtocol(Protocol):
             self.usable_data = pickle.loads(self.usable_data)
             self.handler.call_method(self.usable_data)
 
-    def send_request(self, data):
+    def send_request(self, data: dict):
+        """
+        Request format: data: dict = {'method'}
+        """
         self._transport.write(pickle.dumps(data) + b"<END>")
 
     def close_connection(self):
+        """
+        Close connection with server via transport
+        """
         self._transport.close()
 
     @staticmethod
     def exit_app():
+        """
+        Close working main thread
+        via closing loop of client protocol
+        """
         self._main_work.loop.close()

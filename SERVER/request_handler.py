@@ -24,7 +24,32 @@ class RequestHandler:
         needed_data = data.get('data')
         return getattr(self, self.methods.get(data.get('method')))(needed_data)
 
-    def registration(self, data):
+    def registration(self, data) -> dict:
         user_data = data.get('user_data')
+        user_login = user_data.get('login')
+        if self.database.login_exist(user_login):
+            return self.form_request('<REGISTRATION-DENIED>', {'reason': 'Такой логин уже существует!'})
+        user_data = self.database.configure_data(user_data, 'User')
+        user_data['ip'] = self.addr[0]
         registered_data = self.database.registrate_user(user_data)
         return self.form_request('<REGISTRATION-SUCCESS>', {'registered_data': registered_data})
+
+    def login(self, data) -> dict:
+        user_data = data.get('user_data')
+        user_login = user_data.get('login')
+        if not self.database.login_exist(user_login):
+            return self.form_request('<LOGIN-DENIED>', {'reason': 'Такого логина не существует!'})
+        user_password = user_data.get('password')
+        actual_password = self.database.select(
+            table_name='user', id=user_login, subject='password', criterion='login')[0].get('password')
+        if user_password != actual_password:
+            return self.form_request('<LOGIN-DENIED>', {'reason': 'Неправильный пароль!'})
+        user_data = self.database.select(
+            table_name='user', id=user_login, criterion='login')[0]
+        return self.form_request('<LOGIN-SUCCESS>', {'user_data': user_data})
+
+    def online(self, data):
+        ...
+
+    def offline(self, data):
+        ...

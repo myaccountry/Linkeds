@@ -64,7 +64,6 @@ QLineEdit#StandardLineEdit{
     border: 1px solid #262D37;
     border-radius: 3px;
     font-size: 15px;
-    padding: 5px;
     background: #f6f6f6;
 }
 QLineEdit:hover#StandardLineEdit {

@@ -38,11 +38,6 @@ class WelcomeWindow(StandardWidget):
         """
         super().__init__()
         self.main_work = main_work
-        methods = ['registration_success']
-        self.signals = {}
-        for method in methods:
-            self.signals[method] = getattr(self, method)
-        self.fast_data = None
 
         self.theme = 'DARK'
         self.form = 'REG'
@@ -50,7 +45,7 @@ class WelcomeWindow(StandardWidget):
 
         self.init_images()
 
-        self.setWindowTitle("Регистрация")
+        self.setWindowTitle("Linkeds - Регистрация")
         self.setWindowIcon(QtGui.QIcon(self.logo_image))
 
         self.init_ui()
@@ -152,7 +147,7 @@ class WelcomeWindow(StandardWidget):
     def changeForm(self, form):
         if form == 'REG':
             self.email_label.hide()
-            self.setWindowTitle('Вход в Аккаунт')
+            self.setWindowTitle('Linkeds - Вход в Аккаунт')
             self.logReg_button.setText('Войти в Аккаунт')
             self.logReg_button.disconnect()
             self.logReg_button.clicked.connect(self.login)
@@ -162,7 +157,7 @@ class WelcomeWindow(StandardWidget):
 
         if form == 'LOG':
             self.email_label.show()
-            self.setWindowTitle('Регистрация')
+            self.setWindowTitle('Linkeds - Регистрация')
             self.logReg_button.setText('Зарегистрироваться')
             self.logReg_button.disconnect()
             self.logReg_button.clicked.connect(self.registration)
@@ -192,10 +187,21 @@ class WelcomeWindow(StandardWidget):
 
     @staticmethod
     def hash_data(data) -> str:
+        """
+        -> data: str
+        <- hexdigest hash data: str
+        """
         return hashlib.sha512(data.encode('utf-8')).hexdigest()
 
     @staticmethod
-    def form_request(method, data) -> dict:
+    def form_request(method: str = '<CHECK-CONNECTION>', data: dict = {'<NO-DATA>': '<NO-DATA>'}) -> dict:
+        """
+        Format of request -> {
+            method: str
+            data: dict
+        }
+        <- standard request: dict
+        """
         return {'method': method, 'data': data}
 
     def registration(self):
@@ -208,6 +214,9 @@ class WelcomeWindow(StandardWidget):
             user = User(login, password, email)
         except ValueError as error:
             msgBox.information('Предупреждение', str(error))
+            self.login_label.setInputText()
+            self.password_label.setInputText()
+            self.email_label.setInputText()
             return
 
         hash_password = self.hash_data(password)
@@ -225,6 +234,8 @@ class WelcomeWindow(StandardWidget):
             user = User(login, password)
         except ValueError as error:
             msgBox.information('Предупреждение', str(error))
+            self.login_label.setInputText()
+            self.password_label.setInputText()
             return
 
         hash_password = self.hash_data(password)
@@ -240,19 +251,23 @@ class WelcomeWindow(StandardWidget):
         self.login_success(data)
 
     @pyqtSlot()
-    def regsitration_denied(self, data):
-        ...
+    def registration_denied(self, data):
+        msgBox = StandardMessageBox(self.logo_image)
+        msgBox.information('Информация', data.get('reason'))
 
     @pyqtSlot()
     def login_success(self, data):
-        print(data)
+        msgBox = StandardMessageBox(self.logo_image)
+        msgBox.information('Информация', 'Вы успешно вошли в свой аккаунт!')
+
+        user_data = data.get('user_data')
 
     @pyqtSlot()
     def login_denied(self, data):
-        ...
+        msgBox = StandardMessageBox(self.logo_image)
+        msgBox.information('Информация', data.get('reason'))
 
     def form_signal(self, method, data=None):
-        method = self.signals.get(method)
         self.signal_handler = SignalHandler()
         self.signal_handler.signal.connect(functools.partial(method, data))
         return self.signal_handler.signal
@@ -261,3 +276,51 @@ class WelcomeWindow(StandardWidget):
         self.hide()
         self.main_work.protocol.close_connection()
         self.main_work.protocol.exit_app()
+
+
+class AppWindow(QtWidgets.QMainWindow):
+
+    def __init__(self, main_work, user_data):
+        super().__init__()
+
+        self.main_work = main_work
+        self.user_data = user_data
+
+        self.init_images()
+
+        self.setWindowTitle('Linkeds - Гланый Экран')
+        self.setWindowIcon(QtGui.QIcon(self.logo_image))
+
+        self.init_gui()
+
+    def init_images(self) -> None:
+        path = str(pathlib.Path().resolve()) + "\\IMAGES"
+        self.logo_image = QtGui.QPixmap(f"{path}\\icon_photo.png")
+        self.chat_dark = QtGui.QIcon(f"{path}\\chat_dark.png")
+        self.chat_light = QtGui.QIcon(f"{path}\\chat_light.png")
+        self.theme_dark = QtGui.QIcon(f"{path}\\theme_dark.png")
+        self.theme_light = QtGui.QIcon(f"{path}\\theme_light.png")
+        self.friends_dark = QtGui.QIcon(f"{path}\\add_user_dark.png")
+        self.friends_light = QtGui.QIcon(f"{path}\\add_user_light.png")
+        self.profile_light = QtGui.QIcon(f"{path}\\home_light.png")
+        self.profile_dark = QtGui.QIcon(f"{path}\\home_dark.png")
+        self.settings_light = QtGui.QIcon(f"{path}\\settings_light.png")
+        self.settings_dark = QtGui.QIcon(f"{path}\\settings_dark.png")
+        self.exit_light = QtGui.QIcon(f"{path}\\exit_light.png")
+        self.exit_dark = QtGui.QIcon(f"{path}\\exit_dark.png")
+        self.hideMenu_light = QtGui.QIcon(f"{path}\\hide_menu_light.png")
+        self.hideMenu_dark = QtGui.QIcon(f"{path}\\hide_menu_dark.png")
+        self.showMenu_light = QtGui.QIcon(f"{path}\\show_menu_light.png")
+        self.showMenu_dark = QtGui.QIcon(f"{path}\\show_menu_dark.png")
+
+        try:
+            static = open("images/pfp_image.png", 'rb')
+            static.close()
+            self.userPfp_image = QtGui.QPixmap("images/pfp_image.png").scaled(180, 180)
+            self.userPfp_image = self.round_image(self.userPfp_image)
+        except FileNotFoundError:
+            self.userPfp_image = QtGui.QPixmap("images/pfp_image_standard.png").scaled(180, 180)
+            self.userPfp_image = self.round_image(self.userPfp_image)
+
+    def init_gui(self) -> None:
+        ...
