@@ -1,3 +1,4 @@
+import pickle
 import sys
 import pathlib
 import hashlib
@@ -7,20 +8,23 @@ from threading import Thread
 from LinkedsMain.CLIENT.CFIE import User
 from PyQt6 import QtWidgets, QtCore, QtGui, QtMultimediaWidgets, QtMultimedia
 from PyQt6.QtCore import pyqtSlot
-from LinkedsMain.CUSTOM_WIDGETS.custom_buttons import StandardButton, BorderlessButton, DangerButton
+from LinkedsMain.CUSTOM_WIDGETS.custom_buttons import StandardButton, BorderlessButton, DangerButton, MenuButton, \
+    MenuExitButton
 from LinkedsMain.CUSTOM_WIDGETS.custom_widgets import StandardWidget, MainWindowWidget
-from LinkedsMain.CUSTOM_WIDGETS.custom_labels import StandardLabel, PixmapLabel, HeadingLabel, InputLabel
+from LinkedsMain.CUSTOM_WIDGETS.custom_labels import StandardLabel, PixmapLabel, HeadingLabel, InputLabel, \
+    ClickableLabel
 from LinkedsMain.CUSTOM_WIDGETS.custom_message_boxes import StandardMessageBox
 from LinkedsMain.CUSTOM_WIDGETS.custom_line_edit import StandardLineEdit
+from LinkedsMain.CUSTOM_WIDGETS.custom_layouts import StandardHLayout, StandardVLayout, LayoutWidget
 
 if __name__ == '__main__':
     print('Do not run from NotMain application')
     exit()
 
 style_path = str(pathlib.Path().resolve()) + "\\CUSTOM_WIDGETS\\STYLES"
-with open(f'{style_path}\\dark_theme.css', 'r') as style:
+with open(f'{style_path}\\dark_theme.сss', 'r') as style:
     DARK_THEME_STYLE = style.read()
-with open(f'{style_path}\\light_theme.css', 'r') as style:
+with open(f'{style_path}\\light_theme.сss', 'r') as style:
     LIGHT_THEME_STYLE = style.read()
 
 
@@ -105,14 +109,11 @@ class WelcomeWindow(StandardWidget):
         self.userData_widget.setLayout(self.userData_layout)
         self.login_label = InputLabel("Логин")
         self.login_label.setPlaceholderText("Введите логин...")
-        self.login_label.setMinimumHeight(30)
         self.password_label = InputLabel("Пароль")
         self.password_label.setPlaceholderText("Введите пароль...")
         self.password_label.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
-        self.password_label.setMinimumHeight(30)
         self.email_label = InputLabel("Эл.Почта")
         self.email_label.setPlaceholderText("Введите эл.почту...")
-        self.email_label.setMinimumHeight(30)
 
         self.userData_layout.addWidget(self.login_label)
         self.userData_layout.addWidget(self.password_label)
@@ -261,6 +262,9 @@ class WelcomeWindow(StandardWidget):
         msgBox.information('Информация', 'Вы успешно вошли в свой аккаунт!')
 
         user_data = data.get('user_data')
+        self.main_work.app_window = AppWindow(self.main_work, user_data)
+        self.destroy()
+        self.main_work.app_window.show()
 
     @pyqtSlot()
     def login_denied(self, data):
@@ -274,22 +278,29 @@ class WelcomeWindow(StandardWidget):
 
     def closeEvent(self, a0) -> None:
         self.hide()
-        self.main_work.protocol.close_connection()
-        self.main_work.protocol.exit_app()
+        raise KeyboardInterrupt('GUI closed')
 
 
 class AppWindow(QtWidgets.QMainWindow):
 
     def __init__(self, main_work, user_data):
         super().__init__()
-
-        self.main_work = main_work
         self.user_data = user_data
+        self.main_work = main_work
+
+        self.theme = 'DARK'
+        self.setStyleSheet(DARK_THEME_STYLE)
+        self.setObjectName('MainWindowWidget')
+        self.auto_login(True)
 
         self.init_images()
 
-        self.setWindowTitle('Linkeds - Гланый Экран')
+        self.setWindowTitle('Linkeds - Главный Экран')
         self.setWindowIcon(QtGui.QIcon(self.logo_image))
+        self.setMinimumSize(600, 450)
+        self.resize(1200, 700)
+
+        self.menu_buttons_config = {'profile': ...}
 
         self.init_gui()
 
@@ -323,4 +334,303 @@ class AppWindow(QtWidgets.QMainWindow):
             self.userPfp_image = self.round_image(self.userPfp_image)
 
     def init_gui(self) -> None:
-        ...
+        print(self.user_data)
+        self.widget = StandardWidget()
+        self.setCentralWidget(self.widget)
+        self.layout = StandardHLayout()
+        self.widget.setLayout(self.layout)
+
+        # -- MENU --- RISE --
+        self.menu_widget = LayoutWidget(orientation=True)
+        self.menu_widget.setFixedWidth(185)
+        self.menu_widget.setObjectName('StandardWidget')
+
+        self.logo_label = StandardLabel()
+        self.logo_label.setPixmap(self.logo_image.scaled(125, 125))
+        self.logo_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
+
+        self.menuButtons_widget = LayoutWidget(orientation=True)
+
+        self.profile_button = MenuButton('Профиль')
+        self.profile_button.setIcon(self.profile_light)
+        self.profile_button.clicked.connect(lambda: self.changeWindowFrame('PROFILE'))
+
+        self.messenger_button = MenuButton('Мессенджер')
+        self.messenger_button.setIcon(self.chat_light)
+        self.messenger_button.clicked.connect(lambda: self.changeWindowFrame('MESSENGER'))
+
+        self.friends_button = MenuButton('Друзья')
+        self.friends_button.setIcon(self.friends_light)
+        self.friends_button.clicked.connect(lambda: self.changeWindowFrame('FRIENDS'))
+
+        self.settings_button = MenuButton('Настройки')
+        self.settings_button.setIcon(self.settings_light)
+        self.settings_button.clicked.connect(lambda: self.changeWindowFrame('SETTINGS'))
+
+        self.exit_button = MenuExitButton('Разлогиниться')
+        self.exit_button.setIcon(self.exit_light)
+        self.exit_button.clicked.connect(self.logout)
+
+        self.menuButtons_widget.addSpacing(25)
+        self.menuButtons_widget.addWidget(self.profile_button)
+        self.menuButtons_widget.addSpacing(25)
+        self.menuButtons_widget.addStretch(2)
+        self.menuButtons_widget.addWidget(self.messenger_button)
+        self.menuButtons_widget.addSpacing(25)
+        self.menuButtons_widget.addStretch(2)
+        self.menuButtons_widget.addWidget(self.friends_button)
+        self.menuButtons_widget.addSpacing(25)
+        self.menuButtons_widget.addStretch(2)
+        self.menuButtons_widget.addWidget(self.settings_button)
+        self.menuButtons_widget.addSpacing(25)
+
+        self.menu_widget.addWidget(self.logo_label)
+        self.menu_widget.addWidget(self.menuButtons_widget)
+        self.menu_widget.addStretch(1)
+        self.menu_widget.addWidget(self.exit_button)
+        # -- MENU --- END --
+
+        # -- WINDOW --- RISE --
+        self.windowFrame_widget = LayoutWidget()
+
+        # -- PROFILE --- RISE --
+        self.profile_widget = LayoutWidget()
+        self.profile_widget.setStyleSheet('MainWindowWidget')
+
+        self.profilePfp_label = StandardLabel()
+        self.profilePfp_label.setPixmap(self.userPfp_image)
+        self.profilePfp_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
+        self.profilePfp_label.mousePressEvent = self.changePfp
+
+        self.profileInfo_widget = LayoutWidget(orientation=False)
+        self.profileInfoId_label = StandardLabel(f'ID: {self.user_data.get("id")}')
+        self.profileInfoLogin_label = StandardLabel(f'Login: {self.user_data.get("login")}')
+        self.profileInfoId_label.setObjectName('BorderLabel')
+        self.profileInfoLogin_label.setObjectName('BorderLabel')
+        self.profileInfo_widget.setObjectName('FrameWidget')
+        self.profileInfo_widget.addWidget(self.profileInfoId_label)
+        self.profileInfo_widget.addWidget(self.profileInfoLogin_label)
+
+        self.profileMainInfo_widget = LayoutWidget(orientation=True)
+
+        self.profileMainInfoName_widget = LayoutWidget(orientation=False)
+        self.name_input = StandardLineEdit('Введите новое имя...')
+        self.confirmName_button = StandardButton('OK')
+        self.profileName = StandardLabel(f'Имя: {self.user_data.get("name")}')
+        self.profileName.setObjectName('BorderLabel')
+        self.profileName.mousePressEvent = self.changeNameForm
+        self.profileMainInfoName_widget.addWidget(self.name_input)
+        self.profileMainInfoName_widget.addWidget(self.confirmName_button)
+        self.profileMainInfoName_widget.addWidget(self.profileName)
+        self.name_input.hide()
+        self.confirmName_button.hide()
+
+        self.profileMainInfoStatus_widget = LayoutWidget(orientation=False)
+        self.status_input = StandardLineEdit('Введите новый статус...')
+        self.confirmStatus_button = StandardButton('OK')
+        self.profileStatus = StandardLabel(f'Статус: {self.user_data.get("status")}')
+        self.profileStatus.setObjectName('BorderLabel')
+        self.profileStatus.mousePressEvent = self.changeStatusForm
+        self.profileMainInfoStatus_widget.addWidget(self.status_input)
+        self.profileMainInfoStatus_widget.addWidget(self.confirmStatus_button)
+        self.profileMainInfoStatus_widget.addWidget(self.profileStatus)
+        self.status_input.hide()
+        self.confirmStatus_button.hide()
+
+        self.profileMainInfo_widget.addWidget(self.profileMainInfoName_widget)
+        self.profileMainInfo_widget.addWidget(self.profileMainInfoStatus_widget)
+
+        self.profile_widget.addWidget(self.profileInfo_widget)
+        self.profile_widget.addWidget(self.profilePfp_label)
+        self.profile_widget.addWidget(self.profileMainInfo_widget)
+        self.profile_widget.addStretch(1)
+        # -- PROFILE --- END --
+
+        # -- MESSENGER --- RISE --
+        self.messenger_widget = LayoutWidget()
+        # -- MESSENGER --- END --
+
+        # -- FRIENDS --- RISE --
+        self.friends_widget = LayoutWidget()
+        # -- FRIENDS --- END --
+
+        # -- SETTINGS --- RISE --
+        self.settings_widget = LayoutWidget()
+        # -- SETTINGS --- END --
+
+        self.windowFrame_widget.addWidget(self.profile_widget)
+        self.windowFrame_widget.addWidget(self.messenger_widget)
+        self.windowFrame_widget.addWidget(self.friends_widget)
+        self.windowFrame_widget.addWidget(self.settings_widget)
+        self.changeWindowFrame('PROFILE')
+        # -- WINDOW --- END --
+
+        self.context_menu = QtWidgets.QMenu(self)
+        self.context_menu.setObjectName('StandardMenu')
+        # MAKE STYLE SHEET
+        action1 = self.context_menu.addAction("Сменить тему")
+        action2 = self.context_menu.addAction("Закрыть приложение")
+
+        action1.triggered.connect(lambda: self.action1_triggered(self.theme))
+        action2.triggered.connect(self.action2_triggered)
+
+        self.layout.addWidget(self.menu_widget)
+        self.layout.addWidget(self.profile_widget)
+        self.widget.show()
+
+    def changeWindowFrame(self, frame):
+        if frame == 'PROFILE':
+            for widget in (self.profile_widget, self.messenger_widget, self.friends_widget, self.settings_widget):
+                widget.hide()
+            self.profile_widget.show()
+        if frame == 'MESSENGER':
+            for widget in (self.profile_widget, self.messenger_widget, self.friends_widget, self.settings_widget):
+                widget.hide()
+            self.messenger_widget.show()
+        if frame == 'FRIENDS':
+            for widget in (self.profile_widget, self.messenger_widget, self.friends_widget, self.settings_widget):
+                widget.hide()
+            self.friends_widget.show()
+        if frame == 'SETTINGS':
+            for widget in (self.profile_widget, self.messenger_widget, self.friends_widget, self.settings_widget):
+                widget.hide()
+            self.settings_widget.show()
+
+    def changeNameForm(self, *args, **kwargs):
+        self.name_input.show()
+        self.confirmName_button.show()
+        self.profileName.hide()
+        self.confirmName_button.disconnect()
+        self.confirmName_button.clicked.connect(self.changeName)
+
+    def changeName(self):
+        msgBox = StandardMessageBox(self.logo_image)
+        try:
+            login = self.user_data.get('login')
+            user = User(login=login, name=self.name_input.text())
+        except ValueError as error:
+            msgBox.information('Предупреждение', str(error))
+            self.profileName.show()
+            self.name_input.hide()
+            self.confirmName_button.hide()
+            return
+
+        self.user_data['name'] = self.name_input.text()
+        self.profileName.setText(f'Имя: {self.user_data.get("name")}')
+        self.profileName.show()
+        self.name_input.hide()
+        self.confirmName_button.hide()
+
+    def changeStatusForm(self, *args, **kwargs):
+        self.status_input.show()
+        self.confirmStatus_button.show()
+        self.profileStatus.hide()
+        self.confirmStatus_button.disconnect()
+        self.confirmStatus_button.clicked.connect(self.changeStatus)
+
+    def changeStatus(self):
+        msgBox = StandardMessageBox(self.logo_image)
+        try:
+            login = self.user_data.get('login')
+            user = User(login=login, status=self.status_input.text())
+        except ValueError as error:
+            msgBox.information('Предупреждение', str(error))
+            self.profileStatus.show()
+            self.status_input.hide()
+            self.confirmStatus_button.hide()
+            return
+
+        self.user_data['status'] = self.status_input.text()
+        self.profileStatus.setText(f'Статус: {self.user_data.get("status")}')
+        self.profileStatus.show()
+        self.status_input.hide()
+        self.confirmStatus_button.hide()
+
+    def changePfp(self, *args, **kwargs):
+        file_name, file_type = QtWidgets.QFileDialog.getOpenFileName(
+            self, "Выбрать файл", ".",
+            "JPEG Files(*.jpeg);;PNG Files(*.png);;")
+
+        image_bytes = b""
+        with open(file_name, 'rb') as image:
+            image_bytes += image.read()
+
+        with open("images/pfp_image.png", 'wb') as image:
+            image.write(image_bytes)
+
+        self.userPfp_image = QtGui.QPixmap(file_name).scaled(180, 180)
+        self.userPfp_image = self.round_image(self.userPfp_image)
+        self.profilePfp_label.setPixmap(self.userPfp_image)
+
+    def contextMenuEvent(self, event) -> None:
+        self.context_menu.exec(event.globalPos())
+
+    def action1_triggered(self, theme):
+        if theme == 'DARK':
+            self.setStyleSheet(LIGHT_THEME_STYLE)
+            self.profile_button.setIcon(self.profile_dark)
+            self.messenger_button.setIcon(self.chat_dark)
+            self.friends_button.setIcon(self.friends_dark)
+            self.settings_button.setIcon(self.settings_dark)
+            self.exit_button.setIcon(self.exit_dark)
+            self.theme = 'LIGHT'
+
+        if theme == 'LIGHT':
+            self.setStyleSheet(DARK_THEME_STYLE)
+            self.profile_button.setIcon(self.profile_light)
+            self.messenger_button.setIcon(self.chat_light)
+            self.friends_button.setIcon(self.friends_light)
+            self.settings_button.setIcon(self.settings_light)
+            self.exit_button.setIcon(self.exit_light)
+            self.theme = 'DARK'
+
+    def action2_triggered(self):
+        self.close()
+
+    def auto_login(self, activate):
+        if activate:
+            path = str(pathlib.Path().resolve()) + "\\CACHE"
+            with open(path + '\\auto_login.txt', 'wb') as file:
+                file.write(b"True\n" + pickle.dumps(self.user_data))
+        if not activate:
+            path = str(pathlib.Path().resolve()) + "\\CACHE"
+            with open(path + '\\auto_login.txt', 'wb') as file:
+                file.write(b"False\n")
+
+    @staticmethod
+    def round_image(image) -> QtGui.QPixmap:
+        rounded = QtGui.QPixmap(image.size())
+        rounded.fill(QtGui.QColor("transparent"))
+        painter = QtGui.QPainter(rounded)
+        painter.setBrush(QtGui.QBrush(image))
+        painter.drawRoundedRect(image.rect(), 100, 100)
+        return rounded
+
+    @staticmethod
+    def hash_data(data) -> str:
+        """
+        -> data: str
+        <- hexdigest hash data: str
+        """
+        return hashlib.sha512(data.encode('utf-8')).hexdigest()
+
+    @staticmethod
+    def form_request(method: str = '<CHECK-CONNECTION>', data: dict = {'<NO-DATA>': '<NO-DATA>'}) -> dict:
+        """
+        Format of request -> {
+            method: str
+            data: dict
+        }
+        <- standard request: dict
+        """
+        return {'method': method, 'data': data}
+
+    def logout(self):
+        self.auto_login(False)
+        self.hide()
+        raise KeyboardInterrupt('GUI closed')
+
+    def closeEvent(self, a0) -> None:
+        self.auto_login(True)
+        self.hide()
+        raise KeyboardInterrupt('GUI closed')

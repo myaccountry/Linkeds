@@ -28,6 +28,7 @@ class RequestHandler:
     def call_method(self, data) -> None:
         method = self.methods.get(data.get('method'))
         getattr(self, method)(data)
+        print(data)
         signal = self._main_work.client_window.form_signal(
             method=getattr(self._main_work.client_window, method), data=data.get('data'))
         signal.emit()
@@ -48,4 +49,7 @@ class RequestHandler:
         ...
 
     def login_denied(self, data=None) -> None:
+        ...
+
+    def change_user_data(self, data=None) -> None:
         ...

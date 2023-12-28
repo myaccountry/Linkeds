@@ -3,16 +3,21 @@ import re
 
 class User:
 
-    def __init__(self, login, password, email=None):
+    def __init__(self, login, password=None, email=None, name=None, status=None):
         self.methods = {}
         for key, value in User.__dict__.items():
             if key[:2] != '__' and key[-2:] != '__':
                 self.methods[f"<{key.upper().replace('_', '-')}>"] = key
 
         self.login = login
-        self.password = password
+        if password is not None:
+            self.password = password
         if email is not None:
             self.email = email
+        if name is not None:
+            self.name = name
+        if status is not None:
+            self.status = status
 
     def __str__(self) -> str:
         return f"Login:{self.login}|Password:{self.password}|Email:{self.email}"
@@ -43,6 +48,30 @@ class User:
         if method_call is None:
             return False
         return getattr(self, method_call)
+
+    @classmethod
+    def name(cls, data: str = None) -> str:
+        if not cls.check_data(data):
+            return 'Вместо пробелов используйте знак "_"!'
+        if not cls.alphabet(data, 'name'):
+            return 'Использованы запрещенные знаки!\nРазрешенные: "а-я", "А-Я", "a-z", "A-Z"'
+        if len(data) < 6:
+            return 'Имя должно быть хотя бы из 6 символов!'
+        if len(data) > 40:
+            return 'Имя не должно превышать 40 символов!'
+        return '<SUCCESS>'
+
+    @classmethod
+    def status(cls, data: str = None) -> str:
+        if not cls.check_data(data):
+            return 'Вместо пробелов используйте знак "_"!'
+        if not cls.alphabet(data, 'status'):
+            return 'Использованы запрещенные знаки!\nРазрешенные: "а-я", "А-Я", "a-z", "A-Z", "0-9", "_!@#$%&()"'
+        if len(data) < 1:
+            return 'Статус должен быть хотя бы из 1 символа!'
+        if len(data) > 80:
+            return 'Статус не должен превышать 80 символов!'
+        return '<SUCCESS>'
 
     @classmethod
     def email(cls, data: str = None) -> str:
@@ -90,7 +119,7 @@ class User:
         return True
 
     @classmethod
-    def alphabet(cls, data: str = None) -> bool:
+    def alphabet(cls, data: str = None, status: str = 'None') -> bool:
         """
         If the string consists of [A-Z][a-z][0-9] return True
         else return False
@@ -100,7 +129,12 @@ class User:
         """
         if type(data) is not str:
             return False
-        pattern = r"[a-zA-Z0-9_!@#$%&()]+"
+        if status == 'name':
+            pattern = r"[а-яА-Яa-zA-Z]+"
+        elif status == 'status':
+            pattern = r"[а-яА-Яa-zA-Z0-9_!@#$%&()]+"
+        else:
+            pattern = r"[a-zA-Z0-9_!@#$%&()]+"
         match = re.fullmatch(pattern, data)
         if match is None:
             return False
