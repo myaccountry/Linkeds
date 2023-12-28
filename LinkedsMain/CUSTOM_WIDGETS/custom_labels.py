@@ -83,3 +83,8 @@ class InputLabel(ComplimentWidget):
         self.label.setMinimumSize(minw, minh)
         self.input.setMinimumSize(minw, minh)
 
+
+class ClickableLabel(StandardLabel):
+    def __init__(self, *args, **kwargs):
+        super(ClickableLabel, self).__init__(*args, **kwargs)
+

@@ -1,14 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Prompt:wght@600&family=Ubuntu:ital,wght@0,300;1,300;1,700&display=swap');
+QWidget {
+    font-family: 'Prompt', sans-serif;
+    font-weight: 300;
+}
+QMainWindow {
+    margin: 0px 0px 0px 0px;
+}
+QWidget {
+    margin: 0px 0px 0px 0px;
+    color: #262D37;
+    border: none;
+}
 QWidget#StandardWidget {
     background: #262D37;
+    font-family: 'Trebuchet MS';
     color: #fff;
+    border: 1px solid #fff;
+}
+QWidget#FrameWidget {
+    background: #3b4654;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 15px 15px 15px 15px;
+}
+QWidget#MainWindowWidget {
+    background: #3b4654;
+    color: #fff;
+    margin: 0px 0px 0px 0px;
+    border: none;
 }
 QPushButton#StandardButton {
     color: #ffffff;
     border: 1px solid #ffffff;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 15px;
-    padding: 5px 5px 5px 5px;
     background: #262D37;
+    padding: 10px 10px 10px 10px;
 }
 QPushButton:hover#StandardButton {
     background: #1a232e;
@@ -27,12 +54,30 @@ QPushButton:hover#BorderlessButton {
 QPushButton:pressed#BorderlessButton {
     border: 0px;
 }
+QPushButton#MenuButton {
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #3b4654;
+    text-align: center;
+    border-left: 2px solid #fff;
+}
+QPushButton:hover#MenuButton {
+    background: #556375;
+}
+QPushButton:pressed#MenuButton {
+    background: #6e7f96;
+    font-weight: 700;
+}
+QPushButton:focus#MenuButton {
+    background: #6e7f96;
+    font-weight: 700;
+}
 QPushButton#ExitButton {
     color: #ffffff;
     border: 1px solid #ffffff;
     border-radius: 6px;
     font-size: 15px;
-    padding: 5px 5px 5px 5px;
     background: #262D37;
 }
 QPushButton:hover#ExitButton {
@@ -49,6 +94,13 @@ QLabel#StandardLabel {
     font-size: 15px;
     color: #fff;
 }
+QLabel#BorderLabel {
+    font-size: 15px;
+    color: #fff;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    padding: 15px 15px 15px 15px;
+}
 QLabel#HeadingLabel {
     color: #fff;
     font-size: 30px;
@@ -56,9 +108,10 @@ QLabel#HeadingLabel {
 QLineEdit#StandardLineEdit {
     color: #ffffff;
     border: 1px solid #ffffff;
-    border-radius: 3px;
+    border-radius: 8px;
     font-size: 15px;
     background: #262D37;
+    padding: 10px 10px 10px 10px;
 }
 QLineEdit:hover#StandardLineEdit {
     background: #1a232e;
@@ -76,4 +129,15 @@ QWidget#StandardMessageBox {
     background: #262D37;
     border: 2px solid #ffffff;
     color: #fff;
+}
+QMenu#StandardMenu {
+    background: #262D37;
+    border: 1px solid #fff;
+    color: #fff;
+}
+QMenu:focus#StandardMenu {
+    background: #171e27;
+}
+QMenu:pressed#StandardMenu {
+    background: #191f28;
 }

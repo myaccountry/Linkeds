@@ -1,12 +1,24 @@
+.QWidget{
+    background: #e8e8e8;
+    color: #262D37;
+    border: none;
+}
 QWidget#StandardWidget {
-    background: #fff;
+    background: #e8e8e8;
     color: #262D37;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
 }
 QWidget#MainWindowWidget {
+    background: #e8e8e8;
     border: 2px solid #262D37;
     padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+QWidget#FrameWidget {
+    background: #fff;
+    color: #fff;
+    border: none;
 }
 QPushButton#StandardButton {
     color: #262D37;
@@ -23,6 +35,22 @@ QPushButton:hover#StandardButton {
 QPushButton:pressed#StandardButton {
     background: #c0c0c0;
     border: 2px solid #262D37;
+}
+QPushButton#MenuButton {
+    color: #262D37;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #e8e8e8;
+    text-align: center;
+}
+QPushButton:hover#MenuButton {
+    background: #d6d6d6;
+}
+QPushButton:pressed#MenuButton {
+    background: #adadad;
+}
+QPushButton:focus#MenuButton {
+    background: #adadad;
 }
 QPushButton#BorderlessButton {
     border: 0px;
