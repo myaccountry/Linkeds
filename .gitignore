@@ -1,7 +1,8 @@
 .idea
 /TESTS
-/LinkedsMain/LOGS/server_logs.log
+LOGS/server_logs.log
 CONFIG/__pycache__/
 LOGS/__pycache__/
 SERVER/__pycache__/
-IMAGES/pfp_image.png
+LinkedsMain/IMAGES/pfp_image.png
+LinkedsMain/IMAGES/friends_images
