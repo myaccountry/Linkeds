@@ -32,7 +32,7 @@ class RequestHandler:
         user_data = self.database.configure_data(user_data, 'User')
         user_data['ip'] = self.addr[0]
         registered_data = self.database.registrate_user(user_data)
-        return self.form_request('<REGISTRATION-SUCCESS>', {'registered_data': registered_data})
+        return self.form_request('<REGISTRATION-SUCCESS>', {'user_data': registered_data})
 
     def login(self, data) -> dict:
         user_data = data.get('user_data')
@@ -48,8 +48,14 @@ class RequestHandler:
             table_name='user', id=user_login, criterion='login')[0]
         return self.form_request('<LOGIN-SUCCESS>', {'user_data': user_data})
 
-    def online(self, data):
+    def online(self, data) -> dict:
         ...
 
-    def offline(self, data):
+    def offline(self, data) -> dict:
         ...
+
+    def change_user_data(self, data) -> dict:
+        user_data = data.get('user_data')
+        for key, value in user_data.items():
+            self.database.update(id=user_data.get('id'), subject=key, subject_value=value)
+        return self.form_request('<COMPLETE>', {'None': 'None'})
