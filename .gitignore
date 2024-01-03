@@ -7,3 +7,7 @@ SERVER/__pycache__/
 LinkedsMain/IMAGES/pfp_image.png
 LinkedsMain/IMAGES/friends_images
 LinkedsMain/CLIENT/client_config.py
+LinkedsMain/CLIENT/__pycache__/
+DATABASE/__pycache__/
+LinkedsMain/GUI/__pycache__/
+LinkedsMain/CUSTOM_WIDGETS/__pycache__/
