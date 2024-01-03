@@ -1,6 +1,8 @@
 import sys
 import pathlib
 
+import DATABASE.database
+
 path = '\\'.join(str(pathlib.Path().resolve()).split('\\')[:-1])
 sys.path.insert(0, f'{path}')
 
@@ -13,6 +15,7 @@ from threading import Thread
 from request_handler import RequestHandler
 from LOGS.logger import init_logger
 from CONFIG.server_config import SERVER_IP, SERVER_PORT
+from DATABASE.database import Database
 
 CONNECTIONS = {}
 
@@ -64,7 +67,7 @@ class ConnectionsHandler(Thread, ServerProtocol):
         self._transport = transport
         self.request_handler = RequestHandler(self._transport)
 
-        CONNECTIONS[self._addr] = {'addr': self._addr, 'transport': self._transport, 'in_app': False}
+        CONNECTIONS[self._addr] = {'addr': self._addr, 'transport': self._transport, 'user_data': None}
 
         self.usable_data = b""
         self.current_data = b""
@@ -105,6 +108,8 @@ class ConnectionsHandler(Thread, ServerProtocol):
         logging.info(msg=f'Connection with {self._addr[0]}:{self._addr[1]} closed')
         if exc is not None:
             logging.info(msg=f'Error from Client App: {str(exc)}')
+        if CONNECTIONS.get('user_data') is not None:
+            self.request_handler.offline({'user_data': CONNECTIONS['user_data']})
         del CONNECTIONS[self._addr]
         del self
 
@@ -116,7 +121,7 @@ async def main():
     loop = asyncio.get_running_loop()
 
     logging.info('<SERVER-RISE>')
-    server = await loop.create_server(lambda: ServerProtocol(), '192.168.1.61', 25565)
+    server = await loop.create_server(lambda: ServerProtocol(), SERVER_IP, SERVER_PORT)
 
     async with server:
         await server.serve_forever()
@@ -124,6 +129,16 @@ async def main():
 
 if __name__ == '__main__':
     logging.debug(msg=init_logger('server'))
+    try:
+        db_check = Database()
+    except ConnectionError:
+        logging.error(msg='Can\'t connect to Database')
+        exit()
+    db_check.connect()
+    # for el in db_check.select(table_name='connections', subject='id')[0]:
+    #     print(el)
+    logging.debug(db_check.update(subject='online', subject_value='False'))
+    del db_check
     try:
         asyncio.run(main())
     except KeyboardInterrupt:

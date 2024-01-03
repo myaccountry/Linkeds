@@ -21,7 +21,6 @@ class MainWork:
     def __init__(self):
         self.user_data = {'id': 133, 'ip': 'None', 'online': 'False', 'login': 'Folks_Around_Me', 'password': 'bed4efa1d4fdbd954bd3705d6a2a78270ec9a52ecfbfb010c61862af5c76af1761ffeb1aef6aca1bf5d02b3781aa854fabd2b69c790de74e17ecfec3cb6ac4bf', 'gender': 'Не указано', 'email': 'example@gmail.com', 'name': 'Не указано', 'status': 'Не указано'}
         self.client_window = None
-        self.client_mainWindow = None
         self.protocol = None
         self.app = None
         self.transport = None

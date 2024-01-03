@@ -130,9 +130,9 @@ class User:
         if type(data) is not str:
             return False
         if status == 'name':
-            pattern = r"[а-яА-Яa-zA-Z]+"
+            pattern = r"[а-яА-Яa-zA-ZёЁ ]+"
         elif status == 'status':
-            pattern = r"[а-яА-Яa-zA-Z0-9_!@#$%&()]+"
+            pattern = r"[а-яА-Яa-zA-Z0-9_!@#$%&()ёЁ?,:; ]+"
         else:
             pattern = r"[a-zA-Z0-9_!@#$%&()]+"
         match = re.fullmatch(pattern, data)

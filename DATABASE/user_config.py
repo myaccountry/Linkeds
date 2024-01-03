@@ -38,5 +38,13 @@ class Social(StandardMethods):
         self.black_list_friends = None
 
 
+class Connection(StandardMethods):
+
+    def __init__(self):
+        self.ip = None
+        self.id = None
+        self.user_data = None
+
+
 if __name__ == '__main__':
     ...

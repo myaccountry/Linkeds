@@ -1,6 +1,6 @@
 import pymysql
 from CONFIG.database_config import *
-from DATABASE.user_config import User, Social
+from DATABASE.user_config import User, Social, Connection
 
 
 class Database:
@@ -10,14 +10,17 @@ class Database:
     """
     DATA_CONFIGURES = {
         'User': User,
-        'Social': Social
+        'Social': Social,
+        'Connection': Connection
     }
 
     elements = User()
     social_elements = Social()
+    connection_elements = Connection()
     DB_TABLE_ELEMENTS = {
         'user': [el for el in elements.__dict__.keys()],
         'social': [el for el in social_elements.__dict__.keys()],
+        'connection': [el for el in connection_elements.__dict__.keys()]
     }
 
     def __init__(self):
@@ -92,8 +95,8 @@ class Database:
         self.connection_proc(f"SELECT {subject} FROM `{table_name}` WHERE {criterion} = '{id}'")
         return self.cursor.fetchall()
 
-    def update(self, table_name: str = 'user', id: str = 'None', subject: str = None, subject_value=None,
-               criterion: str = 'id') -> str:
+    def update(self, table_name: str = 'user', id: str = 'None', subject: str = None,
+               subject_value=None, criterion: str = 'id') -> str:
         """
         Rewrite old data to new
         """
@@ -103,15 +106,13 @@ class Database:
         if subject_value is None or subject is None:
             raise ValueError(f'Update func doesnt get any type of data to update in module "{self}.update"')
 
-        if table_name == 'images':
-            if id == 'None':
-                raise ValueError(f'ID is required to make UPDATE in images table')
+        if subject == 'user_data' and table_name == 'connection':
             with self._connection.cursor() as self.cursor:
                 conn_process = f"UPDATE `{table_name}` SET {subject} = %s WHERE `{criterion}` = '{id}'"
-                arguments = (subject_value,)
+                arguments = (subject_value, )
                 self.cursor.execute(conn_process, arguments)
             self._connection.commit()
-            return f'Updated data in `{table_name}`["{subject}" = "image"] for {criterion}[{id}]'
+            return f'Updated data in `{table_name}`["{subject}" = "bytes"] for {criterion}[{id}]'
 
         if id == 'None':
             self.connection_proc(f"UPDATE `{table_name}` SET {subject} = '{subject_value}'")
@@ -121,6 +122,21 @@ class Database:
         self.connection_proc(f"UPDATE `{table_name}` SET `{subject}` = '{subject_value}' WHERE `{criterion}` = '{id}'")
         self._connection.commit()
         return f'Updated data in `{table_name}`["{subject}" = "{subject_value}"] for {criterion}[{id}]'
+
+    def update_binary(self, table_name: str = 'user', id: str = 'None', subject: str = None,
+                      subject_value: bytes = None, criterion: str = 'id') -> str:
+        if table_name is None:
+            raise ValueError(f'Table not specified in module "{self}.update"')
+
+        if subject_value is None or subject is None:
+            raise ValueError(f'Update func doesnt get any type of data to update in module "{self}.update"')
+
+        with self._connection.cursor() as self.cursor:
+            conn_process = f"UPDATE `{table_name}` SET {subject} = %s WHERE `{criterion}` = '{id}'"
+            arguments = (subject_value,)
+            self.cursor.execute(conn_process, arguments)
+        self._connection.commit()
+        return f'Updated data in `{table_name}`["{subject}" = "bytes"] for {criterion}[{id}]'
 
     def create(self, status: str = 'table', name: str = 'example', table_args: set[str] = None) -> str:
         """
@@ -175,7 +191,7 @@ class Database:
         if table_name is None or id is None:
             raise ValueError(f"Not enough data for module {self}.delete")
 
-        self.connection_proc(f"DELETE FROM `{table_name}` WHERE id = '{id}'")
+        self.connection_proc(f"DELETE FROM `{table_name}` WHERE {criterion} = '{id}'")
         self._connection.commit()
         return f"Deleted data from table:`{table_name}` where {criterion}:'{id}'"
 
@@ -203,5 +219,12 @@ class Database:
         logins = self.select(table_name='user', subject='login')
         for el in logins:
             if el.get('login') == login:
+                return True
+        return False
+
+    def is_user_online(self, id: str) -> bool:
+        ids = self.select(table_name='connection', subject='id')
+        for el in ids:
+            if el.get('id') == id:
                 return True
         return False

@@ -262,14 +262,21 @@ class WelcomeWindow(StandardWidget):
         msgBox.information('Информация', 'Вы успешно вошли в свой аккаунт!')
 
         user_data = data.get('user_data')
-        self.main_work.app_window = AppWindow(self.main_work, user_data)
         self.destroy()
-        self.main_work.app_window.show()
+        self.main_work.client_window = AppWindow(self.main_work, user_data)
+        self.main_work.client_window.show()
 
     @pyqtSlot()
     def login_denied(self, data):
         msgBox = StandardMessageBox(self.logo_image)
         msgBox.information('Информация', data.get('reason'))
+
+    @pyqtSlot()
+    def online_denied(self, data):
+        msgBox = StandardMessageBox(self.logo_image)
+        msgBox.information('Информация', data.get('reason'))
+        self.hide()
+        raise KeyboardInterrupt('GUI closed')
 
     def form_signal(self, method, data=None):
         self.signal_handler = SignalHandler()
@@ -291,7 +298,6 @@ class AppWindow(QtWidgets.QMainWindow):
         self.theme = 'DARK'
         self.setStyleSheet(DARK_THEME_STYLE)
         self.setObjectName('MainWindowWidget')
-        self.auto_login(True)
 
         self.init_images()
 
@@ -303,6 +309,16 @@ class AppWindow(QtWidgets.QMainWindow):
         self.menu_buttons_config = {'profile': ...}
 
         self.init_gui()
+        self.init_online()
+        self.auto_login(True)
+
+    def init_online(self):
+        request = self.form_request('<ONLINE>', {'user_data': self.user_data})
+        self.main_work.protocol.send_request(request)
+
+    def init_offline(self):
+        request = self.form_request('<OFFLINE>', {'user_data': self.user_data})
+        self.main_work.protocol.send_request(request)
 
     def init_images(self) -> None:
         path = str(pathlib.Path().resolve()) + "\\IMAGES"
@@ -398,6 +414,7 @@ class AppWindow(QtWidgets.QMainWindow):
         self.profile_widget.setStyleSheet('MainWindowWidget')
 
         self.profilePfp_label = StandardLabel()
+        self.profilePfp_label.setMaximumWidth(250)
         self.profilePfp_label.setPixmap(self.userPfp_image)
         self.profilePfp_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
         self.profilePfp_label.mousePressEvent = self.changePfp
@@ -441,7 +458,7 @@ class AppWindow(QtWidgets.QMainWindow):
         self.profileMainInfo_widget.addWidget(self.profileMainInfoStatus_widget)
 
         self.profile_widget.addWidget(self.profileInfo_widget)
-        self.profile_widget.addWidget(self.profilePfp_label)
+        self.profile_widget.addWidget(self.profilePfp_label, stretch=0, alignment=QtCore.Qt.AlignmentFlag.AlignHCenter)
         self.profile_widget.addWidget(self.profileMainInfo_widget)
         self.profile_widget.addStretch(1)
         # -- PROFILE --- END --
@@ -516,6 +533,7 @@ class AppWindow(QtWidgets.QMainWindow):
             return
 
         self.user_data['name'] = self.name_input.text()
+        self.send_request(self.form_request('<CHANGE-USER-DATA>', {'user_data': self.user_data}))
         self.profileName.setText(f'Имя: {self.user_data.get("name")}')
         self.profileName.show()
         self.name_input.hide()
@@ -541,6 +559,7 @@ class AppWindow(QtWidgets.QMainWindow):
             return
 
         self.user_data['status'] = self.status_input.text()
+        self.send_request(self.form_request('<CHANGE-USER-DATA>', {'user_data': self.user_data}))
         self.profileStatus.setText(f'Статус: {self.user_data.get("status")}')
         self.profileStatus.show()
         self.status_input.hide()
@@ -550,6 +569,8 @@ class AppWindow(QtWidgets.QMainWindow):
         file_name, file_type = QtWidgets.QFileDialog.getOpenFileName(
             self, "Выбрать файл", ".",
             "JPEG Files(*.jpeg);;PNG Files(*.png);;")
+        if file_name == '':
+            return
 
         image_bytes = b""
         with open(file_name, 'rb') as image:
@@ -625,12 +646,30 @@ class AppWindow(QtWidgets.QMainWindow):
         """
         return {'method': method, 'data': data}
 
+    @pyqtSlot()
+    def online_denied(self, data):
+        msgBox = StandardMessageBox(self.logo_image)
+        msgBox.information('Информация', data.get('reason'))
+        self.auto_login(False)
+        self.hide()
+        raise KeyboardInterrupt('GUI closed')
+
+    def form_signal(self, method, data=None):
+        self.signal_handler = SignalHandler()
+        self.signal_handler.signal.connect(functools.partial(method, data))
+        return self.signal_handler.signal
+
+    def send_request(self, request):
+        self.main_work.protocol.send_request(request)
+
     def logout(self):
+        self.init_offline()
         self.auto_login(False)
         self.hide()
         raise KeyboardInterrupt('GUI closed')
 
     def closeEvent(self, a0) -> None:
+        self.init_offline()
         self.auto_login(True)
         self.hide()
         raise KeyboardInterrupt('GUI closed')

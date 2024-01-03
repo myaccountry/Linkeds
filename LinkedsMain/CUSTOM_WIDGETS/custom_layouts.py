@@ -32,8 +32,11 @@ class LayoutWidget(QtWidgets.QWidget):
             self.layout = StandardHLayout()
         self.setLayout(self.layout)
 
-    def addWidget(self, a0) -> None:
-        self.layout.addWidget(a0)
+    def addWidget(self, a0, stretch=0, alignment=None) -> None:
+        if alignment is None:
+            self.layout.addWidget(a0, stretch)
+        else:
+            self.layout.addWidget(a0, stretch, alignment)
 
     def addSpacing(self, size: int = 10) -> None:
         self.layout.addSpacing(size)

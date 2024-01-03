@@ -49,10 +49,23 @@ class RequestHandler:
         return self.form_request('<LOGIN-SUCCESS>', {'user_data': user_data})
 
     def online(self, data) -> dict:
-        ...
+        user_data = data.get('user_data')
+        self.database.update(id=user_data.get('id'), subject='online', subject_value='True')
+        if self.database.is_user_online(user_data.get('id')):
+            return self.form_request(
+                '<ONLINE-DENIED>',
+                {'reason': 'Ваш аккаунт уже используется с другого устройства!'})
+        connection = {'ip': f"{self.addr[0]}:{self.addr[1]}", 'id': user_data.get('id'), 'user_data': 'None'}
+        self.database.insert(table_name='connection', subject_values=connection)
+        self.database.update(table_name='connection', criterion='ip', id=f'{self.addr[0]}:{self.addr[1]}',
+                             subject='user_data', subject_value=pickle.dumps(user_data))
+        return self.form_request('<COMPLETE>', {'None': 'None'})
 
     def offline(self, data) -> dict:
-        ...
+        user_data = data.get('user_data')
+        self.database.update(id=user_data.get('id'), subject='online', subject_value='False')
+        self.database.delete(table_name='connection', criterion='ip', id=f'{self.addr[0]}:{self.addr[1]}')
+        return self.form_request('<COMPLETE>', {'None': 'None'})
 
     def change_user_data(self, data) -> dict:
         user_data = data.get('user_data')

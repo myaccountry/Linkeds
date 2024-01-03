@@ -53,3 +53,6 @@ class RequestHandler:
 
     def change_user_data(self, data=None) -> None:
         ...
+
+    def online_denied(self, data=None) -> None:
+        ...

@@ -7664,3 +7664,888 @@ AttributeError: 'NoneType' object has no attribute 'connection_lost'
 [2023-12-28 22:06:52,948] [root] [INFO] -> Connection from 192.168.1.1:63020
 [2023-12-28 22:06:58,640] [root] [INFO] -> Connection with 192.168.1.1:63020 closed
 [2023-12-28 22:06:58,640] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:25:39,673] [root] [INFO] -> Connection from 192.168.1.1:63147
+[2023-12-28 22:25:45,876] [root] [INFO] -> Connection with 192.168.1.1:63147 closed
+[2023-12-28 22:25:45,876] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:26:01,587] [root] [INFO] -> Connection from 192.168.1.1:63159
+[2023-12-28 22:26:05,788] [root] [INFO] -> Connection with 192.168.1.1:63159 closed
+[2023-12-28 22:26:05,788] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:26:16,247] [root] [INFO] -> Connection from 192.168.1.1:63165
+[2023-12-28 22:26:19,616] [root] [INFO] -> Connection with 192.168.1.1:63165 closed
+[2023-12-28 22:26:19,617] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:28:35,767] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-28 22:28:35,768] [root] [INFO] -> <SERVER-SET>
+[2023-12-28 22:28:37,197] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-28 22:28:37,197] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-28 22:28:37,198] [root] [INFO] -> <SERVER-RISE>
+[2023-12-28 22:28:42,670] [root] [INFO] -> Connection from 192.168.1.1:63197
+[2023-12-28 22:28:47,246] [root] [INFO] -> Connection with 192.168.1.1:63197 closed
+[2023-12-28 22:28:47,247] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:28:53,454] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-28 22:28:53,454] [root] [INFO] -> <SERVER-SET>
+[2023-12-28 22:30:10,680] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-28 22:30:10,680] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-28 22:30:10,682] [root] [INFO] -> <SERVER-RISE>
+[2023-12-28 22:30:31,706] [root] [INFO] -> Connection from 192.168.1.1:63215
+[2023-12-28 22:30:37,173] [root] [INFO] -> Connection with 192.168.1.1:63215 closed
+[2023-12-28 22:30:37,174] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:30:44,493] [root] [INFO] -> Connection from 192.168.1.1:63222
+[2023-12-28 22:30:47,543] [root] [INFO] -> Connection with 192.168.1.1:63222 closed
+[2023-12-28 22:30:47,544] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:30:51,934] [root] [INFO] -> Connection from 192.168.1.1:63228
+[2023-12-28 22:30:55,003] [root] [INFO] -> Connection with 192.168.1.1:63228 closed
+[2023-12-28 22:30:55,003] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:31:01,293] [root] [INFO] -> Connection from 192.168.1.1:63240
+[2023-12-28 22:31:06,369] [root] [INFO] -> Connection with 192.168.1.1:63240 closed
+[2023-12-28 22:31:06,369] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:31:34,230] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-28 22:31:34,230] [root] [INFO] -> <SERVER-SET>
+[2023-12-28 22:31:35,647] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-28 22:31:35,647] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-28 22:31:35,648] [root] [INFO] -> <SERVER-RISE>
+[2023-12-28 22:33:35,724] [root] [INFO] -> Connection from 192.168.1.1:63260
+[2023-12-28 22:33:39,733] [root] [INFO] -> Connection with 192.168.1.1:63260 closed
+[2023-12-28 22:33:39,733] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:37:43,901] [root] [INFO] -> Connection from 192.168.1.1:63291
+[2023-12-28 22:38:06,565] [root] [INFO] -> Connection with 192.168.1.1:63291 closed
+[2023-12-28 22:38:06,565] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:38:32,659] [root] [INFO] -> Connection from 192.168.1.1:63300
+[2023-12-28 22:38:35,605] [root] [INFO] -> Connection with 192.168.1.1:63300 closed
+[2023-12-28 22:38:35,605] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:42:31,127] [root] [INFO] -> Connection from 192.168.1.1:63337
+[2023-12-28 22:42:47,372] [root] [INFO] -> Received request <LOGIN> from 192.168.1.1:63337
+[2023-12-28 22:42:47,375] [root] [INFO] -> Reguest <LOGIN> status
+[2023-12-28 22:42:47,375] [root] [INFO] -> For 192.168.1.1:63337: <LOGIN-SUCCESS>
+[2023-12-28 22:42:58,748] [root] [INFO] -> Connection with 192.168.1.1:63337 closed
+[2023-12-28 22:42:58,749] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-28 22:43:02,480] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-28 22:43:02,480] [root] [INFO] -> <SERVER-SET>
+[2023-12-29 22:17:33,614] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-29 22:17:33,637] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-29 22:17:33,638] [root] [INFO] -> <SERVER-RISE>
+[2023-12-29 22:18:49,572] [root] [INFO] -> Connection from 192.168.1.1:60042
+[2023-12-29 22:19:01,031] [root] [INFO] -> Received request <LOGIN> from 192.168.1.1:60042
+[2023-12-29 22:19:01,175] [root] [INFO] -> Reguest <LOGIN> status
+[2023-12-29 22:19:01,175] [root] [INFO] -> For 192.168.1.1:60042: <LOGIN-SUCCESS>
+[2023-12-29 22:19:27,886] [root] [INFO] -> Connection with 192.168.1.1:60042 closed
+[2023-12-29 22:19:27,887] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-29 22:20:20,251] [root] [INFO] -> Connection from 141.98.7.36:21004
+[2023-12-29 22:20:52,571] [root] [INFO] -> Connection with 141.98.7.36:21004 closed
+[2023-12-29 22:20:52,571] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-29 22:35:27,099] [root] [INFO] -> Connection from 192.168.1.1:60159
+[2023-12-29 22:35:43,423] [root] [INFO] -> Received request <LOGIN> from 192.168.1.1:60159
+[2023-12-29 22:35:43,426] [root] [INFO] -> Reguest <LOGIN> status
+[2023-12-29 22:35:43,426] [root] [INFO] -> For 192.168.1.1:60159: <LOGIN-SUCCESS>
+[2023-12-29 22:35:45,038] [root] [INFO] -> Received request <ONLINE> from 192.168.1.1:60159
+[2023-12-29 22:35:45,038] [asyncio] [ERROR] -> Exception in callback _ProactorReadPipeTransport._loop_reading(<_OverlappedF...ed result=390>)
+handle: <Handle _ProactorReadPipeTransport._loop_reading(<_OverlappedF...ed result=390>)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 324, in _loop_reading
+    self._data_received(data, length)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 274, in _data_received
+    self._protocol.data_received(data)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 45, in data_received
+    self._connection.data_received(data=data)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 91, in data_received
+    if status.get('method') == '<CLOSE-CONNECTION>':
+       ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2023-12-29 22:36:19,928] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-29 22:36:19,928] [root] [INFO] -> <SERVER-SET>
+[2023-12-29 22:36:21,137] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-29 22:36:21,137] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-29 22:36:21,137] [root] [INFO] -> <SERVER-RISE>
+[2023-12-29 22:36:24,325] [root] [INFO] -> Connection from 192.168.1.1:60168
+[2023-12-29 22:36:24,356] [root] [INFO] -> Received request <ONLINE> from 192.168.1.1:60168
+[2023-12-29 22:36:24,578] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-29 22:36:24,579] [root] [INFO] -> For 192.168.1.1:60168: <COMPLETE>
+[2023-12-29 22:36:28,299] [root] [INFO] -> Connection with 192.168.1.1:60168 closed
+[2023-12-29 22:36:28,300] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-29 22:38:53,333] [root] [INFO] -> Connection from 192.168.1.1:60200
+[2023-12-29 22:39:06,296] [root] [INFO] -> Received request <LOGIN> from 192.168.1.1:60200
+[2023-12-29 22:39:06,299] [root] [INFO] -> Reguest <LOGIN> status
+[2023-12-29 22:39:06,299] [root] [INFO] -> For 192.168.1.1:60200: <LOGIN-SUCCESS>
+[2023-12-29 22:39:08,461] [root] [INFO] -> Received request <ONLINE> from 192.168.1.1:60200
+[2023-12-29 22:39:08,462] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-29 22:39:08,462] [root] [INFO] -> For 192.168.1.1:60200: <COMPLETE>
+[2023-12-29 22:39:15,268] [root] [INFO] -> Received request <OFFLINE> from 192.168.1.1:60200
+[2023-12-29 22:39:15,494] [root] [INFO] -> Reguest <OFFLINE> status
+[2023-12-29 22:39:15,494] [root] [INFO] -> For 192.168.1.1:60200: <COMPLETE>
+[2023-12-29 22:39:16,497] [root] [INFO] -> Connection with 192.168.1.1:60200 closed
+[2023-12-29 22:39:16,497] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-29 22:39:40,035] [root] [INFO] -> Connection from 192.168.1.1:60209
+[2023-12-29 22:39:40,071] [root] [INFO] -> Received request <ONLINE> from 192.168.1.1:60209
+[2023-12-29 22:39:40,192] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-29 22:39:40,192] [root] [INFO] -> For 192.168.1.1:60209: <COMPLETE>
+[2023-12-29 22:39:47,438] [root] [INFO] -> Received request <OFFLINE> from 192.168.1.1:60209
+[2023-12-29 22:39:47,567] [root] [INFO] -> Reguest <OFFLINE> status
+[2023-12-29 22:39:47,567] [root] [INFO] -> For 192.168.1.1:60209: <COMPLETE>
+[2023-12-29 22:39:48,569] [root] [INFO] -> Connection with 192.168.1.1:60209 closed
+[2023-12-29 22:39:48,569] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-29 22:40:08,187] [root] [INFO] -> Connection from 192.168.1.1:60216
+[2023-12-29 22:40:08,216] [root] [INFO] -> Received request <ONLINE> from 192.168.1.1:60216
+[2023-12-29 22:40:08,382] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-29 22:40:08,382] [root] [INFO] -> For 192.168.1.1:60216: <COMPLETE>
+[2023-12-29 22:40:15,366] [root] [INFO] -> Received request <OFFLINE> from 192.168.1.1:60216
+[2023-12-29 22:40:15,499] [root] [INFO] -> Reguest <OFFLINE> status
+[2023-12-29 22:40:15,499] [root] [INFO] -> For 192.168.1.1:60216: <COMPLETE>
+[2023-12-29 22:40:16,504] [root] [INFO] -> Connection with 192.168.1.1:60216 closed
+[2023-12-29 22:40:16,505] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-29 22:40:25,055] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-29 22:40:25,056] [root] [INFO] -> <SERVER-SET>
+[2023-12-29 22:42:30,768] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-29 22:42:30,768] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-29 22:42:30,769] [root] [INFO] -> <SERVER-RISE>
+[2023-12-29 22:42:32,989] [root] [INFO] -> Connection from 192.168.1.1:60245
+[2023-12-29 22:42:33,020] [root] [INFO] -> Received request <ONLINE> from 192.168.1.1:60245
+[2023-12-29 22:42:33,080] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-29 22:42:33,080] [root] [INFO] -> For 192.168.1.1:60245: <COMPLETE>
+[2023-12-29 22:44:26,125] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-29 22:44:26,125] [root] [INFO] -> <SERVER-SET>
+[2023-12-30 12:54:09,101] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 12:54:09,109] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-30 12:54:09,113] [root] [INFO] -> <SERVER-RISE>
+[2023-12-30 12:54:13,093] [root] [INFO] -> Connection from 127.0.0.1:56238
+[2023-12-30 12:54:13,219] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:56238
+[2023-12-30 12:54:13,514] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-30 12:54:13,514] [root] [INFO] -> For 127.0.0.1:56238: <COMPLETE>
+[2023-12-30 13:03:51,397] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-30 13:03:51,398] [root] [INFO] -> <SERVER-SET>
+[2023-12-30 13:03:52,948] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 13:03:55,002] [root] [ERROR] -> Can't connect to Database
+[2023-12-30 13:05:31,559] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 13:05:33,612] [root] [ERROR] -> Can't connect to Database
+[2023-12-30 13:05:40,799] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 13:07:15,888] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 13:07:15,950] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2023-12-30 13:07:15,950] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-30 13:07:15,951] [root] [INFO] -> <SERVER-RISE>
+[2023-12-30 13:08:03,572] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-30 13:08:03,572] [root] [INFO] -> <SERVER-SET>
+[2023-12-30 13:08:04,955] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 13:08:05,249] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2023-12-30 13:08:05,249] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-30 13:08:05,250] [root] [INFO] -> <SERVER-RISE>
+[2023-12-30 13:28:30,764] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-30 13:28:30,764] [root] [INFO] -> <SERVER-SET>
+[2023-12-30 19:15:17,776] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 19:15:17,807] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2023-12-30 19:15:17,819] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-30 19:15:17,820] [root] [INFO] -> <SERVER-RISE>
+[2023-12-30 19:15:21,551] [root] [INFO] -> Connection from 127.0.0.1:49542
+[2023-12-30 19:15:21,584] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:49542
+[2023-12-30 19:15:21,691] [root] [ERROR] -> (RequestError): (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\\x80\\x04\\x95G\\x01\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x02id\\x94K\\x85\\x8c\\x02ip\\x94' at line 1")
+[2023-12-30 19:15:21,692] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-30 19:15:21,692] [root] [INFO] -> For 127.0.0.1:49542: <CLOSE-CONNECTION>
+[2023-12-30 19:15:21,692] [root] [INFO] -> Connection with 127.0.0.1:49542 closed
+[2023-12-30 19:15:21,692] [asyncio] [ERROR] -> Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 158, in _call_connection_lost
+    self._protocol.connection_lost(exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 51, in connection_lost
+    self._connection.connection_lost(exc=exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 111, in connection_lost
+    if CONNECTIONS['user_data'] is not None:
+       ~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'user_data'
+[2023-12-30 19:16:02,585] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-30 19:16:02,585] [root] [INFO] -> <SERVER-SET>
+[2023-12-30 19:16:05,528] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 19:16:05,676] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2023-12-30 19:16:05,677] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-30 19:16:05,678] [root] [INFO] -> <SERVER-RISE>
+[2023-12-30 19:16:08,045] [root] [INFO] -> Connection from 127.0.0.1:49572
+[2023-12-30 19:16:08,076] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:49572
+[2023-12-30 19:16:08,209] [root] [ERROR] -> (RequestError): (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\\x80\\x04\\x95G\\x01\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x02id\\x94K\\x85\\x8c\\x02ip\\x94' at line 1")
+[2023-12-30 19:16:08,209] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-30 19:16:08,209] [root] [INFO] -> For 127.0.0.1:49572: <CLOSE-CONNECTION>
+[2023-12-30 19:16:08,209] [root] [INFO] -> Connection with 127.0.0.1:49572 closed
+[2023-12-30 19:16:08,210] [asyncio] [ERROR] -> Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 158, in _call_connection_lost
+    self._protocol.connection_lost(exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 51, in connection_lost
+    self._connection.connection_lost(exc=exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 111, in connection_lost
+    if CONNECTIONS['user_data'] is not None:
+       ~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'user_data'
+[2023-12-30 19:16:50,337] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-30 19:16:50,337] [root] [INFO] -> <SERVER-SET>
+[2023-12-30 19:17:00,091] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 19:17:00,147] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2023-12-30 19:17:00,151] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-30 19:17:00,154] [root] [INFO] -> <SERVER-RISE>
+[2023-12-30 19:17:02,188] [root] [INFO] -> Connection from 127.0.0.1:49590
+[2023-12-30 19:17:02,218] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:49590
+[2023-12-30 19:27:50,184] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 19:27:50,359] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2023-12-30 19:27:50,360] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-30 19:27:50,361] [root] [INFO] -> <SERVER-RISE>
+[2023-12-30 19:27:55,639] [root] [INFO] -> Connection from 127.0.0.1:49764
+[2023-12-30 19:27:55,727] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:49764
+[2023-12-30 19:27:55,786] [root] [ERROR] -> (RequestError): (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\\x80\\x04\\x95G\\x01\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x02id\\x94K\\x85\\x8c\\x02ip\\x94' at line 1")
+[2023-12-30 19:27:55,786] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-30 19:27:55,786] [root] [INFO] -> For 127.0.0.1:49764: <CLOSE-CONNECTION>
+[2023-12-30 19:27:55,786] [root] [INFO] -> Connection with 127.0.0.1:49764 closed
+[2023-12-30 19:27:55,786] [asyncio] [ERROR] -> Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 158, in _call_connection_lost
+    self._protocol.connection_lost(exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 51, in connection_lost
+    self._connection.connection_lost(exc=exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 111, in connection_lost
+    if CONNECTIONS['user_data'] is not None:
+       ~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'user_data'
+[2023-12-30 19:28:01,757] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-30 19:28:01,757] [root] [INFO] -> <SERVER-SET>
+[2023-12-30 19:28:02,951] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 19:28:03,087] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2023-12-30 19:28:03,088] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-30 19:28:03,089] [root] [INFO] -> <SERVER-RISE>
+[2023-12-30 19:28:06,710] [root] [INFO] -> Connection from 127.0.0.1:49775
+[2023-12-30 19:28:06,738] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:49775
+[2023-12-30 19:28:06,867] [root] [ERROR] -> (RequestError): (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\\x80\\x04\\x95G\\x01\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x02id\\x94K\\x85\\x8c\\x02ip\\x94' at line 1")
+[2023-12-30 19:28:06,867] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-30 19:28:06,868] [root] [INFO] -> For 127.0.0.1:49775: <CLOSE-CONNECTION>
+[2023-12-30 19:28:06,868] [root] [INFO] -> Connection with 127.0.0.1:49775 closed
+[2023-12-30 19:28:06,868] [asyncio] [ERROR] -> Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 158, in _call_connection_lost
+    self._protocol.connection_lost(exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 51, in connection_lost
+    self._connection.connection_lost(exc=exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 111, in connection_lost
+    if CONNECTIONS['user_data'] is not None:
+       ~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'user_data'
+[2023-12-30 19:28:52,879] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-30 19:28:52,880] [root] [INFO] -> <SERVER-SET>
+[2023-12-30 19:31:38,880] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 19:31:39,055] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2023-12-30 19:31:39,056] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-30 19:31:39,056] [root] [INFO] -> <SERVER-RISE>
+[2023-12-30 19:31:43,612] [root] [INFO] -> Connection from 127.0.0.1:49846
+[2023-12-30 19:31:43,651] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:49846
+[2023-12-30 19:31:43,940] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-30 19:31:43,941] [root] [INFO] -> For 127.0.0.1:49846: <COMPLETE>
+[2023-12-30 19:32:19,765] [root] [INFO] -> Connection with 127.0.0.1:49846 closed
+[2023-12-30 19:32:19,765] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-30 19:32:19,765] [asyncio] [ERROR] -> Exception in callback _ProactorBasePipeTransport._call_connection_lost(ConnectionRes...one, 64, None))
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(ConnectionRes...one, 64, None))>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2032.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 158, in _call_connection_lost
+    self._protocol.connection_lost(exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 51, in connection_lost
+    self._connection.connection_lost(exc=exc)
+  File "D:\PythonFiles\Rannev_Python\Linkeds\SERVER\runserver.py", line 111, in connection_lost
+    if CONNECTIONS['user_data'] is not None:
+       ~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'user_data'
+[2023-12-30 19:33:00,036] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-30 19:33:00,036] [root] [INFO] -> <SERVER-SET>
+[2023-12-30 19:33:03,621] [root] [DEBUG] -> -init Logger custom format-
+[2023-12-30 19:33:03,819] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2023-12-30 19:33:03,819] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2023-12-30 19:33:03,820] [root] [INFO] -> <SERVER-RISE>
+[2023-12-30 19:33:38,318] [root] [INFO] -> Connection from 127.0.0.1:49904
+[2023-12-30 19:33:38,363] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:49904
+[2023-12-30 19:33:38,536] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-30 19:33:38,537] [root] [INFO] -> For 127.0.0.1:49904: <COMPLETE>
+[2023-12-30 19:33:49,962] [root] [INFO] -> Connection with 127.0.0.1:49904 closed
+[2023-12-30 19:33:49,962] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-30 19:34:24,404] [root] [INFO] -> Connection from 127.0.0.1:49926
+[2023-12-30 19:34:24,426] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:49926
+[2023-12-30 19:34:24,689] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-30 19:34:24,689] [root] [INFO] -> For 127.0.0.1:49926: <COMPLETE>
+[2023-12-30 19:35:18,410] [root] [INFO] -> Connection with 127.0.0.1:49926 closed
+[2023-12-30 19:35:39,725] [root] [INFO] -> Connection from 127.0.0.1:49949
+[2023-12-30 19:35:39,757] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:49949
+[2023-12-30 19:35:39,873] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-30 19:35:39,873] [root] [INFO] -> For 127.0.0.1:49949: <COMPLETE>
+[2023-12-30 19:35:44,727] [root] [INFO] -> Connection with 127.0.0.1:49949 closed
+[2023-12-30 19:35:44,727] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-30 19:35:51,628] [root] [INFO] -> Connection from 127.0.0.1:49960
+[2023-12-30 19:35:51,651] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:49960
+[2023-12-30 19:35:51,849] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-30 19:35:51,849] [root] [INFO] -> For 127.0.0.1:49960: <COMPLETE>
+[2023-12-30 19:36:16,226] [root] [INFO] -> Connection with 127.0.0.1:49960 closed
+[2023-12-30 19:36:16,226] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-30 19:36:18,790] [root] [INFO] -> Connection from 127.0.0.1:49969
+[2023-12-30 19:36:18,816] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:49969
+[2023-12-30 19:36:18,923] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-30 19:36:18,924] [root] [INFO] -> For 127.0.0.1:49969: <COMPLETE>
+[2023-12-30 19:36:40,797] [root] [INFO] -> Connection with 127.0.0.1:49969 closed
+[2023-12-30 19:36:40,797] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2023-12-30 19:37:14,394] [root] [INFO] -> Connection from 127.0.0.1:49977
+[2023-12-30 19:37:14,424] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:49977
+[2023-12-30 19:37:14,648] [root] [INFO] -> Reguest <ONLINE> status
+[2023-12-30 19:37:14,649] [root] [INFO] -> For 127.0.0.1:49977: <COMPLETE>
+[2023-12-30 19:37:59,048] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:49977
+[2023-12-30 19:37:59,164] [root] [ERROR] -> (RequestError): (1054, "Unknown column 'id' in 'where clause'")
+[2023-12-30 19:37:59,165] [root] [INFO] -> Reguest <OFFLINE> status
+[2023-12-30 19:37:59,165] [root] [INFO] -> For 127.0.0.1:49977: <CLOSE-CONNECTION>
+[2023-12-30 19:37:59,165] [root] [INFO] -> Connection with 127.0.0.1:49977 closed
+[2023-12-30 19:38:02,742] [root] [INFO] -> Connection from 127.0.0.1:50003
+[2023-12-30 19:49:00,412] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2023-12-30 19:49:00,412] [root] [INFO] -> <SERVER-SET>
+[2024-01-03 17:20:41,537] [root] [DEBUG] -> -init Logger custom format-
+[2024-01-03 17:20:42,447] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2024-01-03 17:20:42,447] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2024-01-03 17:20:42,451] [root] [INFO] -> <SERVER-RISE>
+[2024-01-03 17:20:49,039] [root] [INFO] -> Connection from 127.0.0.1:57279
+[2024-01-03 17:21:27,263] [root] [INFO] -> Received request <LOGIN> from 127.0.0.1:57279
+[2024-01-03 17:21:27,363] [root] [INFO] -> Reguest <LOGIN> status
+[2024-01-03 17:21:27,363] [root] [INFO] -> For 127.0.0.1:57279: <LOGIN-SUCCESS>
+[2024-01-03 17:21:29,447] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:57279
+[2024-01-03 17:21:29,774] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:21:29,775] [root] [INFO] -> For 127.0.0.1:57279: <COMPLETE>
+[2024-01-03 17:23:14,173] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:57279
+[2024-01-03 17:23:14,379] [root] [ERROR] -> (RequestError): (1054, "Unknown column 'id' in 'where clause'")
+[2024-01-03 17:23:14,380] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:23:14,380] [root] [INFO] -> For 127.0.0.1:57279: <CLOSE-CONNECTION>
+[2024-01-03 17:23:14,380] [root] [INFO] -> Connection with 127.0.0.1:57279 closed
+[2024-01-03 17:23:26,008] [root] [INFO] -> Connection from 127.0.0.1:51131
+[2024-01-03 17:23:26,038] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51131
+[2024-01-03 17:23:26,312] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:23:26,312] [root] [INFO] -> For 127.0.0.1:51131: <COMPLETE>
+[2024-01-03 17:23:43,758] [root] [INFO] -> Connection with 127.0.0.1:51131 closed
+[2024-01-03 17:23:43,759] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 17:24:11,146] [root] [INFO] -> Connection from 127.0.0.1:51146
+[2024-01-03 17:24:11,179] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51146
+[2024-01-03 17:24:11,291] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:24:11,291] [root] [INFO] -> For 127.0.0.1:51146: <COMPLETE>
+[2024-01-03 17:24:37,045] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51146
+[2024-01-03 17:24:37,165] [root] [ERROR] -> (RequestError): (1054, "Unknown column 'id' in 'where clause'")
+[2024-01-03 17:24:37,165] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:24:37,165] [root] [INFO] -> For 127.0.0.1:51146: <CLOSE-CONNECTION>
+[2024-01-03 17:24:37,165] [root] [INFO] -> Connection with 127.0.0.1:51146 closed
+[2024-01-03 17:25:58,795] [root] [INFO] -> Connection from 127.0.0.1:51160
+[2024-01-03 17:25:58,836] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51160
+[2024-01-03 17:25:59,037] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:25:59,037] [root] [INFO] -> For 127.0.0.1:51160: <COMPLETE>
+[2024-01-03 17:26:37,877] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51160
+[2024-01-03 17:26:38,002] [root] [ERROR] -> (RequestError): (1054, "Unknown column 'id' in 'where clause'")
+[2024-01-03 17:26:38,003] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:26:38,003] [root] [INFO] -> For 127.0.0.1:51160: <CLOSE-CONNECTION>
+[2024-01-03 17:26:38,003] [root] [INFO] -> Connection with 127.0.0.1:51160 closed
+[2024-01-03 17:26:40,293] [root] [INFO] -> Connection from 127.0.0.1:51181
+[2024-01-03 17:26:40,323] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51181
+[2024-01-03 17:26:40,659] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:26:40,660] [root] [INFO] -> For 127.0.0.1:51181: <COMPLETE>
+[2024-01-03 17:26:42,300] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51181
+[2024-01-03 17:26:42,335] [root] [ERROR] -> (RequestError): (1054, "Unknown column 'id' in 'where clause'")
+[2024-01-03 17:26:42,335] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:26:42,335] [root] [INFO] -> For 127.0.0.1:51181: <CLOSE-CONNECTION>
+[2024-01-03 17:26:42,335] [root] [INFO] -> Connection with 127.0.0.1:51181 closed
+[2024-01-03 17:26:51,430] [root] [INFO] -> Connection from 127.0.0.1:51192
+[2024-01-03 17:26:51,472] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51192
+[2024-01-03 17:26:51,786] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:26:51,786] [root] [INFO] -> For 127.0.0.1:51192: <COMPLETE>
+[2024-01-03 17:26:56,053] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51192
+[2024-01-03 17:26:56,140] [root] [ERROR] -> (RequestError): (1054, "Unknown column 'id' in 'where clause'")
+[2024-01-03 17:26:56,141] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:26:56,141] [root] [INFO] -> For 127.0.0.1:51192: <CLOSE-CONNECTION>
+[2024-01-03 17:26:56,141] [root] [INFO] -> Connection with 127.0.0.1:51192 closed
+[2024-01-03 17:27:07,284] [root] [INFO] -> Connection from 127.0.0.1:51199
+[2024-01-03 17:27:07,314] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51199
+[2024-01-03 17:27:07,416] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:27:07,416] [root] [INFO] -> For 127.0.0.1:51199: <COMPLETE>
+[2024-01-03 17:27:10,363] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51199
+[2024-01-03 17:27:10,490] [root] [ERROR] -> (RequestError): (1054, "Unknown column 'id' in 'where clause'")
+[2024-01-03 17:27:10,491] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:27:10,491] [root] [INFO] -> For 127.0.0.1:51199: <CLOSE-CONNECTION>
+[2024-01-03 17:27:10,491] [root] [INFO] -> Connection with 127.0.0.1:51199 closed
+[2024-01-03 17:29:36,520] [root] [INFO] -> Connection from 127.0.0.1:51230
+[2024-01-03 17:29:36,549] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51230
+[2024-01-03 17:29:36,749] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:29:36,749] [root] [INFO] -> For 127.0.0.1:51230: <COMPLETE>
+[2024-01-03 17:30:00,617] [root] [INFO] -> Connection with 127.0.0.1:51230 closed
+[2024-01-03 17:30:02,208] [root] [INFO] -> Connection from 127.0.0.1:51237
+[2024-01-03 17:30:02,234] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51237
+[2024-01-03 17:30:02,312] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:30:02,312] [root] [INFO] -> For 127.0.0.1:51237: <COMPLETE>
+[2024-01-03 17:30:14,638] [root] [INFO] -> Connection with 127.0.0.1:51237 closed
+[2024-01-03 17:30:15,974] [root] [INFO] -> Connection from 127.0.0.1:51245
+[2024-01-03 17:30:16,057] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51245
+[2024-01-03 17:30:16,364] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:30:16,364] [root] [INFO] -> For 127.0.0.1:51245: <COMPLETE>
+[2024-01-03 17:30:59,238] [root] [INFO] -> Connection with 127.0.0.1:51245 closed
+[2024-01-03 17:31:02,797] [root] [INFO] -> Connection from 127.0.0.1:51260
+[2024-01-03 17:31:02,825] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51260
+[2024-01-03 17:31:02,924] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:31:02,924] [root] [INFO] -> For 127.0.0.1:51260: <COMPLETE>
+[2024-01-03 17:31:37,701] [root] [INFO] -> Connection with 127.0.0.1:51260 closed
+[2024-01-03 17:31:55,825] [root] [INFO] -> Connection from 127.0.0.1:51266
+[2024-01-03 17:31:55,853] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51266
+[2024-01-03 17:31:56,037] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:31:56,037] [root] [INFO] -> For 127.0.0.1:51266: <COMPLETE>
+[2024-01-03 17:32:45,405] [root] [INFO] -> Connection with 127.0.0.1:51266 closed
+[2024-01-03 17:32:47,215] [root] [INFO] -> Connection from 127.0.0.1:51278
+[2024-01-03 17:32:47,242] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51278
+[2024-01-03 17:32:47,314] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:32:47,314] [root] [INFO] -> For 127.0.0.1:51278: <COMPLETE>
+[2024-01-03 17:32:51,629] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51278
+[2024-01-03 17:32:51,756] [root] [ERROR] -> (RequestError): (1054, "Unknown column 'id' in 'where clause'")
+[2024-01-03 17:32:51,757] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:32:51,757] [root] [INFO] -> For 127.0.0.1:51278: <CLOSE-CONNECTION>
+[2024-01-03 17:32:51,757] [root] [INFO] -> Connection with 127.0.0.1:51278 closed
+[2024-01-03 17:33:12,665] [root] [INFO] -> Connection from 127.0.0.1:51285
+[2024-01-03 17:33:12,695] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51285
+[2024-01-03 17:33:12,874] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:33:12,874] [root] [INFO] -> For 127.0.0.1:51285: <COMPLETE>
+[2024-01-03 17:33:45,590] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51285
+[2024-01-03 17:33:45,726] [root] [ERROR] -> (RequestError): (1054, "Unknown column 'id' in 'where clause'")
+[2024-01-03 17:33:45,726] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:33:45,727] [root] [INFO] -> For 127.0.0.1:51285: <CLOSE-CONNECTION>
+[2024-01-03 17:33:45,727] [root] [INFO] -> Connection with 127.0.0.1:51285 closed
+[2024-01-03 17:34:16,798] [root] [INFO] -> Connection from 127.0.0.1:51294
+[2024-01-03 17:34:16,828] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51294
+[2024-01-03 17:34:17,023] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:34:17,023] [root] [INFO] -> For 127.0.0.1:51294: <COMPLETE>
+[2024-01-03 17:34:21,844] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51294
+[2024-01-03 17:34:21,974] [root] [ERROR] -> (RequestError): (1054, "Unknown column 'id' in 'where clause'")
+[2024-01-03 17:34:21,975] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:34:21,975] [root] [INFO] -> For 127.0.0.1:51294: <CLOSE-CONNECTION>
+[2024-01-03 17:34:21,975] [root] [INFO] -> Connection with 127.0.0.1:51294 closed
+[2024-01-03 17:36:04,615] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2024-01-03 17:36:04,615] [root] [INFO] -> <SERVER-SET>
+[2024-01-03 17:36:06,156] [root] [DEBUG] -> -init Logger custom format-
+[2024-01-03 17:36:06,178] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2024-01-03 17:36:06,178] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2024-01-03 17:36:06,179] [root] [INFO] -> <SERVER-RISE>
+[2024-01-03 17:36:08,416] [root] [INFO] -> Connection from 127.0.0.1:51311
+[2024-01-03 17:36:08,443] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51311
+[2024-01-03 17:36:08,669] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:36:08,669] [root] [INFO] -> For 127.0.0.1:51311: <COMPLETE>
+[2024-01-03 17:36:11,749] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51311
+[2024-01-03 17:36:11,886] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:36:11,887] [root] [INFO] -> For 127.0.0.1:51311: <COMPLETE>
+[2024-01-03 17:36:12,826] [root] [INFO] -> Connection with 127.0.0.1:51311 closed
+[2024-01-03 17:36:12,826] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 17:36:17,762] [root] [INFO] -> Connection from 127.0.0.1:51318
+[2024-01-03 17:36:17,789] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51318
+[2024-01-03 17:36:18,012] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:36:18,012] [root] [INFO] -> For 127.0.0.1:51318: <COMPLETE>
+[2024-01-03 17:36:29,597] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51318
+[2024-01-03 17:36:29,792] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:36:29,792] [root] [INFO] -> For 127.0.0.1:51318: <COMPLETE>
+[2024-01-03 17:36:30,814] [root] [INFO] -> Connection with 127.0.0.1:51318 closed
+[2024-01-03 17:36:30,814] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 17:37:49,435] [root] [INFO] -> Connection from 127.0.0.1:51330
+[2024-01-03 17:37:49,623] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51330
+[2024-01-03 17:37:49,820] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:37:49,820] [root] [INFO] -> For 127.0.0.1:51330: <COMPLETE>
+[2024-01-03 17:38:04,191] [root] [INFO] -> Connection from 127.0.0.1:51337
+[2024-01-03 17:38:04,226] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51337
+[2024-01-03 17:38:04,425] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:38:04,425] [root] [INFO] -> For 127.0.0.1:51337: <COMPLETE>
+[2024-01-03 17:38:29,385] [root] [INFO] -> Connection from 127.0.0.1:51346
+[2024-01-03 17:38:29,417] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:51346
+[2024-01-03 17:38:29,641] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:38:29,641] [root] [INFO] -> For 127.0.0.1:51346: <COMPLETE>
+[2024-01-03 17:38:39,645] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51330
+[2024-01-03 17:38:39,857] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:38:39,858] [root] [INFO] -> For 127.0.0.1:51330: <COMPLETE>
+[2024-01-03 17:38:40,851] [root] [INFO] -> Connection with 127.0.0.1:51330 closed
+[2024-01-03 17:38:40,851] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 17:38:44,094] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51346
+[2024-01-03 17:38:44,224] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:38:44,224] [root] [INFO] -> For 127.0.0.1:51346: <COMPLETE>
+[2024-01-03 17:38:45,221] [root] [INFO] -> Connection with 127.0.0.1:51346 closed
+[2024-01-03 17:38:45,222] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 17:38:47,341] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:51337
+[2024-01-03 17:38:47,468] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:38:47,469] [root] [INFO] -> For 127.0.0.1:51337: <COMPLETE>
+[2024-01-03 17:38:48,453] [root] [INFO] -> Connection with 127.0.0.1:51337 closed
+[2024-01-03 17:38:48,453] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 17:47:43,256] [root] [INFO] -> Connection from 127.0.0.1:59913
+[2024-01-03 17:47:43,326] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:59913
+[2024-01-03 17:47:43,520] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:47:43,520] [root] [INFO] -> For 127.0.0.1:59913: <COMPLETE>
+[2024-01-03 17:47:45,925] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:59913
+[2024-01-03 17:47:46,032] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 17:47:46,033] [root] [INFO] -> For 127.0.0.1:59913: <COMPLETE>
+[2024-01-03 17:47:47,378] [root] [INFO] -> Connection with 127.0.0.1:59913 closed
+[2024-01-03 17:47:47,378] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 17:55:26,300] [root] [INFO] -> Connection from 127.0.0.1:59959
+[2024-01-03 17:55:26,328] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:59959
+[2024-01-03 17:55:26,538] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:55:26,538] [root] [INFO] -> For 127.0.0.1:59959: <COMPLETE>
+[2024-01-03 17:55:48,049] [root] [INFO] -> Connection with 127.0.0.1:59959 closed
+[2024-01-03 17:55:49,264] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2024-01-03 17:55:49,264] [root] [INFO] -> <SERVER-SET>
+[2024-01-03 17:55:50,622] [root] [DEBUG] -> -init Logger custom format-
+[2024-01-03 17:55:50,782] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2024-01-03 17:55:50,783] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2024-01-03 17:55:50,783] [root] [INFO] -> <SERVER-RISE>
+[2024-01-03 17:56:20,732] [root] [INFO] -> Connection from 127.0.0.1:59969
+[2024-01-03 17:56:20,763] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:59969
+[2024-01-03 17:56:20,895] [root] [ERROR] -> Not enough values to make INSERT func
+[2024-01-03 17:56:20,895] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:56:20,895] [root] [INFO] -> For 127.0.0.1:59969: <CLOSE-CONNECTION>
+[2024-01-03 17:56:20,895] [root] [INFO] -> Connection with 127.0.0.1:59969 closed
+[2024-01-03 17:57:14,633] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2024-01-03 17:57:14,633] [root] [INFO] -> <SERVER-SET>
+[2024-01-03 17:57:16,958] [root] [DEBUG] -> -init Logger custom format-
+[2024-01-03 17:57:16,992] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2024-01-03 17:57:16,992] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2024-01-03 17:57:16,993] [root] [INFO] -> <SERVER-RISE>
+[2024-01-03 17:57:18,737] [root] [INFO] -> Connection from 127.0.0.1:59987
+[2024-01-03 17:57:18,762] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:59987
+[2024-01-03 17:57:18,939] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:57:18,940] [root] [INFO] -> For 127.0.0.1:59987: <COMPLETE>
+[2024-01-03 17:57:42,098] [root] [INFO] -> Connection from 127.0.0.1:53691
+[2024-01-03 17:57:42,135] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:53691
+[2024-01-03 17:57:42,136] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 17:57:42,136] [root] [INFO] -> For 127.0.0.1:53691: <ONLINE-DENIED>
+[2024-01-03 18:06:19,791] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:53691
+[2024-01-03 18:06:19,791] [root] [ERROR] -> (RequestError): (2006, "MySQL server has gone away (ConnectionAbortedError(10053, 'Программа на вашем хост-компьютере разорвала установленное подключение', None, 10053, None))")
+[2024-01-03 18:06:19,791] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 18:06:19,792] [root] [INFO] -> For 127.0.0.1:53691: <CLOSE-CONNECTION>
+[2024-01-03 18:06:19,792] [root] [INFO] -> Connection with 127.0.0.1:53691 closed
+[2024-01-03 18:06:26,847] [root] [INFO] -> Connection from 127.0.0.1:53775
+[2024-01-03 18:07:50,494] [root] [INFO] -> Received request <LOGIN> from 127.0.0.1:53775
+[2024-01-03 18:07:50,498] [root] [INFO] -> Reguest <LOGIN> status
+[2024-01-03 18:07:50,498] [root] [INFO] -> For 127.0.0.1:53775: <LOGIN-SUCCESS>
+[2024-01-03 18:07:51,696] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:53775
+[2024-01-03 18:07:52,661] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 18:07:52,661] [root] [INFO] -> For 127.0.0.1:53775: <ONLINE-DENIED>
+[2024-01-03 18:07:56,545] [root] [INFO] -> Connection with 127.0.0.1:53775 closed
+[2024-01-03 18:07:56,546] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 18:08:30,315] [root] [INFO] -> Connection from 127.0.0.1:53803
+[2024-01-03 18:09:01,161] [root] [INFO] -> Received request <LOGIN> from 127.0.0.1:53803
+[2024-01-03 18:09:01,163] [root] [INFO] -> Reguest <LOGIN> status
+[2024-01-03 18:09:01,164] [root] [INFO] -> For 127.0.0.1:53803: <LOGIN-SUCCESS>
+[2024-01-03 18:09:02,141] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:53803
+[2024-01-03 18:09:02,143] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 18:09:02,143] [root] [INFO] -> For 127.0.0.1:53803: <ONLINE-DENIED>
+[2024-01-03 18:09:44,827] [root] [INFO] -> Connection with 127.0.0.1:53803 closed
+[2024-01-03 18:09:44,827] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 18:10:20,461] [root] [INFO] -> Connection from 127.0.0.1:53826
+[2024-01-03 18:10:20,494] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:53826
+[2024-01-03 18:10:20,496] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 18:10:20,496] [root] [INFO] -> For 127.0.0.1:53826: <ONLINE-DENIED>
+[2024-01-03 18:10:40,064] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:53826
+[2024-01-03 18:10:40,194] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 18:10:40,194] [root] [INFO] -> For 127.0.0.1:53826: <COMPLETE>
+[2024-01-03 18:10:41,174] [root] [INFO] -> Connection with 127.0.0.1:53826 closed
+[2024-01-03 18:10:41,174] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 18:10:47,525] [root] [INFO] -> Connection from 127.0.0.1:53833
+[2024-01-03 18:10:56,161] [root] [INFO] -> Received request <LOGIN> from 127.0.0.1:53833
+[2024-01-03 18:10:56,163] [root] [INFO] -> Reguest <LOGIN> status
+[2024-01-03 18:10:56,163] [root] [INFO] -> For 127.0.0.1:53833: <LOGIN-SUCCESS>
+[2024-01-03 18:10:57,845] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:53833
+[2024-01-03 18:10:57,991] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 18:10:57,991] [root] [INFO] -> For 127.0.0.1:53833: <ONLINE-DENIED>
+[2024-01-03 18:11:01,189] [root] [INFO] -> Connection with 127.0.0.1:53833 closed
+[2024-01-03 18:11:01,190] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 18:11:03,389] [root] [INFO] -> Connection from 127.0.0.1:53839
+[2024-01-03 18:11:03,423] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:53839
+[2024-01-03 18:11:03,424] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 18:11:03,424] [root] [INFO] -> For 127.0.0.1:53839: <ONLINE-DENIED>
+[2024-01-03 18:11:35,674] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2024-01-03 18:11:35,674] [root] [INFO] -> <SERVER-SET>
+[2024-01-03 18:11:37,733] [root] [DEBUG] -> -init Logger custom format-
+[2024-01-03 18:11:37,792] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2024-01-03 18:11:37,792] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2024-01-03 18:11:37,793] [root] [INFO] -> <SERVER-RISE>
+[2024-01-03 18:11:41,463] [root] [INFO] -> Connection from 127.0.0.1:53851
+[2024-01-03 18:11:41,490] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:53851
+[2024-01-03 18:11:41,616] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 18:11:41,616] [root] [INFO] -> For 127.0.0.1:53851: <ONLINE-DENIED>
+[2024-01-03 18:11:47,487] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:53851
+[2024-01-03 18:11:47,740] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 18:11:47,741] [root] [INFO] -> For 127.0.0.1:53851: <COMPLETE>
+[2024-01-03 18:11:48,609] [root] [INFO] -> Connection with 127.0.0.1:53851 closed
+[2024-01-03 18:11:48,609] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 18:11:58,032] [root] [INFO] -> Connection from 127.0.0.1:53858
+[2024-01-03 18:11:58,061] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:53858
+[2024-01-03 18:11:58,274] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 18:11:58,275] [root] [INFO] -> For 127.0.0.1:53858: <ONLINE-DENIED>
+[2024-01-03 18:12:21,175] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:53858
+[2024-01-03 18:12:21,303] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 18:12:21,303] [root] [INFO] -> For 127.0.0.1:53858: <COMPLETE>
+[2024-01-03 18:12:22,445] [root] [INFO] -> Connection with 127.0.0.1:53858 closed
+[2024-01-03 18:12:22,445] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 18:12:23,853] [root] [INFO] -> Connection from 127.0.0.1:53867
+[2024-01-03 18:13:07,138] [root] [INFO] -> Connection with 127.0.0.1:53867 closed
+[2024-01-03 18:13:08,456] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2024-01-03 18:13:08,456] [root] [INFO] -> <SERVER-SET>
+[2024-01-03 19:31:17,568] [root] [DEBUG] -> -init Logger custom format-
+[2024-01-03 19:31:17,580] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2024-01-03 19:31:17,580] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2024-01-03 19:31:17,581] [root] [INFO] -> <SERVER-RISE>
+[2024-01-03 19:31:22,662] [root] [INFO] -> Connection from 127.0.0.1:62448
+[2024-01-03 19:31:56,725] [root] [INFO] -> Received request <LOGIN> from 127.0.0.1:62448
+[2024-01-03 19:31:56,728] [root] [INFO] -> Reguest <LOGIN> status
+[2024-01-03 19:31:56,728] [root] [INFO] -> For 127.0.0.1:62448: <LOGIN-SUCCESS>
+[2024-01-03 19:31:58,300] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62448
+[2024-01-03 19:31:58,558] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:31:58,558] [root] [INFO] -> For 127.0.0.1:62448: <COMPLETE>
+[2024-01-03 19:32:27,025] [root] [INFO] -> Connection from 127.0.0.1:62457
+[2024-01-03 19:32:27,603] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62457
+[2024-01-03 19:32:27,605] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:32:27,605] [root] [INFO] -> For 127.0.0.1:62457: <ONLINE-DENIED>
+[2024-01-03 19:32:31,344] [root] [INFO] -> Connection with 127.0.0.1:62457 closed
+[2024-01-03 19:32:31,344] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:32:38,068] [root] [INFO] -> Connection from 127.0.0.1:62463
+[2024-01-03 19:32:50,694] [root] [INFO] -> Received request <LOGIN> from 127.0.0.1:62463
+[2024-01-03 19:32:50,698] [root] [INFO] -> Reguest <LOGIN> status
+[2024-01-03 19:32:50,698] [root] [INFO] -> For 127.0.0.1:62463: <LOGIN-SUCCESS>
+[2024-01-03 19:32:52,586] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62463
+[2024-01-03 19:32:52,587] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:32:52,588] [root] [INFO] -> For 127.0.0.1:62463: <ONLINE-DENIED>
+[2024-01-03 19:32:55,858] [root] [INFO] -> Connection with 127.0.0.1:62463 closed
+[2024-01-03 19:32:55,858] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:33:08,412] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62448
+[2024-01-03 19:33:08,583] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 19:33:08,584] [root] [INFO] -> For 127.0.0.1:62448: <COMPLETE>
+[2024-01-03 19:33:09,536] [root] [INFO] -> Connection with 127.0.0.1:62448 closed
+[2024-01-03 19:33:09,536] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:33:11,001] [root] [INFO] -> Connection from 127.0.0.1:62470
+[2024-01-03 19:33:20,982] [root] [INFO] -> Received request <LOGIN> from 127.0.0.1:62470
+[2024-01-03 19:33:20,985] [root] [INFO] -> Reguest <LOGIN> status
+[2024-01-03 19:33:20,985] [root] [INFO] -> For 127.0.0.1:62470: <LOGIN-SUCCESS>
+[2024-01-03 19:33:22,160] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62470
+[2024-01-03 19:33:22,389] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:33:22,389] [root] [INFO] -> For 127.0.0.1:62470: <COMPLETE>
+[2024-01-03 19:33:50,964] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62470
+[2024-01-03 19:33:51,087] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 19:33:51,088] [root] [INFO] -> For 127.0.0.1:62470: <COMPLETE>
+[2024-01-03 19:33:52,110] [root] [INFO] -> Connection with 127.0.0.1:62470 closed
+[2024-01-03 19:33:52,111] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:34:11,543] [root] [INFO] -> Connection from 127.0.0.1:62480
+[2024-01-03 19:34:12,142] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62480
+[2024-01-03 19:34:12,341] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:34:12,341] [root] [INFO] -> For 127.0.0.1:62480: <COMPLETE>
+[2024-01-03 19:34:38,105] [root] [INFO] -> Connection from 127.0.0.1:62486
+[2024-01-03 19:34:38,699] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62486
+[2024-01-03 19:34:38,700] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:34:38,700] [root] [INFO] -> For 127.0.0.1:62486: <ONLINE-DENIED>
+[2024-01-03 19:34:41,623] [root] [INFO] -> Connection with 127.0.0.1:62486 closed
+[2024-01-03 19:34:41,624] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:34:52,310] [root] [INFO] -> Connection from 127.0.0.1:62495
+[2024-01-03 19:35:00,646] [root] [INFO] -> Received request <LOGIN> from 127.0.0.1:62495
+[2024-01-03 19:35:00,649] [root] [INFO] -> Reguest <LOGIN> status
+[2024-01-03 19:35:00,649] [root] [INFO] -> For 127.0.0.1:62495: <LOGIN-SUCCESS>
+[2024-01-03 19:35:01,696] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62495
+[2024-01-03 19:35:01,697] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:35:01,697] [root] [INFO] -> For 127.0.0.1:62495: <ONLINE-DENIED>
+[2024-01-03 19:35:05,430] [root] [INFO] -> Connection with 127.0.0.1:62495 closed
+[2024-01-03 19:35:05,431] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:35:33,291] [root] [INFO] -> Connection from 127.0.0.1:62511
+[2024-01-03 19:35:36,237] [root] [INFO] -> Connection with 127.0.0.1:62511 closed
+[2024-01-03 19:35:36,237] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:35:44,764] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62480
+[2024-01-03 19:35:44,877] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 19:35:44,878] [root] [INFO] -> For 127.0.0.1:62480: <COMPLETE>
+[2024-01-03 19:35:45,846] [root] [INFO] -> Connection with 127.0.0.1:62480 closed
+[2024-01-03 19:35:45,846] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:35:57,268] [root] [INFO] -> Connection from 127.0.0.1:62518
+[2024-01-03 19:35:57,840] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62518
+[2024-01-03 19:35:58,047] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:35:58,047] [root] [INFO] -> For 127.0.0.1:62518: <COMPLETE>
+[2024-01-03 19:36:38,622] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62518
+[2024-01-03 19:36:38,842] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 19:36:38,842] [root] [INFO] -> For 127.0.0.1:62518: <COMPLETE>
+[2024-01-03 19:36:39,776] [root] [INFO] -> Connection with 127.0.0.1:62518 closed
+[2024-01-03 19:36:39,814] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:37:43,198] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2024-01-03 19:37:43,198] [root] [INFO] -> <SERVER-SET>
+[2024-01-03 19:37:45,028] [root] [DEBUG] -> -init Logger custom format-
+[2024-01-03 19:37:45,057] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2024-01-03 19:37:45,057] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2024-01-03 19:37:45,058] [root] [INFO] -> <SERVER-RISE>
+[2024-01-03 19:37:47,640] [root] [INFO] -> Connection from 127.0.0.1:62531
+[2024-01-03 19:38:12,423] [root] [INFO] -> Received request <REGISTRATION> from 127.0.0.1:62531
+[2024-01-03 19:38:12,733] [root] [INFO] -> Reguest <REGISTRATION> status
+[2024-01-03 19:38:12,733] [root] [INFO] -> For 127.0.0.1:62531: <REGISTRATION-SUCCESS>
+[2024-01-03 19:38:16,110] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62531
+[2024-01-03 19:38:16,344] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:38:16,344] [root] [INFO] -> For 127.0.0.1:62531: <COMPLETE>
+[2024-01-03 19:38:53,269] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62531
+[2024-01-03 19:38:53,472] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 19:38:53,472] [root] [INFO] -> For 127.0.0.1:62531: <COMPLETE>
+[2024-01-03 19:38:54,375] [root] [INFO] -> Connection with 127.0.0.1:62531 closed
+[2024-01-03 19:38:54,375] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:45:11,089] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2024-01-03 19:45:11,089] [root] [INFO] -> <SERVER-SET>
+[2024-01-03 19:45:12,616] [root] [DEBUG] -> -init Logger custom format-
+[2024-01-03 19:45:12,638] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2024-01-03 19:45:12,639] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2024-01-03 19:45:12,639] [root] [INFO] -> <SERVER-RISE>
+[2024-01-03 19:51:03,900] [root] [INFO] -> Connection from 127.0.0.1:62663
+[2024-01-03 19:51:04,520] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62663
+[2024-01-03 19:51:04,808] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:51:04,808] [root] [INFO] -> For 127.0.0.1:62663: <COMPLETE>
+[2024-01-03 19:51:45,428] [root] [INFO] -> Connection with 127.0.0.1:62663 closed
+[2024-01-03 19:51:45,428] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:52:06,771] [root] [INFO] -> Connection from 127.0.0.1:62686
+[2024-01-03 19:52:07,506] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62686
+[2024-01-03 19:52:07,507] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:52:07,508] [root] [INFO] -> For 127.0.0.1:62686: <ONLINE-DENIED>
+[2024-01-03 19:52:30,669] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62686
+[2024-01-03 19:52:30,795] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 19:52:30,795] [root] [INFO] -> For 127.0.0.1:62686: <COMPLETE>
+[2024-01-03 19:52:45,583] [root] [INFO] -> Connection with 127.0.0.1:62686 closed
+[2024-01-03 19:52:56,193] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2024-01-03 19:52:56,193] [root] [INFO] -> <SERVER-SET>
+[2024-01-03 19:52:57,934] [root] [DEBUG] -> -init Logger custom format-
+[2024-01-03 19:52:57,941] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2024-01-03 19:52:57,941] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2024-01-03 19:52:57,942] [root] [INFO] -> <SERVER-RISE>
+[2024-01-03 19:53:16,999] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2024-01-03 19:53:16,999] [root] [INFO] -> <SERVER-SET>
+[2024-01-03 19:55:56,027] [root] [DEBUG] -> -init Logger custom format-
+[2024-01-03 19:55:56,053] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2024-01-03 19:55:56,053] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2024-01-03 19:55:56,054] [root] [INFO] -> <SERVER-RISE>
+[2024-01-03 19:55:59,047] [root] [INFO] -> Connection from 127.0.0.1:62764
+[2024-01-03 19:55:59,629] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62764
+[2024-01-03 19:55:59,827] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:55:59,827] [root] [INFO] -> For 127.0.0.1:62764: <COMPLETE>
+[2024-01-03 19:56:05,942] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62764
+[2024-01-03 19:56:06,129] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 19:56:06,130] [root] [INFO] -> For 127.0.0.1:62764: <COMPLETE>
+[2024-01-03 19:56:07,317] [root] [INFO] -> Connection with 127.0.0.1:62764 closed
+[2024-01-03 19:56:07,317] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:56:18,152] [root] [INFO] -> Connection from 127.0.0.1:62775
+[2024-01-03 19:56:18,797] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62775
+[2024-01-03 19:56:19,027] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:56:19,027] [root] [INFO] -> For 127.0.0.1:62775: <COMPLETE>
+[2024-01-03 19:56:31,923] [root] [INFO] -> Connection with 127.0.0.1:62775 closed
+[2024-01-03 19:56:45,640] [root] [INFO] -> Connection from 127.0.0.1:62781
+[2024-01-03 19:56:46,246] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62781
+[2024-01-03 19:56:46,247] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:56:46,248] [root] [INFO] -> For 127.0.0.1:62781: <ONLINE-DENIED>
+[2024-01-03 19:56:49,434] [root] [INFO] -> Connection with 127.0.0.1:62781 closed
+[2024-01-03 19:56:49,434] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:57:00,529] [root] [INFO] -> Connection from 127.0.0.1:62791
+[2024-01-03 19:57:10,183] [root] [INFO] -> Received request <LOGIN> from 127.0.0.1:62791
+[2024-01-03 19:57:10,185] [root] [INFO] -> Reguest <LOGIN> status
+[2024-01-03 19:57:10,185] [root] [INFO] -> For 127.0.0.1:62791: <LOGIN-SUCCESS>
+[2024-01-03 19:57:11,639] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62791
+[2024-01-03 19:57:11,812] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:57:11,812] [root] [INFO] -> For 127.0.0.1:62791: <COMPLETE>
+[2024-01-03 19:57:48,839] [root] [INFO] -> Received request <CHANGE-USER-DATA> from 127.0.0.1:62791
+[2024-01-03 19:57:48,969] [root] [INFO] -> Reguest <CHANGE-USER-DATA> status
+[2024-01-03 19:57:48,969] [root] [INFO] -> For 127.0.0.1:62791: <COMPLETE>
+[2024-01-03 19:57:59,108] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62791
+[2024-01-03 19:57:59,310] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 19:57:59,310] [root] [INFO] -> For 127.0.0.1:62791: <COMPLETE>
+[2024-01-03 19:58:00,576] [root] [INFO] -> Connection with 127.0.0.1:62791 closed
+[2024-01-03 19:58:00,576] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:58:02,429] [root] [INFO] -> Connection from 127.0.0.1:62807
+[2024-01-03 19:58:03,022] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62807
+[2024-01-03 19:58:03,162] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:58:03,162] [root] [INFO] -> For 127.0.0.1:62807: <COMPLETE>
+[2024-01-03 19:59:16,973] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62807
+[2024-01-03 19:59:17,167] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 19:59:17,167] [root] [INFO] -> For 127.0.0.1:62807: <COMPLETE>
+[2024-01-03 19:59:18,314] [root] [INFO] -> Connection with 127.0.0.1:62807 closed
+[2024-01-03 19:59:18,314] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 19:59:31,870] [root] [INFO] -> Connection from 127.0.0.1:62819
+[2024-01-03 19:59:32,466] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62819
+[2024-01-03 19:59:32,671] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 19:59:32,671] [root] [INFO] -> For 127.0.0.1:62819: <COMPLETE>
+[2024-01-03 20:00:03,080] [root] [INFO] -> Received request <CHANGE-USER-DATA> from 127.0.0.1:62819
+[2024-01-03 20:00:03,211] [root] [INFO] -> Reguest <CHANGE-USER-DATA> status
+[2024-01-03 20:00:03,212] [root] [INFO] -> For 127.0.0.1:62819: <COMPLETE>
+[2024-01-03 20:00:11,661] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62819
+[2024-01-03 20:00:11,854] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 20:00:11,854] [root] [INFO] -> For 127.0.0.1:62819: <COMPLETE>
+[2024-01-03 20:00:13,084] [root] [INFO] -> Connection with 127.0.0.1:62819 closed
+[2024-01-03 20:00:13,085] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 20:00:14,802] [root] [INFO] -> Connection from 127.0.0.1:62826
+[2024-01-03 20:00:15,402] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62826
+[2024-01-03 20:00:15,598] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 20:00:15,598] [root] [INFO] -> For 127.0.0.1:62826: <COMPLETE>
+[2024-01-03 20:00:17,749] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62826
+[2024-01-03 20:00:17,866] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 20:00:17,866] [root] [INFO] -> For 127.0.0.1:62826: <COMPLETE>
+[2024-01-03 20:00:19,115] [root] [INFO] -> Connection with 127.0.0.1:62826 closed
+[2024-01-03 20:00:19,116] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 20:01:59,872] [root] [INFO] -> Connection from 127.0.0.1:62837
+[2024-01-03 20:02:00,480] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62837
+[2024-01-03 20:02:00,611] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 20:02:00,611] [root] [INFO] -> For 127.0.0.1:62837: <COMPLETE>
+[2024-01-03 20:02:13,901] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62837
+[2024-01-03 20:02:14,118] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 20:02:14,118] [root] [INFO] -> For 127.0.0.1:62837: <COMPLETE>
+[2024-01-03 20:02:15,187] [root] [INFO] -> Connection with 127.0.0.1:62837 closed
+[2024-01-03 20:02:15,187] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 20:03:41,266] [root] [INFO] -> Connection from 127.0.0.1:62877
+[2024-01-03 20:03:41,898] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62877
+[2024-01-03 20:03:42,091] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 20:03:42,091] [root] [INFO] -> For 127.0.0.1:62877: <COMPLETE>
+[2024-01-03 20:03:52,769] [root] [INFO] -> Received request <CHANGE-USER-DATA> from 127.0.0.1:62877
+[2024-01-03 20:03:52,817] [root] [INFO] -> Reguest <CHANGE-USER-DATA> status
+[2024-01-03 20:03:52,817] [root] [INFO] -> For 127.0.0.1:62877: <COMPLETE>
+[2024-01-03 20:04:22,917] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62877
+[2024-01-03 20:04:23,370] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 20:04:23,371] [root] [INFO] -> For 127.0.0.1:62877: <COMPLETE>
+[2024-01-03 20:04:24,405] [root] [INFO] -> Connection with 127.0.0.1:62877 closed
+[2024-01-03 20:04:24,406] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 20:04:31,595] [root] [INFO] -> Connection from 127.0.0.1:62887
+[2024-01-03 20:04:32,209] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62887
+[2024-01-03 20:04:32,527] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 20:04:32,527] [root] [INFO] -> For 127.0.0.1:62887: <COMPLETE>
+[2024-01-03 20:04:51,878] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62887
+[2024-01-03 20:04:52,094] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 20:04:52,094] [root] [INFO] -> For 127.0.0.1:62887: <COMPLETE>
+[2024-01-03 20:04:53,202] [root] [INFO] -> Connection with 127.0.0.1:62887 closed
+[2024-01-03 20:04:53,210] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 20:05:02,704] [root] [INFO] -> Connection from 127.0.0.1:62897
+[2024-01-03 20:05:03,337] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62897
+[2024-01-03 20:05:03,522] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 20:05:03,522] [root] [INFO] -> For 127.0.0.1:62897: <COMPLETE>
+[2024-01-03 20:05:27,048] [root] [INFO] -> Received request <CHANGE-USER-DATA> from 127.0.0.1:62897
+[2024-01-03 20:05:27,054] [root] [ERROR] -> (RequestError): (1406, "Data too long for column 'status' at row 1")
+[2024-01-03 20:05:27,054] [root] [INFO] -> Reguest <CHANGE-USER-DATA> status
+[2024-01-03 20:05:27,054] [root] [INFO] -> For 127.0.0.1:62897: <CLOSE-CONNECTION>
+[2024-01-03 20:05:27,054] [root] [INFO] -> Connection with 127.0.0.1:62897 closed
+[2024-01-03 20:06:27,050] [root] [INFO] -> <SERVER-SET-WITH-KEYBOARD-INTERRUPT>
+[2024-01-03 20:06:27,050] [root] [INFO] -> <SERVER-SET>
+[2024-01-03 20:06:29,614] [root] [DEBUG] -> -init Logger custom format-
+[2024-01-03 20:06:29,747] [root] [DEBUG] -> Updated data in `user`["online" = "False"] for all IDs
+[2024-01-03 20:06:29,747] [asyncio] [DEBUG] -> Using proactor: IocpProactor
+[2024-01-03 20:06:29,748] [root] [INFO] -> <SERVER-RISE>
+[2024-01-03 20:06:33,385] [root] [INFO] -> Connection from 127.0.0.1:62914
+[2024-01-03 20:06:33,991] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62914
+[2024-01-03 20:06:34,127] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 20:06:34,127] [root] [INFO] -> For 127.0.0.1:62914: <ONLINE-DENIED>
+[2024-01-03 20:06:36,775] [root] [INFO] -> Connection with 127.0.0.1:62914 closed
+[2024-01-03 20:06:36,775] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
+[2024-01-03 20:07:15,990] [root] [INFO] -> Connection from 127.0.0.1:62929
+[2024-01-03 20:07:27,143] [root] [INFO] -> Received request <LOGIN> from 127.0.0.1:62929
+[2024-01-03 20:07:27,145] [root] [INFO] -> Reguest <LOGIN> status
+[2024-01-03 20:07:27,145] [root] [INFO] -> For 127.0.0.1:62929: <LOGIN-SUCCESS>
+[2024-01-03 20:07:28,170] [root] [INFO] -> Received request <ONLINE> from 127.0.0.1:62929
+[2024-01-03 20:07:28,345] [root] [INFO] -> Reguest <ONLINE> status
+[2024-01-03 20:07:28,345] [root] [INFO] -> For 127.0.0.1:62929: <COMPLETE>
+[2024-01-03 20:07:49,695] [root] [INFO] -> Received request <CHANGE-USER-DATA> from 127.0.0.1:62929
+[2024-01-03 20:07:49,829] [root] [INFO] -> Reguest <CHANGE-USER-DATA> status
+[2024-01-03 20:07:49,829] [root] [INFO] -> For 127.0.0.1:62929: <COMPLETE>
+[2024-01-03 20:08:18,278] [root] [INFO] -> Received request <OFFLINE> from 127.0.0.1:62929
+[2024-01-03 20:08:18,742] [root] [INFO] -> Reguest <OFFLINE> status
+[2024-01-03 20:08:18,742] [root] [INFO] -> For 127.0.0.1:62929: <COMPLETE>
+[2024-01-03 20:08:19,501] [root] [INFO] -> Connection with 127.0.0.1:62929 closed
+[2024-01-03 20:08:19,501] [root] [INFO] -> Error from Client App: [WinError 64] Указанное сетевое имя более недоступно
