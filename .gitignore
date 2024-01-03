@@ -6,3 +6,4 @@ LOGS/__pycache__/
 SERVER/__pycache__/
 LinkedsMain/IMAGES/pfp_image.png
 LinkedsMain/IMAGES/friends_images
+LinkedsMain/CLIENT/client_config.py
