@@ -1,5 +1,4 @@
 import pymysql
-import pathlib
 from CONFIG.database_config import *
 from DATABASE.user_config import User, Social, Connection
 
@@ -229,20 +228,3 @@ class Database:
             if el.get('id') == id:
                 return True
         return False
-
-    def save_image(self, user_social, image_type, image_bytes, post=None, chat=None) -> None:
-        current_path = '\\'.join(str(pathlib.Path().resolve()).split('\\')[:-1]) + '\\DATABASE'
-        path = current_path + f"\\{image_type}_storage\\{user_social.get('id')}.png"
-        with open(path, 'wb') as image:
-            image.write(image_bytes)
-        if post is None and chat is None:
-            self.update(table_name='social', id=user_social.get('id'), subject='pfp',
-                        subject_value=f"\\\\{image_type}_storage\\\\{user_social.get('id')}.png")
-
-    @staticmethod
-    def load_image(image_path) -> bytes:
-        current_path = '\\'.join(str(pathlib.Path().resolve()).split('\\')[:-1]) + '\\DATABASE'
-        path = current_path + image_path
-        with open(path, 'rb') as image:
-            image_bytes = image.read()
-        return image_bytes
