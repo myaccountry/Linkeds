@@ -1,13 +1,8 @@
 .idea
+**/__pycache__/
 /TESTS
 LOGS/server_logs.log
-CONFIG/__pycache__/
-LOGS/__pycache__/
-SERVER/__pycache__/
 LinkedsMain/IMAGES/pfp_image.png
-LinkedsMain/IMAGES/friends_images
+LinkedsMain/IMAGES/friends_images/
 LinkedsMain/CLIENT/client_config.py
-LinkedsMain/CLIENT/__pycache__/
-DATABASE/__pycache__/
-LinkedsMain/GUI/__pycache__/
-LinkedsMain/CUSTOM_WIDGETS/__pycache__/
+LinkedsMain/static.png

@@ -17,7 +17,7 @@ class StandardHLayout(QtWidgets.QHBoxLayout):
         self.setObjectName('StandardHLayout')
 
 
-class LayoutWidget(QtWidgets.QWidget):
+class LayoutWidget(QtWidgets.QFrame):
 
     def __init__(self, orientation: bool = True, *args, **kwargs):
         """

@@ -27,8 +27,8 @@ class RequestHandler:
 
     def call_method(self, data) -> None:
         method = self.methods.get(data.get('method'))
-        getattr(self, method)(data)
-        print(data)
+        if getattr(self, method)(data) is not None:
+            return
         signal = self._main_work.client_window.form_signal(
             method=getattr(self._main_work.client_window, method), data=data.get('data'))
         signal.emit()
@@ -55,4 +55,22 @@ class RequestHandler:
         ...
 
     def online_denied(self, data=None) -> None:
+        ...
+
+    def set_user_social(self, data=None) -> None:
+        ...
+
+    def get_image_success(self, data=None) -> None:
+        ...
+
+    def update_pfp(self, data=None) -> None:
+        ...
+
+    def update_friends(self, data=None) -> None:
+        ...
+
+    def update_request_friends(self, data=None) -> None:
+        ...
+
+    def add_request_friend_denied(self, data=None) -> None:
         ...

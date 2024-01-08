@@ -46,6 +46,9 @@ class MainWork:
     def init_app_gui(self):
         self.app = QtWidgets.QApplication(sys.argv)
         self.client_window = AppWindow(self, self.user_data)
+        self.client_window.send_request(
+            self.client_window.form_request(
+                '<SET-USER-SOCIAL>', {'user_data': self.client_window.user_data}))
         self.client_window.show()
         sys.exit(self.app.exec())
 
@@ -79,4 +82,6 @@ if __name__ == '__main__':
         welcome_window.start()
         main.run_client()
     except KeyboardInterrupt:
+        main.client_window.init_offline()
+        main.client_window.auto_login(True)
         print('App closed')
