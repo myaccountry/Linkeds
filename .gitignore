@@ -6,3 +6,6 @@ LinkedsMain/IMAGES/pfp_image.png
 LinkedsMain/IMAGES/friends_images/
 LinkedsMain/CLIENT/client_config.py
 LinkedsMain/static.png
+DATABASE/pfp_storage/
+DATABASE/chat_storage/
+DATABASE/post_storage/
