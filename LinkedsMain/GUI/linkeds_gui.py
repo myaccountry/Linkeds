@@ -3,6 +3,7 @@ import sys
 import pathlib
 import hashlib
 import functools
+import time
 from asyncio import Protocol, BaseProtocol
 from threading import Thread
 from LinkedsMain.CLIENT.CFIE import User
@@ -16,6 +17,7 @@ from LinkedsMain.CUSTOM_WIDGETS.custom_labels import StandardLabel, PixmapLabel,
 from LinkedsMain.CUSTOM_WIDGETS.custom_message_boxes import StandardMessageBox
 from LinkedsMain.CUSTOM_WIDGETS.custom_line_edit import StandardLineEdit
 from LinkedsMain.CUSTOM_WIDGETS.custom_layouts import StandardHLayout, StandardVLayout, LayoutWidget
+from LinkedsMain.CUSTOM_WIDGETS.custom_frames import FriendsFrame
 
 if __name__ == '__main__':
     print('Do not run from NotMain application')
@@ -264,6 +266,9 @@ class WelcomeWindow(StandardWidget):
         user_data = data.get('user_data')
         self.destroy()
         self.main_work.client_window = AppWindow(self.main_work, user_data)
+        self.main_work.client_window.send_request(
+            self.main_work.client_window.form_request(
+                '<SET-USER-SOCIAL>', {'user_data': self.main_work.client_window.user_data}))
         self.main_work.client_window.show()
 
     @pyqtSlot()
@@ -294,6 +299,7 @@ class AppWindow(QtWidgets.QMainWindow):
         super().__init__()
         self.user_data = user_data
         self.main_work = main_work
+        self.user_social = None
 
         self.theme = 'DARK'
         self.setStyleSheet(DARK_THEME_STYLE)
@@ -306,10 +312,9 @@ class AppWindow(QtWidgets.QMainWindow):
         self.setMinimumSize(600, 450)
         self.resize(1200, 700)
 
-        self.menu_buttons_config = {'profile': ...}
-
         self.init_gui()
         self.init_online()
+        self.user_data['online'] = 'True'
         self.auto_login(True)
 
     def init_online(self):
@@ -343,10 +348,10 @@ class AppWindow(QtWidgets.QMainWindow):
         try:
             static = open("images/pfp_image.png", 'rb')
             static.close()
-            self.userPfp_image = QtGui.QPixmap("images/pfp_image.png").scaled(180, 180)
+            self.userPfp_image = QtGui.QPixmap("images/pfp_image.png").scaled(225, 225)
             self.userPfp_image = self.round_image(self.userPfp_image)
         except FileNotFoundError:
-            self.userPfp_image = QtGui.QPixmap("images/pfp_image_standard.png").scaled(180, 180)
+            self.userPfp_image = QtGui.QPixmap("images/pfp_image_standard.png").scaled(225, 225)
             self.userPfp_image = self.round_image(self.userPfp_image)
 
     def init_gui(self) -> None:
@@ -359,7 +364,7 @@ class AppWindow(QtWidgets.QMainWindow):
         # -- MENU --- RISE --
         self.menu_widget = LayoutWidget(orientation=True)
         self.menu_widget.setFixedWidth(185)
-        self.menu_widget.setObjectName('StandardWidget')
+        self.menu_widget.setObjectName('FrameWidget')
 
         self.logo_label = StandardLabel()
         self.logo_label.setPixmap(self.logo_image.scaled(125, 125))
@@ -383,9 +388,9 @@ class AppWindow(QtWidgets.QMainWindow):
         self.settings_button.setIcon(self.settings_light)
         self.settings_button.clicked.connect(lambda: self.changeWindowFrame('SETTINGS'))
 
-        self.exit_button = MenuExitButton('Разлогиниться')
+        self.exit_button = MenuExitButton('Выйти')
         self.exit_button.setIcon(self.exit_light)
-        self.exit_button.clicked.connect(self.logout)
+        self.exit_button.clicked.connect(self.closeEvent)
 
         self.menuButtons_widget.addSpacing(25)
         self.menuButtons_widget.addWidget(self.profile_button)
@@ -408,18 +413,20 @@ class AppWindow(QtWidgets.QMainWindow):
 
         # -- WINDOW --- RISE --
         self.windowFrame_widget = LayoutWidget()
+        self.windowFrame_widget.setStyleSheet('FrameWidget')
 
         # -- PROFILE --- RISE --
         self.profile_widget = LayoutWidget()
-        self.profile_widget.setStyleSheet('MainWindowWidget')
+        self.profile_widget.setStyleSheet('FrameWidget')
 
         self.profilePfp_label = StandardLabel()
-        self.profilePfp_label.setMaximumWidth(250)
+        self.profilePfp_label.setMaximumWidth(350)
         self.profilePfp_label.setPixmap(self.userPfp_image)
         self.profilePfp_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
         self.profilePfp_label.mousePressEvent = self.changePfp
 
         self.profileInfo_widget = LayoutWidget(orientation=False)
+        self.profileInfo_widget.setMaximumHeight(75)
         self.profileInfoId_label = StandardLabel(f'ID: {self.user_data.get("id")}')
         self.profileInfoLogin_label = StandardLabel(f'Login: {self.user_data.get("login")}')
         self.profileInfoId_label.setObjectName('BorderLabel')
@@ -429,6 +436,7 @@ class AppWindow(QtWidgets.QMainWindow):
         self.profileInfo_widget.addWidget(self.profileInfoLogin_label)
 
         self.profileMainInfo_widget = LayoutWidget(orientation=True)
+        self.profileMainInfo_widget.setObjectName('FrameWidget')
 
         self.profileMainInfoName_widget = LayoutWidget(orientation=False)
         self.name_input = StandardLineEdit('Введите новое имя...')
@@ -459,6 +467,7 @@ class AppWindow(QtWidgets.QMainWindow):
 
         self.profile_widget.addWidget(self.profileInfo_widget)
         self.profile_widget.addWidget(self.profilePfp_label, stretch=0, alignment=QtCore.Qt.AlignmentFlag.AlignHCenter)
+        self.profile_widget.addSpacing(50)
         self.profile_widget.addWidget(self.profileMainInfo_widget)
         self.profile_widget.addStretch(1)
         # -- PROFILE --- END --
@@ -469,10 +478,42 @@ class AppWindow(QtWidgets.QMainWindow):
 
         # -- FRIENDS --- RISE --
         self.friends_widget = LayoutWidget()
+        self.friends_widget.setObjectName('FrameWidget')
+
+        self.addFriend_input = InputLabel('Добавить друга')
+        self.addFriend_input.setPlaceholderText('Введите ID или Логин друга, которого хотите добавить...')
+        self.confirmAddFriend_button = StandardButton('Отправить запрос дружбы')
+        self.confirmAddFriend_button.clicked.connect(self.add_friend)
+
+        self.friendsFrame_widget = FriendsFrame(self)
+
+        self.friends_widget.addWidget(self.addFriend_input)
+        self.friends_widget.addWidget(self.confirmAddFriend_button)
+        self.friends_widget.addWidget(self.friendsFrame_widget, 1)
         # -- FRIENDS --- END --
 
         # -- SETTINGS --- RISE --
         self.settings_widget = LayoutWidget()
+        self.settings_widget.setObjectName('FrameWidget')
+
+        self.changeLoginForm_button = StandardButton('Сменить логин')
+        self.changePasswordForm_button = StandardButton('Сменить пароль')
+        self.changeIdForm_button = StandardButton('Запрос на смену ID')
+
+        self.logout_button = MenuExitButton('Разлогиниться')
+        self.logout_button.setIcon(self.exit_light)
+        self.logout_button.clicked.connect(self.logout)
+
+        self.callError_button = MenuExitButton('Вызвать ошибку')
+        self.callError_button.setIcon(QtGui.QIcon(self.userPfp_image.scaled(25, 25)))
+        self.callError_button.clicked.connect(lambda: self.windowFrame_widget.addRofls())
+
+        self.settings_widget.addWidget(self.changeLoginForm_button)
+        self.settings_widget.addWidget(self.changePasswordForm_button)
+        self.settings_widget.addWidget(self.changeIdForm_button)
+        self.settings_widget.addWidget(self.callError_button)
+        self.settings_widget.addStretch(1)
+        self.settings_widget.addWidget(self.logout_button)
         # -- SETTINGS --- END --
 
         self.windowFrame_widget.addWidget(self.profile_widget)
@@ -492,8 +533,20 @@ class AppWindow(QtWidgets.QMainWindow):
         action2.triggered.connect(self.action2_triggered)
 
         self.layout.addWidget(self.menu_widget)
-        self.layout.addWidget(self.profile_widget)
+        self.layout.addWidget(self.windowFrame_widget)
         self.widget.show()
+
+    def add_friend(self):
+        friend_id = self.addFriend_input.text()
+
+        self.send_request(self.form_request(
+            '<ADD-REQUEST-FRIEND>',
+            {
+                'user_data': self.user_data,
+                'user_social': self.user_social,
+                'friend_id': friend_id
+            }
+        ))
 
     def changeWindowFrame(self, frame):
         if frame == 'PROFILE':
@@ -576,12 +629,28 @@ class AppWindow(QtWidgets.QMainWindow):
         with open(file_name, 'rb') as image:
             image_bytes += image.read()
 
-        with open("images/pfp_image.png", 'wb') as image:
-            image.write(image_bytes)
+        # with open("images/pfp_image.png", 'wb') as image:
+        #     image.write(image_bytes)
+        #
+        # self.userPfp_image = QtGui.QPixmap(file_name).scaled(180, 180)
+        # self.userPfp_image = self.round_image(self.userPfp_image)
+        # self.profilePfp_label.setPixmap(self.userPfp_image)
 
-        self.userPfp_image = QtGui.QPixmap(file_name).scaled(180, 180)
-        self.userPfp_image = self.round_image(self.userPfp_image)
-        self.profilePfp_label.setPixmap(self.userPfp_image)
+        self.send_request(self.form_request(
+            '<SAVE-IMAGE>',
+            {
+                'user_social': self.user_social,
+                'image_type': 'pfp',
+                'image_bytes': image_bytes
+            }
+        ))
+        time.sleep(0.3)
+        self.send_request(self.form_request(
+            '<UPDATE-PFP>',
+            {
+                'user_social': self.user_social
+            }
+        ))
 
     def contextMenuEvent(self, event) -> None:
         self.context_menu.exec(event.globalPos())
@@ -624,7 +693,7 @@ class AppWindow(QtWidgets.QMainWindow):
         rounded.fill(QtGui.QColor("transparent"))
         painter = QtGui.QPainter(rounded)
         painter.setBrush(QtGui.QBrush(image))
-        painter.drawRoundedRect(image.rect(), 100, 100)
+        painter.drawRoundedRect(image.rect(), 150, 150)
         return rounded
 
     @staticmethod
@@ -653,6 +722,66 @@ class AppWindow(QtWidgets.QMainWindow):
         self.auto_login(False)
         self.hide()
         raise KeyboardInterrupt('GUI closed')
+
+    @pyqtSlot()
+    def set_user_social(self, data):
+        self.user_social = data.get('user_social')
+        print(self.user_social)
+        self.send_request(self.form_request(
+            '<UPDATE-PFP>', {'user_social': self.user_social}
+        ))
+        # time.sleep(0.5)
+        # self.send_request(self.form_request(
+        #     '<UPDATE-FRIENDS>',
+        #     {
+        #         'user_data': self.user_data
+        #     }
+        # ))
+
+
+    @pyqtSlot()
+    def update_pfp(self, data):
+        image_bytes = data.get('image_bytes')
+        with open("images/pfp_image.png", 'wb') as image:
+            image.write(image_bytes)
+
+        self.userPfp_image = QtGui.QPixmap("images/pfp_image.png").scaled(225, 225)
+        self.userPfp_image = self.round_image(self.userPfp_image)
+        self.profilePfp_label.setPixmap(self.userPfp_image)
+
+        self.send_request(self.form_request(
+            '<UPDATE-REQUEST-FRIENDS>',
+            {
+                'user_data': self.user_data
+            }
+        ))
+
+    @pyqtSlot()
+    def update_friends(self, data):
+        ...
+
+    @pyqtSlot()
+    def update_request_friends(self, data):
+        friends_data = data.get('friends_requests')
+        print(friends_data)
+        if friends_data == 'None':
+            self.friendsFrame_widget.clearLayout()
+            self.friendsFrame_widget.youHaveNoFriends()
+            return
+
+        self.friendsFrame_widget.clearLayout()
+        for friend in friends_data:
+            with open('static.png', 'wb') as image:
+                image.write(friend.get('friend_pfp'))
+            friend_pfp = QtGui.QPixmap('static.png')
+            self.friendsFrame_widget.createRequestFriendWidget(
+                friend.get('friend_data'), friend_pfp, friend.get('request_status'))
+
+    @pyqtSlot()
+    def add_request_friend_denied(self, data):
+        reason = data.get('reason')
+        infoBox = StandardMessageBox(icon=self.logo_image)
+        infoBox.information('Информация', reason)
 
     def form_signal(self, method, data=None):
         self.signal_handler = SignalHandler()

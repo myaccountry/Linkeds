@@ -9,25 +9,25 @@ QMainWindow {
 QWidget {
     margin: 0px 0px 0px 0px;
     color: #262D37;
-    border: none;
+    border-right: 2px #fff;
 }
 QWidget#StandardWidget {
     background: #262D37;
     font-family: 'Trebuchet MS';
     color: #fff;
-    border: 1px solid #fff;
 }
 QWidget#FrameWidget {
     background: #3b4654;
     color: #fff;
-    border: 2px solid #fff;
-    padding: 15px 15px 15px 15px;
+    border: 1px solid #fff;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0xp;
+    border-radius: 6px;
 }
-QWidget#MainWindowWidget {
-    background: #3b4654;
+QMainWindow#MainWindowWidget {
+    background: #262D37;
     color: #fff;
     margin: 0px 0px 0px 0px;
-    border: none;
 }
 QPushButton#StandardButton {
     color: #ffffff;
@@ -140,4 +140,50 @@ QMenu:focus#StandardMenu {
 }
 QMenu:pressed#StandardMenu {
     background: #191f28;
+}
+
+QScrollArea#StandardArea {
+    background: #262D37;
+    border: 1px solid #fff;
+    border-radius: 8px;
+}
+QScrollBar:vertical {
+    background-color: #3b4654;
+    width: 15px;
+    margin: 15px 3px 15px 3px;
+    border: 1px transparent #3b4654;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical {
+    background-color: #6e7f96;
+    min-height: 5px;
+    border-radius: 4px;
+}
+QScrollBar::sub-line:vertical {
+    margin: 3px 0px 3px 0px;
+    border-image: url(:/qss_icons/rc/up_arrow_disabled.png);
+    height: 10px;
+    width: 10px;
+}
+QScrollBar::add-line:vertical {
+    margin: 3px 0px 3px 0px;
+    border-image: url(:/qss_icons/rc/down_arrow_disabled.png);
+    height: 10px;
+    width: 10px;
+}
+QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on {
+    border-image: url(:/qss_icons/rc/up_arrow.png);
+    height: 10px;
+    width: 10px;
+}
+QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on {
+    border-image: url(:/qss_icons/rc/down_arrow.png);
+    height: 10px;
+    width: 10px;
+}
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+    background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
 }

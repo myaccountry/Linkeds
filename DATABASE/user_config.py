@@ -31,6 +31,7 @@ class Social(StandardMethods):
 
     def __init__(self):
         self.id = None
+        self.pfp = None
         self.posts = None
         self.friends = None
         self.messages = None
@@ -44,6 +45,7 @@ class Connection(StandardMethods):
         self.ip = None
         self.id = None
         self.user_data = None
+
 
 
 if __name__ == '__main__':

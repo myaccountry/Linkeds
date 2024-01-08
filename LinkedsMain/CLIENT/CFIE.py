@@ -92,6 +92,12 @@ class User:
             return 'Вместо пробелов используйте знак "_"!'
         if not cls.alphabet(data):
             return 'Использованы запрещенные знаки!\nРазрешенные: "a-z", "A-Z", "0-9", "_!@#$%&()"'
+        cnt = 0
+        for el in data:
+            if el.lower() in [i for i in 'qwertyuiopasdfghjklzxcvbnm']:
+                cnt += 1
+        if cnt == 0:
+            return 'В логине должна быть хотя бы одна буква латинского алфавита!'
         if len(data) < 3:
             return 'Логин должен быть хотя бы из 3 символов!'
         if len(data) > 25:
@@ -104,6 +110,12 @@ class User:
             return 'Вместо пробелов используйте знак "_"!'
         if not cls.alphabet(data):
             return 'Использованы запрещенные знаки!\nРазрешенные: "a-z", "A-Z", "0-9", "_!@#$%&()"'
+        cnt = 0
+        for el in data:
+            if el.lower() in [i for i in 'qwertyuiopasdfghjklzxcvbnm']:
+                cnt += 1
+        if cnt == 0:
+            return 'В пароле должна быть хотя бы одна буква латинского алфавита!'
         if len(data) < 6:
             return 'Пароль должен быть хотя бы из 6 символов!'
         if len(data) > 60:

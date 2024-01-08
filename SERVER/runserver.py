@@ -18,9 +18,12 @@ from CONFIG.server_config import SERVER_IP, SERVER_PORT
 from DATABASE.database import Database
 
 CONNECTIONS = {}
+HANDLERS = []
 
 
 class ServerProtocol(Protocol):
+    global CONNECTIONS
+    global HANDLERS
     """
     Server Protocol Class Object to listen for connection
     and start work with ConnectionHandler after getting request
@@ -40,6 +43,10 @@ class ServerProtocol(Protocol):
         self.addr = self._transport.get_extra_info("peername")
         logging.info(f'Connection from {self.addr[0]}:{self.addr[1]}')
         self._connection = ConnectionsHandler(self._transport)
+        HANDLERS.append(self._connection)
+        logging.debug(msg=HANDLERS)
+        for handler in HANDLERS:
+            handler.request_handler.CONNECTIONS = CONNECTIONS
 
     def data_received(self, data: bytes) -> None:
         """
@@ -52,6 +59,8 @@ class ServerProtocol(Protocol):
 
 
 class ConnectionsHandler(Thread, ServerProtocol):
+    global CONNECTIONS
+    global HANDLERS
     """
     ConnectionHandler use threads to process with
     client requests, all received data sends to RequestHandler
@@ -65,9 +74,12 @@ class ConnectionsHandler(Thread, ServerProtocol):
 
         self._addr = addr
         self._transport = transport
-        self.request_handler = RequestHandler(self._transport)
+        self.request_handler = RequestHandler(self._transport, self)
 
-        CONNECTIONS[self._addr] = {'addr': self._addr, 'transport': self._transport, 'user_data': None}
+        global CONNECTIONS
+        global HANDLERS
+        CONNECTIONS[self._addr] = {'addr': self._addr, 'transport': self._transport}
+        logging.debug(msg=CONNECTIONS)
 
         self.usable_data = b""
         self.current_data = b""
@@ -101,20 +113,34 @@ class ConnectionsHandler(Thread, ServerProtocol):
     def send_request(self, data) -> None:
         self._transport.write(pickle.dumps(data) + b"<END>")
 
+    @staticmethod
+    def send_request_to(data, addr) -> None:
+        transport = CONNECTIONS.get(addr)
+        transport.write(pickle.dumps(data) + b"<END>")
+
     def close_connection(self) -> None:
         self._transport.close()
 
     def connection_lost(self, exc: Exception | None) -> None:
         logging.info(msg=f'Connection with {self._addr[0]}:{self._addr[1]} closed')
-        if exc is not None:
-            logging.info(msg=f'Error from Client App: {str(exc)}')
-        if CONNECTIONS.get('user_data') is not None:
-            self.request_handler.offline({'user_data': CONNECTIONS['user_data']})
+        self.request_handler.database.connect()
+        connection = self.request_handler.database.select(
+            table_name='connection', criterion='ip', id=f"{self._addr[0]}:{self._addr[1]}")
+        if connection != tuple([]):
+            if exc is not None:
+                logging.debug(msg=f'Error from Client App: {str(exc)}')
+            logging.debug(msg=f"Connection: {connection[0].get('ip')} | ID: {connection[0].get('id')}")
+            user_data = pickle.loads(self.request_handler.database.select(
+                table_name='connection', criterion='ip', id=f"{self._addr[0]}:{self._addr[1]}")[0].get('user_data'))
+            self.request_handler.offline({'user_data': user_data})
         del CONNECTIONS[self._addr]
+        del HANDLERS[HANDLERS.index(self)]
         del self
 
 
 async def main():
+    global CONNECTIONS
+    global HANDLERS
     """
     Get a reference to an event loop
     """
@@ -135,8 +161,8 @@ if __name__ == '__main__':
         logging.error(msg='Can\'t connect to Database')
         exit()
     db_check.connect()
-    # for el in db_check.select(table_name='connections', subject='id')[0]:
-    #     print(el)
+    for el in db_check.select(table_name='connection', subject='id'):
+        db_check.delete(table_name='connection', id=el.get('id'))
     logging.debug(db_check.update(subject='online', subject_value='False'))
     del db_check
     try:
