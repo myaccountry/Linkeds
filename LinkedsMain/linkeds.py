@@ -48,7 +48,7 @@ class MainWork:
         self.client_window = AppWindow(self, self.user_data)
         self.client_window.send_request(
             self.client_window.form_request(
-                '<SET-USER-SOCIAL>', {'user_data': self.client_window.user_data}))
+                '<SET-USER-DATA>', {'id': self.client_window.user_data.get('id')}))
         self.client_window.show()
         sys.exit(self.app.exec())
 

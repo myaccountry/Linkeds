@@ -25,6 +25,7 @@ class User(StandardMethods):
         self.gender = 'Не указано'
         self.name = 'Не указано'
         self.status = 'Не указано'
+        self.deleted_status = 'False'
 
 
 class Social(StandardMethods):

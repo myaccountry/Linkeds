@@ -16,6 +16,7 @@ class ClientProtocol(Protocol):
         self.current_data = b''
         self.usable_data = None
         self.handler = None
+        self.flag = False
 
     def connection_made(self, transport: BaseTransport) -> None:
         """
@@ -40,7 +41,16 @@ class ClientProtocol(Protocol):
         if b'<END>' in self.current_data:
             self.usable_data = self.current_data.replace(b'<END>', b'')
             self.current_data = b''
-            self.usable_data = pickle.loads(self.usable_data)
+            try:
+                self.usable_data = pickle.loads(self.usable_data)
+            except pickle.UnpicklingError:
+                self.flag = True
+            if self.flag:
+                signal = self._main_work.client_window.form_signal(
+                    method=getattr(self._main_work.client_window, 'unpredictable_error'),
+                    data={'reason': 'Неизвестная ошибка.\nПерезайдите в программу...'})
+                signal.emit()
+                return
             self.handler.call_method(self.usable_data)
 
     def send_request(self, data: dict):
@@ -48,6 +58,19 @@ class ClientProtocol(Protocol):
         Request format: data: dict = {'method'}
         """
         self._transport.write(pickle.dumps(data) + b"<END>")
+
+    @staticmethod
+    def form_request(method: str = '<CHECK-CONNECTION>', data=None) -> dict:
+        """
+        Format of request -> {
+            method: str
+            data: dict
+        }
+        <- standard request: dict
+        """
+        if data is None:
+            data = {'<NO-DATA>': '<NO-DATA>'}
+        return {'method': method, 'data': data}
 
     def close_connection(self):
         """

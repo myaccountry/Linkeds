@@ -82,7 +82,7 @@ class Database:
         except Exception as error_data:
             raise ValueError('(RequestError): ' + str(error_data))
 
-    def select(self, table_name: str = 'None', id: str = 'None', subject: str = '*', criterion: str = 'id') -> str:
+    def select(self, table_name: str = 'None', id: str = 'None', subject: str = '*', criterion: str = 'id'):
         """
         Returns selected data from selected Table
         """
@@ -220,6 +220,13 @@ class Database:
         logins = self.select(table_name='user', subject='login')
         for el in logins:
             if el.get('login') == login:
+                return True
+        return False
+
+    def id_exist(self, id: str) -> bool:
+        ids = self.select(table_name='user', subject='id')
+        for el in ids:
+            if str(el.get('id')) == str(id):
                 return True
         return False
 

@@ -18,13 +18,14 @@ class FriendsFrame(QtWidgets.QScrollArea):
     def __init__(self, main_window):
         super().__init__()
         self.setObjectName('StandardArea')
+        self.main_window = main_window
         self.user_data = main_window.user_data
         self.user_social = main_window.user_social
 
         self.widget = StandardWidget()
         self.vbox = QtWidgets.QVBoxLayout()
 
-        self.widget_list = []
+        self.friends_widgets = {}
 
         self.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
         self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
@@ -68,7 +69,7 @@ class FriendsFrame(QtWidgets.QScrollArea):
         widget.addWidget(friendActionButtons_widget)
         widget.addSpacing(10)
 
-        self.widget_list.append(widget)
+        self.friends_widgets[widget] = friend_data.get('id')
         self.vbox.addWidget(widget)
         self.vbox.addSpacing(15)
         self.vbox.addStretch(1)
@@ -92,8 +93,10 @@ class FriendsFrame(QtWidgets.QScrollArea):
         if request_status == 'receiver':
             addRequest_button = StandardButton('Добавить в друзья')
             addRequest_button.setStyleSheet('font-size: 12px')
+            addRequest_button.clicked.connect(lambda: self.accept_request_friend(self.friends_widgets.get(widget)))
             deleteRequest_button = StandardButton('Отклонить')
             deleteRequest_button.setStyleSheet('font-size: 12px')
+            deleteRequest_button.clicked.connect(lambda: self.cancel_request_friend(self.friends_widgets.get(widget)))
             friendActionButtons_widget.addWidget(addRequest_button)
             friendActionButtons_widget.addWidget(deleteRequest_button)
 
@@ -101,6 +104,7 @@ class FriendsFrame(QtWidgets.QScrollArea):
             sender_label = StandardLabel('Ожидаем принятия заявки...')
             cancelRequest_label = StandardButton('Отменить заявку')
             cancelRequest_label.setStyleSheet('font-size: 12px')
+            cancelRequest_label.clicked.connect(lambda: self.cancel_request_friend(self.friends_widgets.get(widget)))
             friendActionButtons_widget.addWidget(sender_label)
             friendActionButtons_widget.addWidget(cancelRequest_label)
 
@@ -111,7 +115,7 @@ class FriendsFrame(QtWidgets.QScrollArea):
         widget.addWidget(friendActionButtons_widget)
         widget.addSpacing(10)
 
-        self.widget_list.append(widget)
+        self.friends_widgets[widget] = friend_data.get('id')
         self.vbox.addWidget(widget)
         self.vbox.addSpacing(15)
         self.vbox.addStretch(1)
@@ -123,7 +127,25 @@ class FriendsFrame(QtWidgets.QScrollArea):
         label = StandardLabel('У вас нет друзей.\nДобавьте кого нибудь!')
         label.setStyleSheet('font-size: 24px')
 
-        self.widget_list.append(label)
+        self.friends_widgets[label] = 'None'
+        self.vbox.addWidget(label)
+        self.widget.setLayout(self.vbox)
+        self.setWidget(self.widget)
+
+    def youHaveNoRequestFriends(self):
+        label = StandardLabel('У вас нет заявок в друзья.')
+        label.setStyleSheet('font-size: 24px')
+
+        self.friends_widgets[label] = 'None'
+        self.vbox.addWidget(label)
+        self.widget.setLayout(self.vbox)
+        self.setWidget(self.widget)
+
+    def youHaveNoBlackListFriends(self):
+        label = StandardLabel('У вас нет пользователей, занесённых в Чёрный список')
+        label.setStyleSheet('font-size: 24px')
+
+        self.friends_widgets[label] = 'None'
         self.vbox.addWidget(label)
         self.widget.setLayout(self.vbox)
         self.setWidget(self.widget)
@@ -134,3 +156,23 @@ class FriendsFrame(QtWidgets.QScrollArea):
                 self.vbox.itemAt(i).widget().deleteLater()
             except AttributeError:
                 pass
+        self.friends_widgets = {}
+
+    def accept_request_friend(self, friend_id):
+        self.main_window.send_request(self.main_window.form_request(
+            '<ADD-FRIEND>',
+            {
+                'user_data': self.main_window.user_data,
+                'user_social': self.main_window.user_social,
+                'friend_id': friend_id
+            }
+        ))
+
+    def cancel_request_friend(self, friend_id):
+        self.main_window.send_request(self.main_window.form_request(
+            '<CANCEL-REQUEST-FRIEND>',
+            {
+                'user_social': self.main_window.user_social,
+                'friend_id': friend_id
+            }
+        ))

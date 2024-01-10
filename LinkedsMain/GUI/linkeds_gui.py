@@ -13,8 +13,8 @@ from LinkedsMain.CUSTOM_WIDGETS.custom_buttons import StandardButton, Borderless
     MenuExitButton
 from LinkedsMain.CUSTOM_WIDGETS.custom_widgets import StandardWidget, MainWindowWidget
 from LinkedsMain.CUSTOM_WIDGETS.custom_labels import StandardLabel, PixmapLabel, HeadingLabel, InputLabel, \
-    ClickableLabel
-from LinkedsMain.CUSTOM_WIDGETS.custom_message_boxes import StandardMessageBox
+    ClickableLabel, ChangeableDataLabel
+from LinkedsMain.CUSTOM_WIDGETS.custom_message_boxes import StandardMessageBox, YNMessageBox
 from LinkedsMain.CUSTOM_WIDGETS.custom_line_edit import StandardLineEdit
 from LinkedsMain.CUSTOM_WIDGETS.custom_layouts import StandardHLayout, StandardVLayout, LayoutWidget
 from LinkedsMain.CUSTOM_WIDGETS.custom_frames import FriendsFrame
@@ -317,6 +317,10 @@ class AppWindow(QtWidgets.QMainWindow):
         self.user_data['online'] = 'True'
         self.auto_login(True)
 
+    def update_gui(self):
+        self.init_images()
+        self.init_gui()
+
     def init_online(self):
         request = self.form_request('<ONLINE>', {'user_data': self.user_data})
         self.main_work.protocol.send_request(request)
@@ -355,7 +359,6 @@ class AppWindow(QtWidgets.QMainWindow):
             self.userPfp_image = self.round_image(self.userPfp_image)
 
     def init_gui(self) -> None:
-        print(self.user_data)
         self.widget = StandardWidget()
         self.setCentralWidget(self.widget)
         self.layout = StandardHLayout()
@@ -485,32 +488,57 @@ class AppWindow(QtWidgets.QMainWindow):
         self.confirmAddFriend_button = StandardButton('Отправить запрос дружбы')
         self.confirmAddFriend_button.clicked.connect(self.add_friend)
 
+        self.friendsFramesButtons_widget = LayoutWidget(orientation=False)
+        self.showFriendsFrame_button = StandardButton('Друзья')
+        self.showFriendsFrame_button.clicked.connect(lambda: self.changeWindowFrame('FRIENDS-LIST'))
+        self.showFriendsRequestsFrame_button = StandardButton('Заявки в друзья')
+        self.showFriendsRequestsFrame_button.clicked.connect(lambda: self.changeWindowFrame('FRIENDS-REQUESTS-LIST'))
+        self.showBlackListFriendsFrame_button = StandardButton('Чёрный список')
+        self.showBlackListFriendsFrame_button.clicked.connect(lambda: self.changeWindowFrame('FRIENDS-BLACK-LIST'))
+        self.friendsFramesButtons_widget.addWidget(self.showFriendsFrame_button)
+        self.friendsFramesButtons_widget.addWidget(self.showFriendsRequestsFrame_button)
+        self.friendsFramesButtons_widget.addWidget(self.showBlackListFriendsFrame_button)
+
         self.friendsFrame_widget = FriendsFrame(self)
+        self.friendsRequestsFrame_widget = FriendsFrame(self)
+        self.friendsBlackListFrame_widget = FriendsFrame(self)
 
         self.friends_widget.addWidget(self.addFriend_input)
         self.friends_widget.addWidget(self.confirmAddFriend_button)
+        self.friends_widget.addWidget(self.friendsFramesButtons_widget, 0, QtCore.Qt.AlignmentFlag.AlignHCenter)
         self.friends_widget.addWidget(self.friendsFrame_widget, 1)
+        self.friends_widget.addWidget(self.friendsRequestsFrame_widget, 1)
+        self.friends_widget.addWidget(self.friendsBlackListFrame_widget, 1)
+        self.changeWindowFrame('FRIENDS-LIST')
         # -- FRIENDS --- END --
 
         # -- SETTINGS --- RISE --
         self.settings_widget = LayoutWidget()
         self.settings_widget.setObjectName('FrameWidget')
 
-        self.changeLoginForm_button = StandardButton('Сменить логин')
-        self.changePasswordForm_button = StandardButton('Сменить пароль')
-        self.changeIdForm_button = StandardButton('Запрос на смену ID')
+        self.changeLogin_button = ChangeableDataLabel('BUTTON',
+            'Сменить логин', 'Введите новый логин...', self.user_data.get('login'), self.changeLogin)
+        self.changePasswordForm_button = ChangeableDataLabel('BUTTON',
+            'Сменить пароль', 'Введите новый пароль...', '', self.changePassword)
+        self.changePasswordForm_button.input.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
+        self.changeIdForm_button = ChangeableDataLabel('BUTTON',
+            'Запрос на смену ID', 'Введите новый ID...', str(self.user_data.get('id')), self.changeID)
 
         self.logout_button = MenuExitButton('Разлогиниться')
         self.logout_button.setIcon(self.exit_light)
         self.logout_button.clicked.connect(self.logout)
 
+        self.deleteAccount_button = MenuExitButton('Удалить аккаунт')
+        self.deleteAccount_button.clicked.connect(self.delete_account)
+
         self.callError_button = MenuExitButton('Вызвать ошибку')
         self.callError_button.setIcon(QtGui.QIcon(self.userPfp_image.scaled(25, 25)))
         self.callError_button.clicked.connect(lambda: self.windowFrame_widget.addRofls())
 
-        self.settings_widget.addWidget(self.changeLoginForm_button)
+        self.settings_widget.addWidget(self.changeLogin_button)
         self.settings_widget.addWidget(self.changePasswordForm_button)
         self.settings_widget.addWidget(self.changeIdForm_button)
+        self.settings_widget.addWidget(self.deleteAccount_button)
         self.settings_widget.addWidget(self.callError_button)
         self.settings_widget.addStretch(1)
         self.settings_widget.addWidget(self.logout_button)
@@ -548,6 +576,20 @@ class AppWindow(QtWidgets.QMainWindow):
             }
         ))
 
+    def delete_account(self):
+        questionBox = YNMessageBox(self.logo_image)
+        questionBox.question('Предпреждение', 'Вы уверены, что хотите удалить свой аккаунт?')
+
+        if questionBox.flag == 'Yes':
+            questionBox = YNMessageBox(self.logo_image)
+            questionBox.question('Предпреждение', 'Вы точно уверены, что хотите удалить свой аккаунт?')
+            if questionBox.flag == 'Yes':
+                self.__delete_account()
+            if questionBox.flag == 'No':
+                return
+        if questionBox.flag == 'No':
+            return
+
     def changeWindowFrame(self, frame):
         if frame == 'PROFILE':
             for widget in (self.profile_widget, self.messenger_widget, self.friends_widget, self.settings_widget):
@@ -565,6 +607,49 @@ class AppWindow(QtWidgets.QMainWindow):
             for widget in (self.profile_widget, self.messenger_widget, self.friends_widget, self.settings_widget):
                 widget.hide()
             self.settings_widget.show()
+        if frame == 'FRIENDS-LIST':
+            for widget in (self.friendsFrame_widget, self.friendsRequestsFrame_widget,
+                           self.friendsBlackListFrame_widget):
+                widget.hide()
+            self.friendsFrame_widget.show()
+        if frame == 'FRIENDS-REQUESTS-LIST':
+            for widget in (self.friendsFrame_widget, self.friendsRequestsFrame_widget,
+                           self.friendsBlackListFrame_widget):
+                widget.hide()
+            self.friendsRequestsFrame_widget.show()
+        if frame == 'FRIENDS-BLACK-LIST':
+            for widget in (self.friendsFrame_widget, self.friendsRequestsFrame_widget,
+                           self.friendsBlackListFrame_widget):
+                widget.hide()
+            self.friendsBlackListFrame_widget.show()
+
+    def changeLogin(self):
+        msgBox = StandardMessageBox(self.logo_image)
+        try:
+            user = User(login=self.changeLogin_button.text())
+        except ValueError as error:
+            msgBox.information('Предупреждение', str(error))
+            return
+
+        check_data = self.user_data
+        check_data['login'] = self.changeLogin_button.text()
+        self.send_request(self.form_request('<CHANGE-LOGIN>', {'user_data': check_data}))
+
+    def changePassword(self):
+        msgBox = StandardMessageBox(self.logo_image)
+        try:
+            user = User(login=self.user_data.get('login'), password=self.changePasswordForm_button.text())
+        except ValueError as error:
+            msgBox.information('Предупреждение', str(error))
+            return
+
+        self.user_data['password'] = self.hash_data(self.changePasswordForm_button.text())
+        self.send_request(self.form_request('<CHANGE-USER-DATA>', {'user_data': self.user_data}))
+        self.update_gui()
+
+    def changeID(self):
+        infoBox = StandardMessageBox(self.logo_image)
+        infoBox.information('Информация', 'В смене ID отказано,\nвы должны иметь особый статус')
 
     def changeNameForm(self, *args, **kwargs):
         self.name_input.show()
@@ -587,10 +672,7 @@ class AppWindow(QtWidgets.QMainWindow):
 
         self.user_data['name'] = self.name_input.text()
         self.send_request(self.form_request('<CHANGE-USER-DATA>', {'user_data': self.user_data}))
-        self.profileName.setText(f'Имя: {self.user_data.get("name")}')
-        self.profileName.show()
-        self.name_input.hide()
-        self.confirmName_button.hide()
+        self.update_gui()
 
     def changeStatusForm(self, *args, **kwargs):
         self.status_input.show()
@@ -613,10 +695,7 @@ class AppWindow(QtWidgets.QMainWindow):
 
         self.user_data['status'] = self.status_input.text()
         self.send_request(self.form_request('<CHANGE-USER-DATA>', {'user_data': self.user_data}))
-        self.profileStatus.setText(f'Статус: {self.user_data.get("status")}')
-        self.profileStatus.show()
-        self.status_input.hide()
-        self.confirmStatus_button.hide()
+        self.update_gui()
 
     def changePfp(self, *args, **kwargs):
         file_name, file_type = QtWidgets.QFileDialog.getOpenFileName(
@@ -644,7 +723,7 @@ class AppWindow(QtWidgets.QMainWindow):
                 'image_bytes': image_bytes
             }
         ))
-        time.sleep(0.3)
+        time.sleep(0.5)
         self.send_request(self.form_request(
             '<UPDATE-PFP>',
             {
@@ -724,20 +803,22 @@ class AppWindow(QtWidgets.QMainWindow):
         raise KeyboardInterrupt('GUI closed')
 
     @pyqtSlot()
+    def set_user_data(self, data):
+        self.user_data = data.get('user_data')
+        print('UserData: ', self.user_data)
+        self.update_gui()
+        self.send_request(self.form_request(
+            '<SET-USER-SOCIAL>', {'user_data': self.user_data}
+        ))
+
+    @pyqtSlot()
     def set_user_social(self, data):
         self.user_social = data.get('user_social')
-        print(self.user_social)
+        print('UserSocial: ', self.user_social)
+        self.update_gui()
         self.send_request(self.form_request(
             '<UPDATE-PFP>', {'user_social': self.user_social}
         ))
-        # time.sleep(0.5)
-        # self.send_request(self.form_request(
-        #     '<UPDATE-FRIENDS>',
-        #     {
-        #         'user_data': self.user_data
-        #     }
-        # ))
-
 
     @pyqtSlot()
     def update_pfp(self, data):
@@ -750,7 +831,7 @@ class AppWindow(QtWidgets.QMainWindow):
         self.profilePfp_label.setPixmap(self.userPfp_image)
 
         self.send_request(self.form_request(
-            '<UPDATE-REQUEST-FRIENDS>',
+            '<UPDATE-FRIENDS>',
             {
                 'user_data': self.user_data
             }
@@ -758,15 +839,17 @@ class AppWindow(QtWidgets.QMainWindow):
 
     @pyqtSlot()
     def update_friends(self, data):
-        ...
-
-    @pyqtSlot()
-    def update_request_friends(self, data):
-        friends_data = data.get('friends_requests')
-        print(friends_data)
+        friends_data = data.get('friends')
         if friends_data == 'None':
             self.friendsFrame_widget.clearLayout()
             self.friendsFrame_widget.youHaveNoFriends()
+
+            self.send_request(self.form_request(
+                '<UPDATE-REQUEST-FRIENDS>',
+                {
+                    'user_data': self.user_data
+                }
+            ))
             return
 
         self.friendsFrame_widget.clearLayout()
@@ -774,11 +857,40 @@ class AppWindow(QtWidgets.QMainWindow):
             with open('static.png', 'wb') as image:
                 image.write(friend.get('friend_pfp'))
             friend_pfp = QtGui.QPixmap('static.png')
-            self.friendsFrame_widget.createRequestFriendWidget(
+            self.friendsFrame_widget.createFriendWidget(
+                friend.get('friend_data'), friend_pfp)
+
+        self.send_request(self.form_request(
+            '<UPDATE-REQUEST-FRIENDS>',
+            {
+                'user_data': self.user_data
+            }
+        ))
+
+    @pyqtSlot()
+    def update_request_friends(self, data):
+        friends_data = data.get('friends_requests')
+        if friends_data == 'None':
+            self.friendsRequestsFrame_widget.clearLayout()
+            self.friendsRequestsFrame_widget.youHaveNoRequestFriends()
+            return
+
+        self.friendsRequestsFrame_widget.clearLayout()
+        for friend in friends_data:
+            with open('static.png', 'wb') as image:
+                image.write(friend.get('friend_pfp'))
+            friend_pfp = QtGui.QPixmap('static.png')
+            self.friendsRequestsFrame_widget.createRequestFriendWidget(
                 friend.get('friend_data'), friend_pfp, friend.get('request_status'))
 
     @pyqtSlot()
     def add_request_friend_denied(self, data):
+        reason = data.get('reason')
+        infoBox = StandardMessageBox(icon=self.logo_image)
+        infoBox.information('Информация', reason)
+
+    @pyqtSlot()
+    def request_denied(self, data):
         reason = data.get('reason')
         infoBox = StandardMessageBox(icon=self.logo_image)
         infoBox.information('Информация', reason)
@@ -790,6 +902,22 @@ class AppWindow(QtWidgets.QMainWindow):
 
     def send_request(self, request):
         self.main_work.protocol.send_request(request)
+
+    @pyqtSlot()
+    def unpredictable_error(self, data):
+        reason = data.get('reason')
+        infoBox = StandardMessageBox(icon=self.logo_image)
+        infoBox.warning('Ошибка', reason)
+        self.hide()
+        raise KeyboardInterrupt('GUI closed')
+
+    def __delete_account(self):
+        self.send_request(self.form_request(
+            '<DELETE-ACCOUNT>',
+            {'user_data': self.user_data}
+        ))
+        time.sleep(5)
+        self.logout()
 
     def logout(self):
         self.init_offline()
