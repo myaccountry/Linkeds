@@ -19,7 +19,17 @@ class MainWork:
     Class to work between of main Threads
     """
     def __init__(self):
-        self.user_data = {'id': 133, 'ip': 'None', 'online': 'False', 'login': 'Folks_Around_Me', 'password': 'bed4efa1d4fdbd954bd3705d6a2a78270ec9a52ecfbfb010c61862af5c76af1761ffeb1aef6aca1bf5d02b3781aa854fabd2b69c790de74e17ecfec3cb6ac4bf', 'gender': 'Не указано', 'email': 'example@gmail.com', 'name': 'Не указано', 'status': 'Не указано'}
+        self.user_data = {
+            'id': 'Ожидаем данные',
+            'ip': 'Ожидаем данные',
+            'online': 'Ожидаем данные',
+            'login': 'Ожидаем данные',
+            'password': 'Ожидаем данные',
+            'gender': 'Ожидаем данные',
+            'email': 'Ожидаем данные',
+            'name': 'Ожидаем данные',
+            'status': 'Ожидаем данные'
+        }
         self.client_window = None
         self.protocol = None
         self.app = None
@@ -31,24 +41,22 @@ class MainWork:
         Initialize GUI, running in another thread
         """
         path = str(pathlib.Path().resolve()) + "\\CACHE"
-        with open(path + '\\auto_login.txt', 'rb') as file:
-            auto_login = file.read().split(b'\n')
+        with open(path + '\\auto_login.txt', 'r') as file:
+            auto_login = file.read().split('\n')
 
-        if auto_login[0] == b"False":
+        if auto_login[0] == "False":
             self.app = QtWidgets.QApplication(sys.argv)
             self.client_window = WelcomeWindow(self)
             self.client_window.show()
             sys.exit(self.app.exec())
         else:
-            self.user_data = pickle.loads(auto_login[1])
+            self.user_data['id'] = auto_login[1]
+            self.user_data['password'] = auto_login[2]
             self.init_app_gui()
 
     def init_app_gui(self):
         self.app = QtWidgets.QApplication(sys.argv)
         self.client_window = AppWindow(self, self.user_data)
-        self.client_window.send_request(
-            self.client_window.form_request(
-                '<SET-USER-DATA>', {'id': self.client_window.user_data.get('id')}))
         self.client_window.show()
         sys.exit(self.app.exec())
 

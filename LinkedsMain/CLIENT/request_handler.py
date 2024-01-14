@@ -1,10 +1,12 @@
 import pickle
+from threading import Thread
 from PyQt6.QtCore import QObject, pyqtSignal
 
 
-class RequestHandler:
+class RequestHandler(Thread):
 
     def __init__(self, transport, main_work):
+        Thread.__init__(self)
 
         self.methods = {}
         for key, value in RequestHandler.__dict__.items():
@@ -75,6 +77,9 @@ class RequestHandler:
     def update_request_friends(self, data=None) -> None:
         ...
 
+    def update_black_list(self, data=None) -> None:
+        ...
+
     def add_request_friend_denied(self, data=None) -> None:
         ...
 
@@ -82,4 +87,7 @@ class RequestHandler:
         ...
 
     def request_denied(self, data=None) -> None:
+        ...
+
+    def show_friend_profile(self, data=None) -> None:
         ...

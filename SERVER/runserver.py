@@ -1,8 +1,6 @@
 import sys
 import pathlib
 
-import DATABASE.database
-
 path = '\\'.join(str(pathlib.Path().resolve()).split('\\')[:-1])
 sys.path.insert(0, f'{path}')
 

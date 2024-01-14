@@ -91,6 +91,8 @@ class RequestHandler:
         registered_data = self.database.registrate_user(user_data)
         user_social = self.database.select(
             table_name='social', id=registered_data.get('id'))[0]
+        pfp_image = self.database.load_image('\\pfp_storage\\standard.png')
+        self.database.save_image(user_social, 'pfp', pfp_image)
         return self.form_request('<REGISTRATION-SUCCESS>',
                                  {'user_data': registered_data, 'user_social': user_social})
 
@@ -111,7 +113,16 @@ class RequestHandler:
         return self.form_request('<LOGIN-SUCCESS>', {'user_data': user_data, 'user_social': user_social})
 
     def online(self, data) -> dict:
-        user_data = data.get('user_data')
+        self.database.connect()
+        id = data.get('user_data').get('id')
+        password = data.get('user_data').get('password')
+        user_data = self.database.select(table_name='user', id=id)[0]
+        if user_data is None:
+            return self.form_request('<COMPLETE>', {'None': 'None'})
+        if str(password) != str(user_data['password']):
+            return self.form_request(
+                '<ONLINE-DENIED>',
+                {'reason': 'Пароль на вашем аккаунте был сменён.\nАвто-вход невозможен!'})
         if user_data.get('deleted_status') == 'True':
             return self.form_request(
                 '<ONLINE-DENIED>',
@@ -127,7 +138,7 @@ class RequestHandler:
                              subject='user_data', subject_value=pickle.dumps(user_data))
         user_data = self.database.select(table_name='user', id=user_data.get('id'))[0]
         self.update_data_for_all_friends_online(user_data)
-        return self.form_request('<COMPLETE>', {'None': 'None'})
+        return self.form_request('<SET-USER-DATA>', {'user_data': user_data})
 
     def offline(self, data) -> dict:
         user_data = data.get('user_data')
@@ -177,10 +188,12 @@ class RequestHandler:
         return self.form_request('<SET-USER-SOCIAL>', {'user_social': user_social})
 
     def update_pfp(self, data):
+        self.database.connect()
         path = data.get('user_social').get('pfp')
         if path == 'None':
             return self.form_request('<COMPLETE>', {'None': 'None'})
         image_bytes = self.database.load_image(path)
+        user_data = self.database.select(table_name='user', id=data.get('user_social').get('id'))[0]
         return self.form_request('<UPDATE-PFP>', {'image_bytes': image_bytes})
 
     def update_friends(self, data) -> dict:
@@ -229,6 +242,26 @@ class RequestHandler:
 
         return self.form_request('<UPDATE-REQUEST-FRIENDS>', {'friends_requests': data_to_send})
 
+    def update_black_list(self, data) -> dict:
+        self.database.connect()
+        user_data = data.get('user_data')
+        user_social = self.database.select(table_name='social', id=user_data.get('id'))[0]
+
+        black_list = user_social.get('black_list_friends')
+        if black_list == b"None" or black_list == 'None' or black_list is None:
+            return self.form_request('<UPDATE-BLACK-LIST>', {'black_list': 'None'})
+
+        data_to_send = []
+        for friend_bl in pickle.loads(black_list):
+            friend_data = self.database.select(table_name='user', id=friend_bl.get('friend_id'))[0]
+            friend_pfp_path = self.database.select(
+                table_name='social', id=friend_data.get('id'))[0].get('pfp')
+            friend_pfp = self.database.load_image(friend_pfp_path)
+            data_to_send.append(
+                {'friend_data': friend_data, 'friend_pfp': friend_pfp})
+
+        return self.form_request('<UPDATE-BLACK-LIST>', {'black_list': data_to_send})
+
     def add_request_friend(self, data) -> dict:
         self.database.connect()
         user_data = data.get('user_data')
@@ -264,7 +297,6 @@ class RequestHandler:
             static = pickle.dumps([{'friend_data': friend_data, 'request_status': 'sender', 'friend_id': friend_id}])
         else:
             request_friends = pickle.loads(user_social.get('request_friends'))
-            print('User requests', request_friends)
             for request in request_friends:
                 if int(friend_id) == int(request.get('friend_id')):
                     if request.get('request_status') == 'sender':
@@ -300,7 +332,6 @@ class RequestHandler:
         ), friend_id)
 
         user_data = self.database.select(table_name='user', id=user_data.get('id'))[0]
-        self.update_data_for_all_friends_online(user_data)
 
         return self.form_request(
             '<SET-USER-SOCIAL>',
@@ -368,7 +399,6 @@ class RequestHandler:
         ), friend_id)
 
         user_data = self.database.select(table_name='user', id=user_data.get('id'))[0]
-        self.update_data_for_all_friends_online(user_data)
 
         return self.form_request(
             '<SET-USER-SOCIAL>',
@@ -418,6 +448,107 @@ class RequestHandler:
             '<SET-USER-SOCIAL>',
             {'user_social': user_social}
         )
+
+    def add_friend_to_black_list(self, data) -> dict:
+        self.database.connect()
+        user_social = data.get('user_social')
+        user_id = user_social.get('id')
+        friend_id = data.get('friend_id')
+        friend_social = self.database.select(table_name='social', id=friend_id)[0]
+
+        if user_social.get('black_list_friends') in (b"None", 'None', None):
+            static = pickle.dumps([{'friend_id': friend_id}])
+        else:
+            black_list_friends = pickle.loads(user_social.get('black_list_friends'))
+            black_list_friends.append({'friend_id': friend_id})
+            static = pickle.dumps(black_list_friends)
+        self.database.update_binary(
+            table_name='social', id=user_id, subject='black_list_friends', subject_value=static)
+
+        user_social = self.database.select(table_name='social', id=user_id)[0]
+        request = self.delete_friend({'user_social': user_social, 'friend_id': friend_id})
+        return request
+
+    def delete_friend(self, data) -> dict:
+        self.database.connect()
+        user_social = data.get('user_social')
+        friend_id = data.get('friend_id')
+        user_id = user_social.get('id')
+
+        friend_social = self.database.select(table_name='social', id=friend_id)[0]
+
+        friends = pickle.loads(user_social.get('friends'))
+        for friend in friends:
+            if int(friend.get('friend_id')) == int(friend_id):
+                del friends[friends.index(friend)]
+                if not friends:
+                    friends = b'None'
+                    break
+                friends = pickle.dumps(friends)
+                break
+        self.database.update_binary(
+            table_name='social', id=user_id, subject='friends', subject_value=friends)
+
+        friends = pickle.loads(friend_social.get('friends'))
+        for friend in friends:
+            if int(friend.get('friend_id')) == int(user_id):
+                del friends[friends.index(friend)]
+                if not friends:
+                    friends = b'None'
+                    break
+                friends = pickle.dumps(friends)
+                break
+        self.database.update_binary(
+            table_name='social', id=friend_id, subject='friends', subject_value=friends)
+
+        user_social = self.database.select(table_name='social', id=user_id)[0]
+        friend_social = self.database.select(table_name='social', id=friend_id)[0]
+
+        self.send_request_if_online(self.form_request(
+            '<SET-USER-SOCIAL>',
+            {'user_social': friend_social}
+        ), friend_id)
+
+        return self.form_request(
+            '<SET-USER-SOCIAL>',
+            {'user_social': user_social}
+        )
+
+    def remove_from_black_list(self, data) -> dict:
+        self.database.connect()
+        user_social = data.get('user_social')
+        friend_id = data.get('friend_id')
+        user_id = user_social.get('id')
+
+        black_list = pickle.loads(user_social.get('black_list_friends'))
+        for friend in black_list:
+            if int(friend.get('friend_id')) == int(friend_id):
+                del black_list[black_list.index(friend)]
+                if not black_list:
+                    black_list = b'None'
+                    break
+                black_list = pickle.dumps(black_list)
+                break
+        self.database.update_binary(
+            table_name='social', id=user_id, subject='black_list_friends', subject_value=black_list)
+
+        user_social = self.database.select(table_name='social', id=user_id)[0]
+        return self.form_request(
+            '<SET-USER-SOCIAL>',
+            {'user_social': user_social}
+        )
+
+    def show_friend_profile(self, data) -> dict:
+        self.database.connect()
+        friend_id = data.get('friend_id')
+
+        friend_data = self.database.select(table_name='user', id=friend_id)[0]
+        friend_pfp_path = self.database.select(
+            table_name='social', id=friend_data.get('id'))[0].get('pfp')
+        friend_pfp = self.database.load_image(friend_pfp_path)
+
+        return self.form_request('<SHOW-FRIEND-PROFILE>',
+                                 {'friend_data': friend_data, 'friend_pfp': friend_pfp})
 
     def delete_account(self, data) -> dict:
         self.database.connect()

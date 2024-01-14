@@ -301,6 +301,8 @@ class AppWindow(QtWidgets.QMainWindow):
         self.main_work = main_work
         self.user_social = None
 
+        self.current_window = 'PROFILE'
+        self.current_friend_window = 'FRIENDS-LIST'
         self.theme = 'DARK'
         self.setStyleSheet(DARK_THEME_STYLE)
         self.setObjectName('MainWindowWidget')
@@ -320,6 +322,12 @@ class AppWindow(QtWidgets.QMainWindow):
     def update_gui(self):
         self.init_images()
         self.init_gui()
+        self.changeWindowFrame(self.current_window)
+        self.changeWindowFrame(self.current_friend_window)
+
+        self.send_request(self.form_request(
+            '<UPDATE-PFP>', {'user_social': self.user_social}
+        ))
 
     def init_online(self):
         request = self.form_request('<ONLINE>', {'user_data': self.user_data})
@@ -416,11 +424,10 @@ class AppWindow(QtWidgets.QMainWindow):
 
         # -- WINDOW --- RISE --
         self.windowFrame_widget = LayoutWidget()
-        self.windowFrame_widget.setStyleSheet('FrameWidget')
 
         # -- PROFILE --- RISE --
         self.profile_widget = LayoutWidget()
-        self.profile_widget.setStyleSheet('FrameWidget')
+        self.profile_widget.setObjectName('FrameWidget')
 
         self.profilePfp_label = StandardLabel()
         self.profilePfp_label.setMaximumWidth(350)
@@ -477,6 +484,9 @@ class AppWindow(QtWidgets.QMainWindow):
 
         # -- MESSENGER --- RISE --
         self.messenger_widget = LayoutWidget()
+        self.messenger_widget.setObjectName('FrameWidget')
+
+
         # -- MESSENGER --- END --
 
         # -- FRIENDS --- RISE --
@@ -500,6 +510,8 @@ class AppWindow(QtWidgets.QMainWindow):
         self.friendsFramesButtons_widget.addWidget(self.showBlackListFriendsFrame_button)
 
         self.friendsFrame_widget = FriendsFrame(self)
+        self.friendProfile_widget = LayoutWidget()
+
         self.friendsRequestsFrame_widget = FriendsFrame(self)
         self.friendsBlackListFrame_widget = FriendsFrame(self)
 
@@ -509,7 +521,6 @@ class AppWindow(QtWidgets.QMainWindow):
         self.friends_widget.addWidget(self.friendsFrame_widget, 1)
         self.friends_widget.addWidget(self.friendsRequestsFrame_widget, 1)
         self.friends_widget.addWidget(self.friendsBlackListFrame_widget, 1)
-        self.changeWindowFrame('FRIENDS-LIST')
         # -- FRIENDS --- END --
 
         # -- SETTINGS --- RISE --
@@ -548,7 +559,9 @@ class AppWindow(QtWidgets.QMainWindow):
         self.windowFrame_widget.addWidget(self.messenger_widget)
         self.windowFrame_widget.addWidget(self.friends_widget)
         self.windowFrame_widget.addWidget(self.settings_widget)
-        self.changeWindowFrame('PROFILE')
+
+        self.changeWindowFrame(self.current_window)
+        self.changeWindowFrame(self.current_friend_window)
         # -- WINDOW --- END --
 
         self.context_menu = QtWidgets.QMenu(self)
@@ -591,37 +604,31 @@ class AppWindow(QtWidgets.QMainWindow):
             return
 
     def changeWindowFrame(self, frame):
-        if frame == 'PROFILE':
-            for widget in (self.profile_widget, self.messenger_widget, self.friends_widget, self.settings_widget):
+        menu_frames = {
+            'PROFILE': self.profile_widget,
+            'MESSENGER': self.messenger_widget,
+            'FRIENDS': self.friends_widget,
+            'SETTINGS': self.settings_widget,
+            'FRIEND-PROFILE': self.friendProfile_widget
+        }
+
+        friends_list_frames = {
+            'FRIENDS-LIST': self.friendsFrame_widget,
+            'FRIENDS-REQUESTS-LIST': self.friendsRequestsFrame_widget,
+            'FRIENDS-BLACK-LIST': self.friendsBlackListFrame_widget
+        }
+
+        if frame in menu_frames.keys():
+            for widget in menu_frames.values():
                 widget.hide()
-            self.profile_widget.show()
-        if frame == 'MESSENGER':
-            for widget in (self.profile_widget, self.messenger_widget, self.friends_widget, self.settings_widget):
+            self.current_window = frame
+            menu_frames.get(frame).show()
+
+        if frame in friends_list_frames.keys():
+            for widget in friends_list_frames.values():
                 widget.hide()
-            self.messenger_widget.show()
-        if frame == 'FRIENDS':
-            for widget in (self.profile_widget, self.messenger_widget, self.friends_widget, self.settings_widget):
-                widget.hide()
-            self.friends_widget.show()
-        if frame == 'SETTINGS':
-            for widget in (self.profile_widget, self.messenger_widget, self.friends_widget, self.settings_widget):
-                widget.hide()
-            self.settings_widget.show()
-        if frame == 'FRIENDS-LIST':
-            for widget in (self.friendsFrame_widget, self.friendsRequestsFrame_widget,
-                           self.friendsBlackListFrame_widget):
-                widget.hide()
-            self.friendsFrame_widget.show()
-        if frame == 'FRIENDS-REQUESTS-LIST':
-            for widget in (self.friendsFrame_widget, self.friendsRequestsFrame_widget,
-                           self.friendsBlackListFrame_widget):
-                widget.hide()
-            self.friendsRequestsFrame_widget.show()
-        if frame == 'FRIENDS-BLACK-LIST':
-            for widget in (self.friendsFrame_widget, self.friendsRequestsFrame_widget,
-                           self.friendsBlackListFrame_widget):
-                widget.hide()
-            self.friendsBlackListFrame_widget.show()
+            self.current_friend_window = frame
+            friends_list_frames.get(frame).show()
 
     def changeLogin(self):
         msgBox = StandardMessageBox(self.logo_image)
@@ -759,12 +766,12 @@ class AppWindow(QtWidgets.QMainWindow):
     def auto_login(self, activate):
         if activate:
             path = str(pathlib.Path().resolve()) + "\\CACHE"
-            with open(path + '\\auto_login.txt', 'wb') as file:
-                file.write(b"True\n" + pickle.dumps(self.user_data))
+            with open(path + '\\auto_login.txt', 'w') as file:
+                file.write("True\n" + str(self.user_data.get('id')) + '\n' + str(self.user_data.get('password')))
         if not activate:
             path = str(pathlib.Path().resolve()) + "\\CACHE"
-            with open(path + '\\auto_login.txt', 'wb') as file:
-                file.write(b"False\n")
+            with open(path + '\\auto_login.txt', 'w') as file:
+                file.write("False\n")
 
     @staticmethod
     def round_image(image) -> QtGui.QPixmap:
@@ -806,7 +813,6 @@ class AppWindow(QtWidgets.QMainWindow):
     def set_user_data(self, data):
         self.user_data = data.get('user_data')
         print('UserData: ', self.user_data)
-        self.update_gui()
         self.send_request(self.form_request(
             '<SET-USER-SOCIAL>', {'user_data': self.user_data}
         ))
@@ -816,9 +822,6 @@ class AppWindow(QtWidgets.QMainWindow):
         self.user_social = data.get('user_social')
         print('UserSocial: ', self.user_social)
         self.update_gui()
-        self.send_request(self.form_request(
-            '<UPDATE-PFP>', {'user_social': self.user_social}
-        ))
 
     @pyqtSlot()
     def update_pfp(self, data):
@@ -873,6 +876,13 @@ class AppWindow(QtWidgets.QMainWindow):
         if friends_data == 'None':
             self.friendsRequestsFrame_widget.clearLayout()
             self.friendsRequestsFrame_widget.youHaveNoRequestFriends()
+
+            self.send_request(self.form_request(
+                '<UPDATE-BLACK-LIST>',
+                {
+                    'user_data': self.user_data
+                }
+            ))
             return
 
         self.friendsRequestsFrame_widget.clearLayout()
@@ -882,6 +892,50 @@ class AppWindow(QtWidgets.QMainWindow):
             friend_pfp = QtGui.QPixmap('static.png')
             self.friendsRequestsFrame_widget.createRequestFriendWidget(
                 friend.get('friend_data'), friend_pfp, friend.get('request_status'))
+
+        self.send_request(self.form_request(
+            '<UPDATE-BLACK-LIST>',
+            {
+                'user_data': self.user_data
+            }
+        ))
+
+    @pyqtSlot()
+    def update_black_list(self, data):
+        black_list = data.get('black_list')
+        if black_list == 'None':
+            self.friendsBlackListFrame_widget.clearLayout()
+            self.friendsBlackListFrame_widget.youHaveNoBlackListFriends()
+            return
+
+        self.friendsBlackListFrame_widget.clearLayout()
+        for friend_bl in black_list:
+            with open('static.png', 'wb') as image:
+                image.write(friend_bl.get('friend_pfp'))
+            friend_pfp = QtGui.QPixmap('static.png')
+            self.friendsBlackListFrame_widget.createBlackListWidget(
+                friend_bl.get('friend_data'), friend_pfp)
+
+    @pyqtSlot()
+    def show_friend_profile(self, data):
+        self.update_gui()
+        friend_data = data.get('friend_data')
+        with open('static.png', 'wb') as image:
+            image.write(data.get('friend_pfp'))
+        friend_pfp = self.round_image(QtGui.QPixmap('static.png')).scaled(200, 200)
+
+        self.friendProfile_widget = LayoutWidget(orientation=True)
+        self.friendProfile_widget.setObjectName('StandardWidget')
+        back_btn = StandardButton('Вернуться назад')
+        back_btn.clicked.connect(self.close_friend_profile)
+        friend_profile = self.friendsFrame_widget.createFriendProfileWidget(friend_data, friend_pfp)
+        self.friendProfile_widget.addWidget(back_btn)
+        self.friendProfile_widget.addWidget(friend_profile)
+
+        self.windowFrame_widget.layout.replaceWidget(self.friends_widget, self.friendProfile_widget)
+
+    def close_friend_profile(self):
+        self.update_gui()
 
     @pyqtSlot()
     def add_request_friend_denied(self, data):
