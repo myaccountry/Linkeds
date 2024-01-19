@@ -1,7 +1,8 @@
 import pymysql
 import pathlib
+from operator import itemgetter
 from CONFIG.database_config import *
-from DATABASE.user_config import User, Social, Connection
+from DATABASE.user_config import User, Social, Connection, Message
 
 
 class Database:
@@ -12,16 +13,19 @@ class Database:
     DATA_CONFIGURES = {
         'User': User,
         'Social': Social,
-        'Connection': Connection
+        'Connection': Connection,
+        'Message': Message
     }
 
     elements = User()
     social_elements = Social()
     connection_elements = Connection()
+    message_elements = Message()
     DB_TABLE_ELEMENTS = {
         'user': [el for el in elements.__dict__.keys()],
         'social': [el for el in social_elements.__dict__.keys()],
-        'connection': [el for el in connection_elements.__dict__.keys()]
+        'connection': [el for el in connection_elements.__dict__.keys()],
+        'message': [el for el in message_elements.__dict__.keys()]
     }
 
     def __init__(self):
@@ -253,3 +257,22 @@ class Database:
         with open(path, 'rb') as image:
             image_bytes = image.read()
         return image_bytes
+
+    def load_messages(self, user_id) -> list:
+        from_ = self.select(table_name='message', criterion='from_', id=user_id)
+        to_ = self.select(table_name='message', criterion='to_', id=user_id)
+        messages = [el for el in from_] + [el for el in to_]
+        messages_s = []
+        for el in messages:
+            el['id'] = int(el.get('id'))
+            messages_s.append(el)
+        messages = messages_s
+        if messages is None:
+            messages = []
+        messages.sort(key=itemgetter('id'))
+        messages_s = []
+        for el in messages:
+            el['id'] = str(el.get('id'))
+            messages_s.append(el)
+        messages = messages_s
+        return messages

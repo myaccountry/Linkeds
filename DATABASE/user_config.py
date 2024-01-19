@@ -48,6 +48,17 @@ class Connection(StandardMethods):
         self.user_data = None
 
 
+class Message(StandardMethods):
+
+    def __init__(self):
+        self.from_ = None
+        self.to_ = None
+        self.id = None
+        self.status = None
+        self.text = None
+        self.time = None
+        self.image = None
+
 
 if __name__ == '__main__':
     ...

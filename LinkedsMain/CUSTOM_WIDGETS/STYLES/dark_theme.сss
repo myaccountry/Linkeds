@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Prompt:wght@600&family=Ubuntu:ital,wght@0,300;1,300;1,700&display=swap');
 QWidget {
-    font-family: 'Prompt', sans-serif;
+    font-family: 'Trebuchet MS';
     font-weight: 300;
 }
 QMainWindow {
@@ -10,6 +10,14 @@ QWidget {
     margin: 0px 0px 0px 0px;
     color: #262D37;
     border-right: 2px #fff;
+}
+QWidget#MessageWidget {
+    background: #262D37;
+    font-family: 'Trebuchet MS';
+    font-size: 12px;
+    color: #fff;
+    padding: 10px 30px 5px 5px;
+    border-radius: 10px;
 }
 QWidget#StandardWidget {
     background: #262D37;
@@ -47,6 +55,8 @@ QPushButton:pressed#StandardButton {
 }
 QPushButton#BorderlessButton {
     border: 0px;
+    color: #fff;
+    font-size: 15px;
 }
 QPushButton:hover#BorderlessButton {
     border: 0px;

@@ -262,6 +262,100 @@ class RequestHandler:
 
         return self.form_request('<UPDATE-BLACK-LIST>', {'black_list': data_to_send})
 
+    def update_chats(self, data) -> dict:
+        self.database.connect()
+        user_data = data.get('user_data')
+        user_id = user_data.get('id')
+        user_social = self.database.select(table_name='social', id=user_id)[0]
+
+        friends = user_social.get('friends')
+        if friends == b'None':
+            return self.form_request('<UPDATE-CHATS>', {'chats': 'None'})
+
+        chats = []
+        for friend in pickle.loads(friends):
+            friend_id = friend.get('friend_id')
+            messages = self.database.load_messages(friend_id)
+            friend_data = self.database.select(table_name='user', id=friend_id)[0]
+            friend_pfp_path = self.database.select(
+                table_name='social', id=friend_id)[0].get('pfp')
+            friend_pfp = self.database.load_image(friend_pfp_path)
+            if messages:
+                last_message = messages[-1].get('text')
+                last_message_time = messages[-1].get('time')
+                if str(messages[-1].get('from_')) == str(user_id):
+                    status = 'sender'
+                else:
+                    status = 'receiver'
+            else:
+                last_message = 'У вас нет сообщений с этим человеком'
+                last_message_time = ''
+                status = 'receiver'
+            chatBtn_config = {
+                'friend_pfp': friend_pfp,
+                'friend_data': friend_data,
+                'last_message': last_message,
+                'last_message_time': last_message_time,
+                'status': status
+            }
+            chat_config = {
+                'friend_pfp': friend_pfp,
+                'friend_data': friend_data,
+                'chat_id': friend_id,
+                'messages': messages
+            }
+            chat = {
+                'chatBtn_config': chatBtn_config,
+                'chat_config': chat_config
+            }
+            chats.append(chat)
+
+        return self.form_request('<UPDATE-CHATS>', {'chats': chats})
+
+    def send_message(self, data) -> dict:
+        self.database.connect()
+        user_data = data.get('user_data')
+        friend_id = data.get('friend_id')
+        message = self.database.configure_data(data.get('message'), 'Message')
+        friend_data = self.database.select(table_name='user', id=friend_id)[0]
+        friend_social = self.database.select(table_name='social', id=friend_id)[0]
+
+        messages = self.database.load_messages(friend_id)
+        print(messages)
+        if (not messages) or (messages is None):
+            message_id = 0
+        else:
+            message_id = len(messages) + 1
+        message['id'] = message_id
+        message['from_'] = user_data.get('id')
+        message['to_'] = friend_id
+        self.database.insert(table_name='message', subject_values=message)
+
+        friend_pfp_path = self.database.select(
+            table_name='social', id=user_data.get('id'))[0].get('pfp')
+        friend_pfp = self.database.load_image(friend_pfp_path)
+        msg_config = {
+            'friend_pfp': friend_pfp,
+            'friend_data': user_data,
+            'chat_id': user_data.get('id'),
+            'message': message
+        }
+        self.send_request_if_online(self.form_request(
+            '<ADD-MESSAGE>',
+            {'msg_config': msg_config}
+        ), friend_id)
+
+        friend_pfp_path = self.database.select(
+            table_name='social', id=friend_id)[0].get('pfp')
+        friend_pfp = self.database.load_image(friend_pfp_path)
+        msg_config = {
+            'friend_pfp': friend_pfp,
+            'friend_data': friend_data,
+            'chat_id': friend_id,
+            'message': message
+        }
+        return self.form_request('<ADD-MESSAGE>', {'msg_config': msg_config})
+
     def add_request_friend(self, data) -> dict:
         self.database.connect()
         user_data = data.get('user_data')

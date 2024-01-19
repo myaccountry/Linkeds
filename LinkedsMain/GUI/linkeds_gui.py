@@ -17,7 +17,7 @@ from LinkedsMain.CUSTOM_WIDGETS.custom_labels import StandardLabel, PixmapLabel,
 from LinkedsMain.CUSTOM_WIDGETS.custom_message_boxes import StandardMessageBox, YNMessageBox
 from LinkedsMain.CUSTOM_WIDGETS.custom_line_edit import StandardLineEdit
 from LinkedsMain.CUSTOM_WIDGETS.custom_layouts import StandardHLayout, StandardVLayout, LayoutWidget
-from LinkedsMain.CUSTOM_WIDGETS.custom_frames import FriendsFrame
+from LinkedsMain.CUSTOM_WIDGETS.custom_frames import FriendsFrame, MessengerFrame
 
 if __name__ == '__main__':
     print('Do not run from NotMain application')
@@ -303,6 +303,8 @@ class AppWindow(QtWidgets.QMainWindow):
 
         self.current_window = 'PROFILE'
         self.current_friend_window = 'FRIENDS-LIST'
+        self.current_chat_flag = False
+        self.current_chat = 'None'
         self.theme = 'DARK'
         self.setStyleSheet(DARK_THEME_STYLE)
         self.setObjectName('MainWindowWidget')
@@ -356,6 +358,18 @@ class AppWindow(QtWidgets.QMainWindow):
         self.hideMenu_dark = QtGui.QIcon(f"{path}\\hide_menu_dark.png")
         self.showMenu_light = QtGui.QIcon(f"{path}\\show_menu_light.png")
         self.showMenu_dark = QtGui.QIcon(f"{path}\\show_menu_dark.png")
+        self.sendMessage_image = QtGui.QIcon(f"{path}\\send_message.png")
+        self.testFriend_image = self.round_image(QtGui.QPixmap(
+            "C:\\Users\\eqorr\\Desktop\\tests\\LinkedsMain3\\LinkedsMain\\static.png").scaled(225, 225))
+        self.testFriend_data = {
+            'id': '245',
+            'login': 'SmartLogin',
+            'password': 'pass123456',
+            'name': 'Умное имя',
+            'status': 'Умный статус, ставьте лайки',
+            'online': 'True',
+            'gender': 'Мужчина'
+        }
 
         try:
             static = open("images/pfp_image.png", 'rb')
@@ -486,7 +500,15 @@ class AppWindow(QtWidgets.QMainWindow):
         self.messenger_widget = LayoutWidget()
         self.messenger_widget.setObjectName('FrameWidget')
 
+        self.messengerContent_widget = LayoutWidget()
 
+        self.messengerChat_frame = LayoutWidget()
+        self.chatButtons_frame = MessengerFrame(self)
+
+        self.messengerContent_widget.addWidget(self.chatButtons_frame)
+        self.messengerContent_widget.addWidget(self.messengerChat_frame)
+
+        self.messenger_widget.addWidget(self.messengerContent_widget)
         # -- MESSENGER --- END --
 
         # -- FRIENDS --- RISE --
@@ -906,6 +928,13 @@ class AppWindow(QtWidgets.QMainWindow):
         if black_list == 'None':
             self.friendsBlackListFrame_widget.clearLayout()
             self.friendsBlackListFrame_widget.youHaveNoBlackListFriends()
+
+            self.send_request(self.form_request(
+                '<UPDATE-CHATS>',
+                {
+                    'user_data': self.user_data
+                }
+            ))
             return
 
         self.friendsBlackListFrame_widget.clearLayout()
@@ -915,6 +944,55 @@ class AppWindow(QtWidgets.QMainWindow):
             friend_pfp = QtGui.QPixmap('static.png')
             self.friendsBlackListFrame_widget.createBlackListWidget(
                 friend_bl.get('friend_data'), friend_pfp)
+
+        self.send_request(self.form_request(
+            '<UPDATE-CHATS>',
+            {
+                'user_data': self.user_data
+            }
+        ))
+
+    @pyqtSlot()
+    def update_chats(self, data):
+        chats = data.get('chats')
+        if chats == 'None':
+            self.chatButtons_frame.clearLayout()
+            self.chatButtons_frame.youHaveNoChats()
+            return
+
+        self.chatButtons_frame.clearLayout()
+        for chat in chats:
+            chat_config = chat.get('chat_config')
+            chatBtn_config = chat.get('chatBtn_config')
+            with open('static.png', 'wb') as image:
+                image.write(chat_config.get('friend_pfp'))
+            friend_pfp = self.round_image(QtGui.QPixmap('static.png').scaled(75, 75))
+            chat_config['friend_pfp'] = friend_pfp
+            chatBtn_config['friend_pfp'] = friend_pfp
+            self.chatButtons_frame.createChat(chatBtn_config, chat_config)
+        self.chatButtons_frame.vbox.addStretch(1)
+
+        if self.current_chat_flag:
+            self.chatButtons_frame.showChat(self.current_chat)
+        self.cnt = 0
+
+    @pyqtSlot()
+    def add_message(self, data):
+        msg_config = data.get('msg_config')
+        msg_config['chat_id'] = str(msg_config.get('chat_id'))
+        with open('static.png', 'wb') as image:
+            image.write(msg_config.get('friend_pfp'))
+        friend_pfp = self.round_image(QtGui.QPixmap('static.png').scaled(75, 75))
+        msg_config['friend_pfp'] = friend_pfp
+        chat_widget = self.chatButtons_frame.chatFrame_widgets.get(msg_config.get('chat_id'))
+        chat_widget.createMessage(msg_config=msg_config.get('message'))
+        chat_widget.set_to_bottom()
+
+    def keyPressEvent(self, a0) -> None:
+        if self.current_chat_flag:
+            if a0.key() == 16777220:
+                msg_input = self.chatButtons_frame.chatInput_widgets.get(self.current_chat)
+                self.chatButtons_frame.send_message(self.current_chat, msg_input)
 
     @pyqtSlot()
     def show_friend_profile(self, data):

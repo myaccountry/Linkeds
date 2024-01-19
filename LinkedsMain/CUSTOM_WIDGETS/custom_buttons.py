@@ -8,7 +8,7 @@ class StandardButton(QtWidgets.QPushButton):
     Custom PushButton with standard style
     """
     def __init__(self, text=None, *args, **kwargs):
-        super(StandardButton, self).__init__(*args, **kwargs)
+        super().__init__()
 
         self.setObjectName('StandardButton')
 
@@ -79,8 +79,8 @@ class BorderlessButton(StandardButton):
     """
     Borderless button which inherits Standard Button and change it
     """
-    def __init__(self, *args, **kwargs):
-        super(BorderlessButton, self).__init__(*args, **kwargs)
+    def __init__(self):
+        super().__init__()
         self.setObjectName('BorderlessButton')
 
 
