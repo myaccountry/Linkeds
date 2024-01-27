@@ -19,3 +19,19 @@ In my last project processing time of requests was too big, so i decided to crea
 10) Complete!
 
 thank if u really do this  
+
+
+# Screenshots of GUI:
+![image](LinkedsScreenshots/scr1.jpg)
+![image](LinkedsScreenshots/scr2.jpg)
+![image](LinkedsScreenshots/scr3.jpg)
+![image](LinkedsScreenshots/scr4.jpg)
+![image](LinkedsScreenshots/scr5.jpg)
+![image](LinkedsScreenshots/scr6.jpg)
+![image](LinkedsScreenshots/scr7.jpg)
+![image](LinkedsScreenshots/scr8.jpg)
+![image](LinkedsScreenshots/scr9.jpg)
+![image](LinkedsScreenshots/scr10.jpg)
+![image](LinkedsScreenshots/scr11.jpg)
+![image](LinkedsScreenshots/scr12.jpg)
+![image](LinkedsScreenshots/scr13.jpg)
