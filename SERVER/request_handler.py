@@ -275,7 +275,7 @@ class RequestHandler:
         chats = []
         for friend in pickle.loads(friends):
             friend_id = friend.get('friend_id')
-            messages = self.database.load_messages(friend_id)
+            messages = self.database.load_messages(friend_id, user_id)
             friend_data = self.database.select(table_name='user', id=friend_id)[0]
             friend_pfp_path = self.database.select(
                 table_name='social', id=friend_id)[0].get('pfp')
@@ -320,9 +320,9 @@ class RequestHandler:
         friend_data = self.database.select(table_name='user', id=friend_id)[0]
         friend_social = self.database.select(table_name='social', id=friend_id)[0]
 
-        messages = self.database.load_messages(friend_id)
+        messages = self.database.load_messages(friend_id, user_data.get('id'))
         print(messages)
-        if (not messages) or (messages is None):
+        if not messages:
             message_id = 0
         else:
             message_id = len(messages) + 1
@@ -340,9 +340,11 @@ class RequestHandler:
             'chat_id': user_data.get('id'),
             'message': message
         }
+        messages = self.database.load_messages(friend_id, user_data.get('id'))
+
         self.send_request_if_online(self.form_request(
             '<ADD-MESSAGE>',
-            {'msg_config': msg_config}
+            {'msg_config': msg_config, 'messages': messages}
         ), friend_id)
 
         friend_pfp_path = self.database.select(
@@ -354,7 +356,8 @@ class RequestHandler:
             'chat_id': friend_id,
             'message': message
         }
-        return self.form_request('<ADD-MESSAGE>', {'msg_config': msg_config})
+
+        return self.form_request('<ADD-MESSAGE>', {'msg_config': msg_config, 'messages': messages})
 
     def add_request_friend(self, data) -> dict:
         self.database.connect()

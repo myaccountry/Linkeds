@@ -8,6 +8,7 @@ class StandardVLayout(QtWidgets.QVBoxLayout):
     def __init__(self, *args, **kwargs):
         super(StandardVLayout, self).__init__(*args, **kwargs)
         self.setObjectName('StandardVLayout')
+        self.setContentsMargins(0, 0, 0, 0)
 
 
 class StandardHLayout(QtWidgets.QHBoxLayout):
@@ -15,6 +16,7 @@ class StandardHLayout(QtWidgets.QHBoxLayout):
     def __init__(self, *args, **kwargs):
         super(StandardHLayout, self).__init__(*args, **kwargs)
         self.setObjectName('StandardHLayout')
+        self.setContentsMargins(0, 0, 0, 0)
 
 
 class LayoutWidget(QtWidgets.QFrame):
@@ -26,11 +28,21 @@ class LayoutWidget(QtWidgets.QFrame):
         False - StandardHLayout
         """
         super(LayoutWidget, self).__init__(*args, **kwargs)
+        self.setContentsMargins(0, 0, 0, 0)
         if orientation:
             self.layout = StandardVLayout()
         else:
             self.layout = StandardHLayout()
         self.setLayout(self.layout)
+
+    def addShadow(self, rgb=(255, 255, 255)):
+        shadow = QtWidgets.QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(10)
+        shadow.setColor(QtGui.QColor(rgb[0], rgb[1], rgb[2]))
+        shadow.setXOffset(0)
+        shadow.setYOffset(0)
+
+        self.setGraphicsEffect(shadow)
 
     def addWidget(self, a0, stretch=0, alignment=None) -> None:
         if alignment is None:

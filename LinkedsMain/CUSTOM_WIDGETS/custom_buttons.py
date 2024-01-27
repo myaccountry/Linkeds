@@ -23,8 +23,8 @@ class MenuButton(StandardButton):
     def __init__(self, *args, **kwargs):
         super(MenuButton, self).__init__(*args, **kwargs)
         self.setObjectName('MenuButton')
-        self.x = 125
-        self.y = 50
+        self.x = 150
+        self.y = 65
         self.setIconSize(QtCore.QSize(25, 25))
         self.setMinimumSize(self.x, self.y)
         self.resize(self.x, self.y)
@@ -71,8 +71,6 @@ class MenuExitButton(StandardButton):
         self.setObjectName('MenuButton')
         self.setIconSize(QtCore.QSize(25, 25))
         self.setMinimumSize(50, 50)
-        self.setStyleSheet('border-radius: 15px')
-        self.setObjectName('ExitButton')
 
 
 class BorderlessButton(StandardButton):

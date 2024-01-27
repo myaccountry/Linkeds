@@ -83,6 +83,7 @@ class FriendsFrame(QtWidgets.QScrollArea):
 
     def createFriendWidget(self, friend_data, friend_pfp):
         widget = LayoutWidget(orientation=False)
+        widget.addShadow()
         widget.setObjectName('FrameWidget')
         widget.setMaximumHeight(150)
 
@@ -129,6 +130,7 @@ class FriendsFrame(QtWidgets.QScrollArea):
 
     def createRequestFriendWidget(self, friend_data, friend_pfp, request_status):
         widget = LayoutWidget(orientation=False)
+        widget.addShadow()
         widget.setObjectName('FrameWidget')
         widget.setMaximumHeight(150)
 
@@ -175,6 +177,7 @@ class FriendsFrame(QtWidgets.QScrollArea):
 
     def createBlackListWidget(self, friend_data, friend_pfp):
         widget = LayoutWidget(orientation=False)
+        widget.addShadow()
         widget.setObjectName('FrameWidget')
         widget.setMaximumHeight(150)
 
@@ -333,6 +336,7 @@ class MessengerFrame(QtWidgets.QScrollArea):
         self.chat_widgets[chat_config.get('chat_id')] = chat_widget
 
         chatBtn_widget = LayoutWidget(False)
+        chatBtn_widget.addShadow()
         chatBtn_widget.setObjectName('FrameWidget')
         chatBtn_widget.mousePressEvent = functools.partial(self.showChat, chat_config.get('chat_id'))
 
@@ -341,7 +345,6 @@ class MessengerFrame(QtWidgets.QScrollArea):
 
         chatBtnInfo_widget = LayoutWidget(True)
         friendName_label = StandardLabel(friend_data.get('name'))
-        friendName_label.setObjectName('MessageWidget')
         friendName_label.setStyleSheet('font-size: 18px; background: transparent')
         message_widget = LayoutWidget(False)
         messagePfp_label = StandardLabel()
@@ -407,7 +410,7 @@ class MessengerFrame(QtWidgets.QScrollArea):
         sendMessage_widget.addWidget(sendMessage_input, 1)
         sendMessage_widget.addWidget(sendMessage_button)
 
-        chatMessages_frame = ChatFrame(self.main_window, friend_data, friend_pfp)
+        chatMessages_frame = ChatFrame(self.main_window, friend_data, friend_pfp, messages)
         self.chatFrame_widgets[friend_data.get('id')] = chatMessages_frame
         self.chatInput_widgets[friend_data.get('id')] = sendMessage_input
         for message in messages:
@@ -451,10 +454,11 @@ class MessengerFrame(QtWidgets.QScrollArea):
 
 class ChatFrame(QtWidgets.QScrollArea):
 
-    def __init__(self, main_window, friend_data, friend_pfp):
+    def __init__(self, main_window, friend_data, friend_pfp, messages):
         super().__init__()
         self.setObjectName('StandardArea')
         self.main_window = main_window
+        self.messages = messages
         self.user_data = main_window.user_data
         self.user_social = main_window.user_social
         self.user_pfp = main_window.userPfp_image.scaled(100, 100)
@@ -474,14 +478,32 @@ class ChatFrame(QtWidgets.QScrollArea):
         self.widget.setLayout(self.vbox)
 
     def createMessage(self, chat=None, msg_config: dict = None) -> None:
+        if msg_config is None:
+            msg_config = {}
+
+        print(self.messages)
+        msg_config['id'] = str(msg_config.get('id'))
+        msg_config['image'] = str(msg_config.get('image'))
+        msg_config['status'] = str(msg_config.get('status'))
+        msg_config['from_'] = str(msg_config.get('from_'))
+
+        try:
+            last_message = self.messages[self.messages.index(msg_config) - 1]
+            if self.messages.index(msg_config) - 1 == -1:
+                last_message = {}
+        except IndexError:
+            last_message = {}
+        last_message_from = last_message.get('from_')
+        last_message_to = last_message.get('to_')
+
         if str(msg_config.get('from_')) == str(self.main_window.user_data.get('id')):
             msg_config['status'] = 'sender'
         else:
             msg_config['status'] = 'receiver'
-        message_status = msg_config.get('status')
-        message_text = msg_config.get('text')
-        message_time = msg_config.get('time')
-        message_id = msg_config.get('chat_id')
+        message_status = str(msg_config.get('status'))
+        message_text = str(msg_config.get('text'))
+        message_time = str(msg_config.get('time'))
+        message_id = str(msg_config.get('chat_id'))
         if message_status not in ('receiver', 'sender'):
             message_status = 'sender'
 
@@ -489,7 +511,7 @@ class ChatFrame(QtWidgets.QScrollArea):
 
         if message_status == 'receiver':
             senderPfp_label = StandardLabel()
-            senderPfp_label.setPixmap(self.friend_pfp)
+            senderPfp_label.setMinimumWidth(100)
 
             sender_widget = LayoutWidget(True)
             sender_widget.setObjectName('FrameWidget')
@@ -504,16 +526,19 @@ class ChatFrame(QtWidgets.QScrollArea):
             messageInfo_widget.addWidget(messageText_label, 1)
             messageInfo_widget.addWidget(messageTime_label, 0, QtCore.Qt.AlignmentFlag.AlignBottom)
 
-            sender_widget.addWidget(senderName_label, 0, QtCore.Qt.AlignmentFlag.AlignRight)
+            if str(last_message_from) != str(self.friend_data.get('id')):
+                sender_widget.addWidget(senderName_label, 0, QtCore.Qt.AlignmentFlag.AlignRight)
             sender_widget.addWidget(messageInfo_widget)
 
             message_widget.addWidget(sender_widget)
+            if str(last_message_from) != str(self.friend_data.get('id')):
+                senderPfp_label.setPixmap(self.friend_pfp)
             message_widget.addWidget(senderPfp_label)
             message_widget.addStretch(1)
 
         if message_status == 'sender':
             senderPfp_label = StandardLabel()
-            senderPfp_label.setPixmap(self.user_pfp.scaled(75, 75))
+            senderPfp_label.setMinimumWidth(100)
 
             sender_widget = LayoutWidget(True)
             sender_widget.setObjectName('FrameWidget')
@@ -528,9 +553,12 @@ class ChatFrame(QtWidgets.QScrollArea):
             messageInfo_widget.addWidget(messageText_label, 1)
             messageInfo_widget.addWidget(messageTime_label, 0, QtCore.Qt.AlignmentFlag.AlignBottom)
 
-            sender_widget.addWidget(senderName_label, 0, QtCore.Qt.AlignmentFlag.AlignLeft)
+            if str(last_message_from) != str(self.user_data.get('id')):
+                sender_widget.addWidget(senderName_label, 0, QtCore.Qt.AlignmentFlag.AlignLeft)
             sender_widget.addWidget(messageInfo_widget)
 
+            if str(last_message_from) != str(self.user_data.get('id')):
+                senderPfp_label.setPixmap(self.user_pfp.scaled(75, 75))
             message_widget.addWidget(senderPfp_label)
             message_widget.addWidget(sender_widget)
             message_widget.addStretch(1)

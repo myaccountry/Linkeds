@@ -258,9 +258,19 @@ class Database:
             image_bytes = image.read()
         return image_bytes
 
-    def load_messages(self, user_id) -> list:
-        from_ = self.select(table_name='message', criterion='from_', id=user_id)
-        to_ = self.select(table_name='message', criterion='to_', id=user_id)
+    def load_messages(self, user_id, friend_id) -> list:
+        user_id = str(user_id)
+        friend_id = str(friend_id)
+        from_ = []
+        from__ = self.select(table_name='message', criterion='from_', id=user_id)
+        for el in from__:
+            if str(el.get('to_')) == friend_id:
+                from_.append(el)
+        to_ = []
+        to__ = self.select(table_name='message', criterion='to_', id=user_id)
+        for el in to__:
+            if str(el.get('from_')) == friend_id:
+                to_.append(el)
         messages = [el for el in from_] + [el for el in to_]
         messages_s = []
         for el in messages:
